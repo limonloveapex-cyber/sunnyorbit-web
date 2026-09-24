@@ -619,6 +619,10 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 @media (max-width: 560px) {
   :root { --gutter: 20px; }
+  /* 56px above and below every section stacked into ~110px of blank space
+     between them on a phone. */
+  .section { padding-block: 40px; }
+  .section--tight { padding-block: 32px; }
   body { font-size: 16px; }
   .panel-dark { border-radius: 24px; }
   .footer__cols { grid-template-columns: 1fr; }

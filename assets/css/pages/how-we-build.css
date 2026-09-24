@@ -219,3 +219,10 @@
   .hwb-promises { padding: 28px 24px; }
   .hwb-example__list li { padding: 20px; }
 }
+
+@media (max-width: 560px) {
+  /* Three short stats in one row; wrapping left "Android" alone on a
+     second line. */
+  .hwb-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .hwb-loop { padding-top: 48px; padding-bottom: 52px; }
+}

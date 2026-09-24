@@ -152,3 +152,8 @@
   .apps-common__grid { grid-template-columns: 1fr; gap: 32px; }
   .apps-cta { border-radius: 28px; }
 }
+
+@media (max-width: 560px) {
+  .apps-works, .apps-common-wrap, .apps-cta-wrap { padding-top: 52px; }
+  .apps-featured { padding-top: 40px; }
+}

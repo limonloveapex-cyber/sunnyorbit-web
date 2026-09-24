@@ -407,3 +407,19 @@
 @media (prefers-reduced-motion: no-preference) and (max-width: 860px) {
   .js .principles-panel .pr-divider { transform: scaleX(0); transform-origin: left; }
 }
+
+/* ------------------------------------------------------ mobile pass */
+/* .hero-line is display:block so its lines can animate one by one, but on
+   the button row that cancelled the flex gap and the two buttons touched. */
+.hero-cta.hero-line { display: flex; }
+
+@media (max-width: 560px) {
+  /* Each section padded 64px top and bottom stacked into ~130px of empty
+     space between sections on a phone. */
+  .spot, .bento-sec, .principles { padding: 44px 0; }
+  .next { padding: 44px 0 28px; }
+  /* The outermost orbit tiles sit at 4% and 96% of the row; on a 390px
+     screen that put half of each one off the edge. Inset the whole
+     constellation so they land inside the gutter. */
+  .orbit { width: calc(100% - 44px); }
+}

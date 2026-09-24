@@ -81,6 +81,37 @@
     update();
   }
 
+  /* ------------------------------------------------ footer wordmark */
+  /* Fully blurred at the moment the wordmark first appears at the bottom of
+     the screen, sharp exactly when the page bottoms out, so the whole of the
+     change happens where it can be seen. --p runs 0 → 1 over that stretch
+     of scrolling.
+
+     Its position is taken from the panel plus offsetTop, not from the
+     wordmark's own bounding box: the box moves with the transform that --p
+     drives, and measuring it would feed the animation back into itself. */
+  var mark = document.querySelector('.footer-wordmark');
+  if (mark && !reduce) {
+    var panel = mark.parentElement;
+    var queued = false;
+    var focus = function () {
+      var vh = window.innerHeight;
+      var y = window.scrollY;
+      var markTop = panel.getBoundingClientRect().top + mark.offsetTop;
+      var start = y + markTop - vh;
+      var end = document.documentElement.scrollHeight - vh;
+      var p = end - start < 40 ? 1 : (y - start) / (end - start);
+      p = Math.max(0, Math.min(1, p));
+      mark.style.setProperty('--p', p.toFixed(3));
+      queued = false;
+    };
+    window.addEventListener('scroll', function () {
+      if (!queued) { queued = true; requestAnimationFrame(focus); }
+    }, { passive: true });
+    window.addEventListener('resize', focus);
+    focus();
+  }
+
   /* --------------------------------------------------- contact form */
   /* Builds a mailto: from the form so the message leaves from the visitor's
      own mail app. Nothing is sent from this page. With no script, the form's
