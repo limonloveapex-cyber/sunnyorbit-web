@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /*
- * Builds sunnyorbit.com: the SunnyOrbit company pages at the root, then the
+ * Builds sunnyorbitapps.com: the SunnyOrbit company pages at the root, then the
  * Pooled product site under /pooled/ (which has its own build, run from here).
  *
  *   node tools/build.js
- *   SITE_ORIGIN=https://sunnyorbit.com node tools/build.js
+ *   SITE_ORIGIN=https://sunnyorbitapps.com node tools/build.js
  *
  * No dependencies and no package.json. Pages are assembled from src/: a shell,
  * a nav and a footer that exist once, and a body per page. The output is
@@ -104,7 +104,7 @@ const pages = {
   },
   terms: {
     title: 'Terms of Service — SunnyOrbit',
-    desc: 'The terms for using sunnyorbit.com and SunnyOrbit apps, published by Moiasun LLC.',
+    desc: 'The terms for using sunnyorbitapps.com and SunnyOrbit apps, published by Moiasun LLC.',
     nav: null,
   },
   cookies: {

@@ -1,4 +1,4 @@
-# sunnyorbit.com
+# sunnyorbitapps.com
 
 The website of **SunnyOrbit**, a trading name of **Moiasun LLC** (a Delaware
 limited liability company), and of its apps. Served by GitHub Pages.
@@ -61,10 +61,10 @@ Template tokens: `{{icon:name}}`, `{{icon:name:18}}`, `{{pooled-icon:72}}`.
    *Disallow* to *Allow*, and writes canonical tags, `og:url`, `og:image` and
    `sitemap.xml` for both sites at once:
    ```sh
-   SITE_ORIGIN=https://sunnyorbit.com node tools/build.js
+   SITE_ORIGIN=https://sunnyorbitapps.com node tools/build.js
    ```
-2. Add a `CNAME` file containing `sunnyorbit.com`, commit, push.
-3. Settings → Pages → Custom domain → `sunnyorbit.com`, then *Enforce HTTPS*.
+2. Add a `CNAME` file containing `sunnyorbitapps.com`, commit, push.
+3. Settings → Pages → Custom domain → `sunnyorbitapps.com`, then *Enforce HTTPS*.
 4. DNS: four `A` records for the apex (`185.199.108.153`, `.109.153`,
    `.110.153`, `.111.153`) and a `CNAME` for `www` → `limonloveapex-cyber.github.io`.
 
@@ -82,7 +82,7 @@ grep -rn "TO FILL\|TO CONFIRM" src/pages pooled/src/pages src/partials
 
 **Moving the Pooled app to this domain** means changing, together:
 1. `PublicPages.base` in the app's `lib/features/shell/app_drawer.dart` to
-   `https://sunnyorbit.com/pooled` (it serves `/privacy.html`, `/terms.html`
+   `https://sunnyorbitapps.com/pooled` (it serves `/privacy.html`, `/terms.html`
    and `/delete-account.html` below that), and the test asserting it;
 2. Play Console → App content → Privacy policy URL;
 3. Play Console → Data safety → account deletion URL;

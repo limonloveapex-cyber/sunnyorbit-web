@@ -1,4 +1,4 @@
-/* sunnyorbit.com — the only script on the company pages.
+/* sunnyorbitapps.com — the only script on the company pages.
  *
  * Three jobs: the mobile menu, the scroll motion from the design's motion
  * sheet, and turning the contact form into an email (there is no server to
