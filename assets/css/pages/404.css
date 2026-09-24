@@ -1,0 +1,11 @@
+/* 404: one centred card. */
+.nf { padding-top: clamp(56px, 8vw, 110px); padding-bottom: clamp(56px, 8vw, 110px); }
+.nf-card {
+  max-width: 720px; margin-inline: auto; text-align: center;
+  background: var(--surface); border-radius: 32px; box-shadow: var(--shadow);
+  padding: clamp(32px, 6vw, 64px);
+  display: flex; flex-direction: column; align-items: center; gap: 16px;
+}
+.nf-tile { --s: 72px; margin-bottom: 8px; }
+.nf .lede { max-width: 480px; }
+.nf-links { justify-content: center; margin-top: 12px; }

@@ -1,0 +1,214 @@
+/* ABOUT page (design frame lwQ0i). Shared tokens and classes live in so.css. */
+
+.about-h2 {
+  font-family: var(--display); font-size: clamp(30px, 3.4vw, 40px);
+  letter-spacing: -0.035em; line-height: 1.1;
+}
+
+/* ------------------------------------------------ motion helpers */
+@media (prefers-reduced-motion: no-preference) {
+  /* Accent tiles pop 0.8 -> 1 a beat after their card lands. */
+  .js [data-reveal] .pop-in {
+    opacity: 0; transform: scale(.8);
+    transition: opacity .5s var(--ease), transform .5s var(--ease);
+    transition-delay: calc(var(--i, 0) * 70ms + 420ms);
+  }
+  .js [data-reveal].is-in .pop-in { opacity: 1; transform: none; }
+
+  /* Hero tiles: a slow idle drift of +/- 6px, offset per tile. `translate`
+     is animated separately from the tile's own `rotate`, and from the
+     reveal's transform on the wrapper. */
+  .js .about-float > .tile { animation: about-drift 6s ease-in-out infinite; }
+  .js .about-float--lock > .tile { animation-delay: -2s; }
+  .js .about-float--compass > .tile { animation-delay: -4s; }
+
+  /* CTA accents drift in from just outside the panel edges. */
+  .js .about-cta__accent { opacity: 0; transition: opacity .8s var(--ease) .25s, translate .8s var(--ease) .25s; }
+  .js .about-cta__accent--sun { translate: -24px 0; }
+  .js .about-cta__accent--violet { translate: 24px 0; }
+  .js .about-cta.is-in .about-cta__accent { opacity: 1; translate: 0 0; }
+  .js [data-reveal].about-cta { transform: scale(.98); }
+  .js [data-reveal].about-cta.is-in { transform: none; }
+}
+@keyframes about-drift {
+  0%, 100% { translate: 0 -6px; }
+  50% { translate: 0 6px; }
+}
+
+/* ------------------------------------------------------- hero */
+.about-hero { overflow: hidden; }
+.about-hero__inner {
+  position: relative;
+  padding-top: clamp(56px, 7.6vw, 110px); padding-bottom: clamp(56px, 6.4vw, 92px);
+}
+.about-hero__copy { display: flex; flex-direction: column; gap: 24px; }
+.about-hero__title {
+  max-width: 660px;
+  font-family: var(--display); font-size: clamp(40px, 5.2vw, 64px);
+  letter-spacing: -0.032em; line-height: 1.04;
+}
+.about-hero__intro { max-width: 620px; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+
+/* The three floating tiles, placed as in the design relative to the right
+   edge of the content column. */
+.about-orbit {
+  position: absolute; top: clamp(60px, 10vw, 146px); right: calc(var(--gutter) - 16px);
+  width: 252px; height: 250px; pointer-events: none;
+}
+.about-float { position: absolute; }
+.about-float .tile { box-shadow: none; border-radius: 22px; }
+.about-float--wallet { left: 42px; top: 0; }
+.about-float--wallet .tile { --s: 92px; rotate: 12deg; }
+.about-float--wallet .tile svg { width: 37px; height: 37px; }
+.about-float--lock { left: 180px; top: 122px; }
+.about-float--lock .tile { --s: 72px; rotate: -10deg; }
+.about-float--lock .tile svg { width: 29px; height: 29px; }
+.about-float--compass { left: 0; top: 174px; }
+.about-float--compass .tile { --s: 58px; rotate: 8deg; }
+.about-float--compass .tile svg { width: 23px; height: 23px; }
+
+/* --------------------------------------------------- why we exist */
+.about-why { padding-top: 16px; padding-bottom: clamp(64px, 7.2vw, 104px); }
+.about-why__row {
+  border-top: 1px solid var(--line); padding-top: 44px;
+  display: grid; grid-template-columns: 400px minmax(0, 1fr); gap: 96px;
+}
+.about-why__head { display: flex; flex-direction: column; gap: 16px; }
+.about-why__copy { display: flex; flex-direction: column; gap: 22px; }
+.about-why__copy p { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+.about-why__copy .about-why__strong { color: var(--ink); font-weight: 600; }
+
+/* ------------------------------------------------ what we believe */
+.about-values { padding-top: 8px; padding-bottom: clamp(64px, 7.2vw, 104px); }
+.about-values .sec-head > p { max-width: 440px; }
+.about-values__grid {
+  margin-top: 48px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;
+}
+.about-value { padding: 28px; border-radius: 30px; display: flex; flex-direction: column; gap: 18px; min-height: 316px; }
+.about-value__tile.tile { --s: 56px; border-radius: 22px; }
+.about-value__tile.tile svg { width: 24px; height: 24px; }
+.about-value__title {
+  min-height: 56px;
+  font-family: var(--display); font-size: 22px; letter-spacing: -0.8px; line-height: 1.25;
+}
+.about-value p { font-size: 16px; line-height: 1.6; }
+
+/* ------------------------------------------------------- facts */
+.about-facts { padding-top: 8px; padding-bottom: clamp(64px, 7.2vw, 104px); }
+.about-facts .sec-head > p { max-width: 400px; }
+.about-facts__panel {
+  margin-top: 36px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--surface); border-radius: 28px; box-shadow: var(--shadow);
+  padding: 40px 44px;
+}
+.about-facts__panel li { display: flex; flex-direction: column; gap: 14px; padding: 0 28px; }
+.about-facts__panel li:first-child { padding-left: 0; }
+.about-facts__panel li:last-child { padding-right: 0; }
+.about-facts__panel li + li { border-left: 1px solid var(--line); }
+.about-facts__panel svg { color: var(--sun); }
+.about-fact__title {
+  min-height: 56px;
+  font-family: var(--display); font-size: 22px; letter-spacing: -0.8px; line-height: 1.25;
+}
+.about-facts__panel p { font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+
+/* ------------------------------------------------ Pooled first */
+.about-first { padding-top: 8px; padding-bottom: clamp(64px, 7.2vw, 104px); }
+.about-first__panel {
+  position: relative; overflow: hidden; min-height: 520px;
+  padding: 56px; display: flex; align-items: center;
+}
+.about-first__copy { position: relative; z-index: 1; max-width: 520px; display: flex; flex-direction: column; gap: 22px; }
+.about-first__body { font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+.about-first__link {
+  align-self: flex-start;
+  display: inline-flex; align-items: center; gap: 8px; padding-bottom: 6px;
+  font-size: 16px; font-weight: 700; color: var(--sun); text-decoration: none;
+  border-bottom: 1.5px solid var(--sun);
+}
+.about-first__link svg { transition: transform .2s var(--ease); }
+.about-first__link:hover svg { transform: translateX(3px); }
+.about-first__phone {
+  position: absolute; top: 74px; right: 68px; width: 406px;
+}
+.about-first__phone img { width: 406px; height: auto; }
+
+/* ------------------------------------------------------ closing CTA */
+.about-cta-wrap { padding-top: 8px; padding-bottom: 24px; }
+.about-cta {
+  position: relative;
+  padding: clamp(56px, 5.6vw, 80px) clamp(24px, 4.4vw, 64px);
+  display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center;
+}
+.about-cta__title {
+  max-width: 720px;
+  font-family: var(--display); font-size: clamp(32px, 3.4vw, 44px);
+  letter-spacing: -1.6px; line-height: 1.1;
+}
+.about-cta__body { max-width: 600px; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+.about-cta__btns { gap: 14px; justify-content: center; margin-top: 4px; }
+.about-cta__accent { position: absolute; }
+.about-cta__accent .tile { border-radius: 22px; }
+.about-cta__accent--sun { left: -30px; top: 70px; }
+.about-cta__accent--sun .tile { --s: 80px; rotate: 12deg; }
+.about-cta__accent--sun .tile svg { width: 30px; height: 30px; }
+.about-cta__accent--violet { right: -22px; top: 128px; }
+.about-cta__accent--violet .tile { --s: 64px; rotate: -10deg; }
+.about-cta__accent--violet .tile svg { width: 24px; height: 24px; }
+
+/* ------------------------------------------------------ responsive */
+@media (max-width: 1180px) {
+  .about-orbit { right: var(--gutter); transform: scale(.8); transform-origin: top right; }
+  .about-hero__title { max-width: 560px; }
+  .about-hero__intro { max-width: 540px; }
+  .about-first__phone { right: 32px; width: 360px; }
+  .about-first__phone img { width: 360px; }
+  .about-first__copy { max-width: 460px; }
+}
+
+@media (max-width: 1080px) {
+  .about-why__row { grid-template-columns: 1fr; gap: 28px; }
+  .about-why__head { max-width: 520px; }
+  .about-values__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-value { min-height: 0; }
+  .about-facts__panel { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 0; }
+  .about-facts__panel li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .about-facts__panel li:nth-child(2) { padding-right: 0; }
+  .about-cta__accent--sun { left: -12px; }
+  .about-cta__accent--violet { right: -8px; }
+}
+
+@media (max-width: 860px) {
+  .about-orbit { display: none; }
+  .about-first__panel { flex-direction: column; align-items: stretch; padding: 40px 32px 0; min-height: 0; }
+  .about-first__copy { max-width: none; }
+  .about-first__phone {
+    position: relative; top: auto; right: auto; width: 100%;
+    height: 400px; margin-top: 40px; overflow: hidden;
+  }
+  .about-first__phone img { width: min(100%, 320px); margin: 0 auto; }
+  .about-cta__accent--sun { top: -26px; left: 18px; }
+  .about-cta__accent--sun .tile { --s: 60px; }
+  .about-cta__accent--sun .tile svg { width: 24px; height: 24px; }
+  .about-cta__accent--violet { top: auto; bottom: -22px; right: 18px; }
+  .about-cta__accent--violet .tile { --s: 52px; }
+  .about-cta__accent--violet .tile svg { width: 20px; height: 20px; }
+  .about-cta { padding-top: 64px; padding-bottom: 64px; }
+}
+
+@media (max-width: 560px) {
+  .about-values__grid { grid-template-columns: 1fr; }
+  .about-value__title, .about-fact__title { min-height: 0; }
+  .about-facts__panel { grid-template-columns: 1fr; padding: 28px 24px; gap: 0; }
+  .about-facts__panel li { padding: 22px 0 !important; border-left: 0 !important; }
+  .about-facts__panel li:first-child { padding-top: 0 !important; }
+  .about-facts__panel li:last-child { padding-bottom: 0 !important; }
+  .about-facts__panel li + li { border-top: 1px solid var(--line); }
+  .about-first__panel { padding: 32px 24px 0; border-radius: 28px; }
+  .about-first__panel .pooled-icon { width: 88px; height: 88px; }
+  .about-first__phone { height: 340px; }
+  .about-first__phone img { width: min(100%, 280px); }
+  .about-cta { border-radius: 28px; }
+}

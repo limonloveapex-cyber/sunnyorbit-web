@@ -1,1 +1,189 @@
-<section class="wrap page-hero"><h1 class="h1">how-we-build</h1><p class="lede">Under construction.</p></section>
+<!-- HOW WE BUILD (design frame AAeFK). Where the design showed team
+     figures, release counts or version history, the slot now holds principles
+     and release checks that are true. -->
+
+<section class="wrap hwb-hero">
+  <p class="hwb-chip" data-reveal><span class="hwb-chip__dot"></span>Our process</p>
+  <div class="hwb-hero__row">
+    <h1 class="hwb-hero__title" data-reveal>Fewer features, chosen carefully.</h1>
+    <div class="hwb-hero__meta" data-stagger>
+      <p class="hwb-hero__sub" data-reveal>We work in small loops: notice a real frustration, build
+        the smallest honest fix, release it, then listen. Most of the job is deciding what to leave
+        out.</p>
+      <dl class="hwb-stats" data-stagger>
+        <div data-reveal><dt>One app</dt><dd>at a time</dd></div>
+        <div data-reveal><dt>No ads</dt><dd>and no analytics</dd></div>
+        <div data-reveal><dt>Android</dt><dd>first</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="wrap hwb-loop" aria-labelledby="loop-title">
+  <div class="sec-head" data-reveal>
+    <div class="hwb-head">
+      <p class="kicker">The loop</p>
+      <h2 class="hwb-h2" id="loop-title">Five steps, then back to the start</h2>
+    </div>
+    <p>An idea has to get through every step before it reaches your phone. Plenty stop at step
+      three, and that is the point.</p>
+  </div>
+
+  <ol class="hwb-rail" data-stagger>
+    <li data-reveal>
+      <div class="hwb-rail__row"><span class="hwb-rail__dot hwb-rail__dot--on">01</span><span class="hwb-rail__line"></span></div>
+      <h3 class="hwb-rail__title">Notice</h3>
+      <p>A complaint heard once is a data point. The same complaint heard again and again becomes a
+        brief.</p>
+    </li>
+    <li data-reveal>
+      <div class="hwb-rail__row"><span class="hwb-rail__dot">02</span><span class="hwb-rail__line"></span></div>
+      <h3 class="hwb-rail__title">Sketch</h3>
+      <p>Paper first, then one screen. If the idea needs a tutorial to explain, we have already
+        lost.</p>
+    </li>
+    <li data-reveal>
+      <div class="hwb-rail__row"><span class="hwb-rail__dot">03</span><span class="hwb-rail__line"></span></div>
+      <h3 class="hwb-rail__title">Cut</h3>
+      <p>We remove until it hurts a little. Much of what gets sketched in step two never gets built
+        at all.</p>
+    </li>
+    <li data-reveal>
+      <div class="hwb-rail__row"><span class="hwb-rail__dot">04</span><span class="hwb-rail__line"></span></div>
+      <h3 class="hwb-rail__title">Live with it</h3>
+      <p>We use the build on our own phones before anyone outside sees it.</p>
+    </li>
+    <li data-reveal>
+      <div class="hwb-rail__row"><span class="hwb-rail__dot">05</span><span class="hwb-rail__line hwb-rail__line--end"></span></div>
+      <h3 class="hwb-rail__title">Release &amp; listen</h3>
+      <p>A small release, plain notes, and a real person reading every reply that comes back.</p>
+    </li>
+  </ol>
+</section>
+
+<section class="wrap hwb-filter-wrap" aria-labelledby="filter-title">
+  <div class="panel panel--dark hwb-filter" data-reveal="panel">
+    <div class="sec-head">
+      <div class="hwb-head">
+        <p class="kicker hwb-kicker--amber">The filter</p>
+        <h2 class="hwb-filter__title" id="filter-title">Most of our work is deciding what not to build</h2>
+      </div>
+      <p>Every idea gets held against the same two lists before it earns a single day of engineering
+        time.</p>
+    </div>
+
+    <div class="hwb-filter__cols">
+      <div class="hwb-filter__col">
+        <h3 class="hwb-filter__col-title">We build it when</h3>
+        <ul data-stagger>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--yes">{{icon:check:13}}</span>Someone describes the problem without naming a feature</li>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--yes">{{icon:check:13}}</span>It works the same on a cheap phone as a new one</li>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--yes">{{icon:check:13}}</span>We can explain the change in one sentence</li>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--yes">{{icon:check:13}}</span>It still matters a year from now</li>
+        </ul>
+      </div>
+      <div class="hwb-filter__col hwb-filter__col--no">
+        <h3 class="hwb-filter__col-title">We leave it alone when</h3>
+        <ul data-stagger>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--no">{{icon:x:13}}</span>The value shows up in a dashboard, not in your day</li>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--no">{{icon:x:13}}</span>It needs an account, a streak or a notification to work</li>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--no">{{icon:x:13}}</span>Only the loudest voices asked for it</li>
+          <li data-reveal><span class="hwb-bullet hwb-bullet--no">{{icon:x:13}}</span>The honest version of the release note would embarrass us</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hwb-example" data-reveal>
+      <p class="hwb-example__label">In practice: what Pooled leaves out, on purpose</p>
+      <ul class="hwb-example__list">
+        <li><strong>Dividing costs between people.</strong> Pooled keeps a shared record of who paid
+          for what, with a live balance for every member. It does not carve up bills or chase anyone
+          for money.</li>
+        <li><strong>Ads, and a paid upgrade to remove them.</strong> There are none, and nothing to
+          buy: Pooled is free during early access.</li>
+        <li><strong>Analytics and crash reporting.</strong> No tracking SDK and no advertising ID. We
+          learn what is wrong from the people who write to us.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="wrap hwb-rhythm" aria-labelledby="rhythm-title">
+  <div class="sec-head" data-reveal>
+    <div class="hwb-head">
+      <p class="kicker">Before a release</p>
+      <h2 class="hwb-h2" id="rhythm-title">Small releases, checked before they go out</h2>
+    </div>
+    <p>A release is not judged by its size. Each one has to pass the same few checks before it
+      reaches anyone's phone.</p>
+  </div>
+
+  <div class="hwb-rhythm__body">
+    <div class="hwb-checks" data-reveal="card">
+      <div class="hwb-card-head">
+        <h3 class="hwb-card-title">What every release is checked against</h3>
+        <span class="hwb-card-tag">Every time</span>
+      </div>
+      <ol class="hwb-checks__list" data-stagger>
+        <li data-reveal>
+          <span class="tile hwb-checks__tile">{{icon:search:20}}</span>
+          <div>
+            <h4>Every claim, checked against the code</h4>
+            <p>What this website and the store listing say about the app is compared with what the app
+              actually does. If they disagree, the words change or the release waits.</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span class="tile tile--violet hwb-checks__tile">{{icon:file-text:20}}</span>
+          <div>
+            <h4>The privacy policy comes first</h4>
+            <p>If a release changes what data goes where, the privacy policy is updated before that
+              release goes out, not after.</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span class="tile tile--sky hwb-checks__tile">{{icon:message-square:20}}</span>
+          <div>
+            <h4>One sentence per change</h4>
+            <p>If we cannot explain a change in a sentence, it is not ready to ship.</p>
+          </div>
+        </li>
+        <li data-reveal>
+          <span class="tile tile--mint-amber hwb-checks__tile">{{icon:list-checks:20}}</span>
+          <div>
+            <h4>Plain release notes</h4>
+            <p>Notes say what changed and why. “Performance improvements and bug fixes” is not a
+              release note.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <aside class="hwb-promises" data-reveal="card" aria-labelledby="promises-title">
+      <h3 class="hwb-card-title" id="promises-title">Promises no release may break</h3>
+      <div class="hwb-promise">
+        <span class="hwb-promise__chip">Privacy</span>
+        <p>Without an account, nothing leaves your phone, and the ledger is encrypted on the device.</p>
+      </div>
+      <div class="hwb-promise">
+        <span class="hwb-promise__chip">Tracking</span>
+        <p>No ads, no analytics, no advertising ID. A build that adds one does not go out.</p>
+      </div>
+      <div class="hwb-promise">
+        <span class="hwb-promise__chip">Price</span>
+        <p>Free during early access means free: billing is not even connected, so nothing can be
+          charged.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="wrap hwb-cta" aria-labelledby="hwb-cta-title" data-stagger>
+  <h2 class="hwb-cta__title" id="hwb-cta-title" data-reveal>Think we got something wrong?</h2>
+  <p class="hwb-cta__sub" data-reveal>Tell us what is annoying you, or what we have left out, and it
+    goes straight onto the list.</p>
+  <div class="btn-row hwb-cta__btns" data-reveal>
+    <a class="btn btn--sun" href="contact.html">Get in touch {{icon:arrow-right:16}}</a>
+    <a class="btn btn--light" href="pooled/">Explore Pooled</a>
+  </div>
+</section>

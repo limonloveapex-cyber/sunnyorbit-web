@@ -541,9 +541,15 @@ ul { margin: 0; padding: 0; list-style: none; }
 .prose h2:first-of-type { margin-top: 32px; }
 .prose h3 { font-size: 17px; margin-top: 28px; }
 .prose p, .prose ul { margin-top: 14px; font-size: 16px; line-height: 1.7; color: var(--ink-2); }
-.prose ul { padding-left: 4px; display: flex; flex-direction: column; gap: 8px; }
-.prose li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
-.prose li::before { content: '—'; color: var(--ink-3); }
+/* The dash is absolutely positioned, not a grid column: with `display: grid`
+   on the <li>, every <strong>, <a> and <em> inside an item became a grid
+   cell of its own and a sentence broke into a column of single words. */
+.prose ul, .prose ol { padding-left: 0; display: flex; flex-direction: column; gap: 8px; }
+.prose ol { margin-top: 14px; font-size: 16px; line-height: 1.7; color: var(--ink-2); counter-reset: n; }
+.prose li { position: relative; padding-left: 28px; list-style: none; }
+.prose ul > li::before { content: '—'; position: absolute; left: 2px; top: 0; color: var(--ink-3); }
+.prose ol > li { counter-increment: n; }
+.prose ol > li::before { content: counter(n) '.'; position: absolute; left: 0; top: 0; font-weight: 700; color: var(--ink); }
 .prose strong { color: var(--ink); font-weight: 600; }
 .prose a { color: var(--lilac-deep); }
 .prose code {

@@ -1,1 +1,142 @@
-<section class="wrap page-hero"><h1 class="h1">apps</h1><p class="lede">Under construction.</p></section>
+<!-- APPS (design frame cAWxA). The copy departs from the design wherever the
+     design described something Pooled does not do, or a launch that has not
+     happened yet. Every statement here is checked against the app. -->
+
+<section class="wrap page-hero apps-hero">
+  <div class="apps-hero__copy" data-stagger>
+    <p class="eyebrow" data-reveal>Our apps</p>
+    <h1 class="apps-hero__title" data-reveal>Apps we have built</h1>
+    <p class="apps-hero__intro" data-reveal>SunnyOrbit is a small independent studio building simple
+      mobile apps for everyday life. We keep the list short on purpose and only release something
+      once it genuinely helps the people using it.</p>
+  </div>
+
+  <ol class="apps-meta" data-stagger>
+    <li data-reveal>
+      <p class="apps-meta__top"><span class="apps-meta__n">01</span><span class="apps-meta__label">Our first app</span></p>
+      <p class="apps-meta__desc">Pooled, a shared money tracker</p>
+    </li>
+    <li data-reveal>
+      <p class="apps-meta__top"><span class="apps-meta__n">02</span><span class="apps-meta__label">In progress</span></p>
+      <p class="apps-meta__desc">More ideas still being shaped</p>
+    </li>
+    <li data-reveal>
+      <p class="apps-meta__top"><span class="apps-meta__n">03</span><span class="apps-meta__label">Platform</span></p>
+      <p class="apps-meta__desc">Built for Android first</p>
+    </li>
+  </ol>
+</section>
+
+<section class="wrap apps-featured" aria-labelledby="pooled-title">
+  <div class="panel apps-pooled" data-reveal>
+    <div class="apps-pooled__copy" data-stagger>
+      <div class="apps-pooled__id" data-reveal>
+        {{pooled-icon:120}}
+        <div>
+          <h2 class="apps-pooled__name" id="pooled-title">Pooled</h2>
+          <p class="apps-pooled__tag">A shared money tracker for Android</p>
+        </div>
+      </div>
+      <p class="apps-pooled__body" data-reveal>Pooled gives housemates, families and friends one clear
+        view of what has been spent and who paid for it. It works without an account, and without
+        one nothing leaves your phone.</p>
+      <ul class="apps-points">
+        <li data-reveal>{{icon:check:18}}<span>Shared spaces for a home, a family or a trip</span></li>
+        <li data-reveal>{{icon:check:18}}<span>Invite people with a six-character code</span></li>
+        <li data-reveal>{{icon:check:18}}<span>A live balance for every member of a space</span></li>
+        <li data-reveal>{{icon:check:18}}<span>No ads, no analytics, no tracking</span></li>
+      </ul>
+      <div class="btn-row apps-pooled__cta" data-reveal>
+        <a class="btn btn--sun" href="pooled/">Explore Pooled {{icon:arrow-right:17}}</a>
+        <a class="btn btn--ink" href="https://play.google.com/store/apps/details?id=com.limon.pooled"
+          rel="noopener">{{icon:play:16}} Get it on Google Play</a>
+      </div>
+    </div>
+    <div class="apps-pooled__stage">
+      <img src="assets/img/apps-pooled-phones.webp" width="500" height="720"
+        alt="Two phones running Pooled: a shared space's ledger behind, the personal dashboard in front"
+        loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="wrap apps-works" id="in-the-works" aria-labelledby="works-title">
+  <div class="sec-head" data-reveal>
+    <div class="apps-works__head">
+      <p class="eyebrow">Next up</p>
+      <h2 class="apps-h2" id="works-title">In the works</h2>
+    </div>
+    <p>We would rather show you an empty shelf than a name for something that does not exist yet.</p>
+  </div>
+
+  <div class="apps-works__grid" data-stagger>
+    <article class="apps-slot" data-reveal="card">
+      <div class="apps-slot__top">
+        <span class="tile tile--neutral apps-slot__tile pop-in">{{icon:pencil-ruler}}</span>
+        <span class="apps-slot__pill pop-in">Coming later</span>
+      </div>
+      <h3 class="apps-slot__title">In design</h3>
+      <p class="muted">An early idea we are sketching and questioning before we commit to building it.</p>
+    </article>
+    <article class="apps-slot" data-reveal="card">
+      <div class="apps-slot__top">
+        <span class="tile tile--neutral apps-slot__tile pop-in">{{icon:search}}</span>
+        <span class="apps-slot__pill pop-in">Coming later</span>
+      </div>
+      <h3 class="apps-slot__title">In research</h3>
+      <p class="muted">Still at the question-asking stage. We are looking for a real everyday problem
+        that deserves an app.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wrap apps-common-wrap" aria-labelledby="common-title">
+  <div class="panel apps-common" data-reveal>
+    <div class="sec-head">
+      <div class="apps-common__head">
+        <p class="eyebrow">House rules</p>
+        <h2 class="apps-h2" id="common-title">What every SunnyOrbit app has in common</h2>
+      </div>
+      <p>These are not features we bolt on later. They decide what we are willing to build in the
+        first place.</p>
+    </div>
+
+    <div class="apps-common__grid" data-stagger>
+      <div class="apps-rule" data-reveal>
+        <span class="tile apps-rule__tile pop-in">{{icon:lock}}</span>
+        <h3 class="apps-rule__title">Privacy first</h3>
+        <p class="muted">No ads, no analytics, no tracking. Your money data is never sold to anyone.</p>
+      </div>
+      <div class="apps-rule" data-reveal>
+        <span class="tile tile--violet apps-rule__tile pop-in">{{icon:smartphone}}</span>
+        <h3 class="apps-rule__title">No account needed</h3>
+        <p class="muted">Pooled works fully without signing up. With no account, nothing leaves your
+          phone.</p>
+      </div>
+      <div class="apps-rule" data-reveal>
+        <span class="tile tile--sky apps-rule__tile pop-in">{{icon:eye-off}}</span>
+        <h3 class="apps-rule__title">No dark patterns</h3>
+        <p class="muted">No guilt nudges, no buried settings, no tricks to keep you tapping.</p>
+      </div>
+      <div class="apps-rule" data-reveal>
+        <span class="tile tile--mint-amber apps-rule__tile pop-in">{{icon:gift}}</span>
+        <h3 class="apps-rule__title">Straight about price</h3>
+        <p class="muted">Pooled is free during early access: no price, no subscription, nothing to
+          pay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap apps-cta-wrap" aria-labelledby="apps-cta-title">
+  <div class="panel apps-cta" data-reveal data-stagger>
+    <div class="apps-cta__icon" data-reveal="pop">{{pooled-icon:72}}</div>
+    <h2 class="apps-cta__title" id="apps-cta-title" data-reveal>One app today, built properly</h2>
+    <p class="apps-cta__body" data-reveal>Pooled is the app we have built so far, and it is the best
+      way to see how we work. Try it with the people you already share money with.</p>
+    <div class="btn-row apps-cta__btns" data-reveal>
+      <a class="btn btn--sun" href="pooled/">Explore Pooled {{icon:arrow-right:17}}</a>
+      <a class="btn btn--light apps-cta__light" href="contact.html">Talk to the studio</a>
+    </div>
+  </div>
+</section>

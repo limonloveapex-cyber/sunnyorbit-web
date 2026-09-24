@@ -276,11 +276,13 @@ button { font: inherit; }
 
 /* ------------------------------------------------- page top + CTA */
 
-.page-hero { padding: clamp(56px, 7vw, 92px) 0 0; }
+.page-hero { padding-top: clamp(56px, 7vw, 92px); }
 
 /* ----------------------------------------------------- legal pages */
 
-.legal-hero { padding: clamp(56px, 7vw, 88px) 0 clamp(36px, 4vw, 56px); }
+/* padding-block only: the hero usually also carries .wrap, whose side gutter
+   a padding shorthand here would silently remove. */
+.legal-hero { padding-block: clamp(56px, 7vw, 88px) clamp(36px, 4vw, 56px); }
 .legal-hero .h1 { font-size: clamp(40px, 5.6vw, 72px); margin-top: 14px; }
 .legal-hero p { margin-top: 16px; color: var(--ink-2); }
 
@@ -297,6 +299,7 @@ button { font: inherit; }
 
 .prose { background: var(--surface); border-radius: 32px; box-shadow: var(--shadow); padding: clamp(28px, 4vw, 56px); }
 .prose > section + section { margin-top: 40px; padding-top: 36px; border-top: 1px solid var(--line); }
+.prose > .summary + section { margin-top: 36px; }
 .prose h2 { font-family: var(--display); font-size: clamp(22px, 2.2vw, 26px); letter-spacing: -0.02em; scroll-margin-top: 24px; }
 .prose h3 { font-size: 17px; margin-top: 24px; }
 .prose p, .prose li { font-size: 16px; line-height: 1.75; color: var(--ink-2); }

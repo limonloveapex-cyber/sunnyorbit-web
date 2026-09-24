@@ -1,1 +1,174 @@
-<section class="wrap page-hero"><h1 class="h1">contact</h1><p class="lede">Under construction.</p></section>
+<section class="wrap c-hero">
+  <p class="c-pill" data-reveal><span class="c-dot" aria-hidden="true"></span>We aim to reply within a working day</p>
+  <div class="c-split">
+    <h1 class="c-title" data-reveal>Talk to the people who build it.</h1>
+    <p class="c-sub" data-reveal>No ticket numbers and no chatbot. Your message goes straight to the
+      people who make the apps, and a person writes the reply.</p>
+  </div>
+</section>
+
+<section class="wrap c-body" aria-label="Get in touch">
+  <div class="c-form-card" data-reveal="card">
+    <h2 class="c-card-title c-card-title--lg">Send us a message</h2>
+
+    <form id="contact-form" data-to="support@sunnyorbit.com" action="mailto:support@sunnyorbit.com" method="post" enctype="text/plain">
+      <div class="c-row">
+        <div class="c-field">
+          <label for="c-name">Your name</label>
+          <input id="c-name" name="name" type="text" autocomplete="name" placeholder="Alex Morgan">
+        </div>
+        <div class="c-field">
+          <label for="c-email">Email</label>
+          <input id="c-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+        </div>
+      </div>
+
+      <fieldset class="c-field c-topics">
+        <legend>What is this about?</legend>
+        <div class="c-chips">
+          <label class="c-chip"><input type="radio" name="topic" value="Something is broken" checked><span>Something is broken</span></label>
+          <label class="c-chip"><input type="radio" name="topic" value="An idea"><span>An idea</span></label>
+          <label class="c-chip"><input type="radio" name="topic" value="Privacy"><span>Privacy</span></label>
+          <label class="c-chip"><input type="radio" name="topic" value="Press"><span>Press</span></label>
+          <label class="c-chip"><input type="radio" name="topic" value="Just saying hi"><span>Just saying hi</span></label>
+        </div>
+      </fieldset>
+
+      <div class="c-field">
+        <label for="c-message">Message</label>
+        <textarea id="c-message" name="message" rows="6" required placeholder="Tell us what happened, what you expected, and which phone you are using. Screenshots help more than you think."></textarea>
+      </div>
+
+      <div class="c-foot">
+        <!-- The design drew a tick-box here. Replying to an email someone chose
+             to send needs no consent box (it is legitimate interest, not
+             consent), and a box that must be ticked to open your own mail app
+             is friction with no purpose. The sentence stays; the box does not. -->
+        <p class="c-check">
+          {{icon:shield-check:18}}
+          <span>We use your email and message only to reply to you. How long we keep them is in our
+            <a href="privacy.html#retention">Privacy Policy</a>.</span>
+        </p>
+        <button class="btn btn--sun c-submit" type="submit" aria-describedby="c-how">
+          Open in my email app {{icon:arrow-right:16}}
+        </button>
+      </div>
+      <p class="c-how" id="c-how">{{icon:info:15}} The button opens your own email app with your message
+        filled in, addressed to support@sunnyorbit.com. You press send there. Nothing is sent from this page.</p>
+
+      <p id="contact-sent" class="c-sent" role="status" hidden>{{icon:mail-check:18}}
+        <span>Your email app should have opened with the message ready to send. Nothing was sent from this
+        page, so please press send in your email app. If nothing opened, write to
+        <a href="mailto:support@sunnyorbit.com">support@sunnyorbit.com</a> directly.</span></p>
+    </form>
+  </div>
+
+  <div class="c-rail" data-stagger>
+    <div class="c-card c-routes" data-reveal="card">
+      <h2 class="c-card-title">Or email us directly</h2>
+      <p class="c-routes-note">One address for everything. A subject line helps it reach the right pile.</p>
+      <ul>
+        <li>
+          <span class="c-ico c-ico--sun">{{icon:smartphone:18}}</span>
+          <span class="c-route-text">
+            <span class="c-route-label">Help with Pooled</span>
+            <a href="mailto:support@sunnyorbit.com?subject=Help%20with%20Pooled">support@sunnyorbit.com</a>
+            <span class="c-route-subject">Subject: Help with Pooled</span>
+          </span>
+        </li>
+        <li>
+          <span class="c-ico c-ico--violet">{{icon:shield:18}}</span>
+          <span class="c-route-text">
+            <span class="c-route-label">Privacy &amp; data requests</span>
+            <a href="mailto:support@sunnyorbit.com?subject=Privacy%20request">support@sunnyorbit.com</a>
+            <span class="c-route-subject">Subject: Privacy request</span>
+          </span>
+        </li>
+        <li>
+          <span class="c-ico c-ico--sky">{{icon:newspaper:18}}</span>
+          <span class="c-route-text">
+            <span class="c-route-label">Press</span>
+            <a href="mailto:support@sunnyorbit.com?subject=Press">support@sunnyorbit.com</a>
+            <span class="c-route-subject">Subject: Press</span>
+          </span>
+        </li>
+        <li>
+          <span class="c-ico c-ico--mint">{{icon:mail:18}}</span>
+          <span class="c-route-text">
+            <span class="c-route-label">Anything else</span>
+            <a href="mailto:support@sunnyorbit.com?subject=Hello">support@sunnyorbit.com</a>
+            <span class="c-route-subject">Subject: whatever fits</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="c-card c-next" data-reveal="card">
+      <h2 class="c-card-title">What happens next</h2>
+      <ol>
+        <li><span class="c-num" aria-hidden="true">1</span>
+          <span><strong>A person reads it</strong>
+            <span>Not a bot. We aim to reply within a working day.</span></span></li>
+        <li><span class="c-num" aria-hidden="true">2</span>
+          <span><strong>You get a reply, not a receipt</strong>
+            <span>No &ldquo;we have received your ticket&rdquo; emails.</span></span></li>
+        <li><span class="c-num" aria-hidden="true">3</span>
+          <span><strong>Ideas get read</strong>
+            <span>We cannot build everything, but every idea is read, and the repeated ones shape what comes next.</span></span></li>
+      </ol>
+    </div>
+
+    <div class="c-card c-studio" data-reveal="card">
+      <h2 class="c-card-title">The studio</h2>
+      <p>SunnyOrbit is a trading name of Moiasun LLC, a Delaware limited liability company.</p>
+      <p><span class="fill">[TO FILL: registered or mailing address]</span></p>
+      <p class="c-remote">{{icon:globe:15}} We work remotely; email is the fastest way to reach us.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap c-faq" aria-labelledby="faq-title">
+  <div class="sec-head" data-reveal>
+    <div>
+      <p class="kicker">Before you write</p>
+      <h2 class="h2 c-faq-title" id="faq-title">Questions we get a lot</h2>
+    </div>
+    <p>If your question is here, the answer is the same one we would email you. If it is not, please do write.</p>
+  </div>
+
+  <div class="c-faq-cols">
+    <dl data-stagger>
+      <div data-reveal>
+        <dt>Do you have a phone number?</dt>
+        <dd>No. We are a small studio and could not staff a phone line properly, so we put that time into
+          answering email well instead.</dd>
+      </div>
+      <div data-reveal>
+        <dt>I found a bug. What do you need?</dt>
+        <dd>Your phone model, your Android version, the app version (Android shows it under Settings, Apps,
+          Pooled) and what you expected to happen. A screenshot or screen recording helps a lot.</dd>
+      </div>
+      <div data-reveal>
+        <dt>Can I ask for a feature?</dt>
+        <dd>Yes, and it genuinely helps. We do not build everything we are asked for, but every request gets
+          read and the repeated ones shape what we do next.</dd>
+      </div>
+    </dl>
+    <dl data-stagger>
+      <div data-reveal>
+        <dt>Do you take client work?</dt>
+        <dd>Not currently. We are focused on building our own apps.</dd>
+      </div>
+      <div data-reveal>
+        <dt>Where is my Pooled data kept?</dt>
+        <dd>Without an account, only on your phone, encrypted. If you make an account, a copy is also held
+          by Google Firebase so it can sync; see the <a href="pooled/privacy.html">Pooled privacy policy</a>.
+          To remove it, follow the steps to <a href="pooled/delete-account.html">delete your account and data</a>.</dd>
+      </div>
+      <div data-reveal>
+        <dt>Are you hiring?</dt>
+        <dd>Not at the moment. If that changes, we will say so on this site. You are welcome to write anyway.</dd>
+      </div>
+    </dl>
+  </div>
+</section>

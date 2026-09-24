@@ -1,0 +1,154 @@
+/* APPS page (design frame cAWxA). Shared tokens and classes live in so.css. */
+
+/* ------------------------------------------------ motion helpers */
+/* Accent tiles and status pills pop in (0.8 -> 1) a beat after the card
+   they sit in lands. --i is inherited from the staggered card, so the pop
+   follows the card's own stagger. Hidden only with JS and full motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .js [data-reveal] .pop-in {
+    opacity: 0; transform: scale(.8);
+    transition: opacity .5s var(--ease), transform .5s var(--ease);
+    transition-delay: calc(var(--i, 0) * 70ms + 420ms);
+  }
+  .js [data-reveal] .apps-slot__pill.pop-in { transform: scale(.85); }
+  .js [data-reveal].is-in .pop-in { opacity: 1; transform: none; }
+}
+
+.apps-h2 {
+  font-family: var(--display); font-size: clamp(30px, 3.4vw, 40px);
+  letter-spacing: -0.035em; line-height: 1.1;
+}
+
+/* ------------------------------------------------------- hero */
+.apps-hero {
+  display: flex; align-items: flex-end; justify-content: space-between; gap: 80px;
+  padding-top: clamp(56px, 6.4vw, 92px);
+  padding-inline: var(--gutter); /* so.css .page-hero's shorthand drops the .wrap gutter */
+}
+.apps-hero__copy { max-width: 760px; }
+.apps-hero__title {
+  margin-top: 20px;
+  font-family: var(--display); font-size: clamp(40px, 5.2vw, 64px);
+  letter-spacing: -0.032em; line-height: 1.03;
+}
+.apps-hero__intro { margin-top: 26px; max-width: 600px; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+
+.apps-meta { width: 280px; flex: none; }
+.apps-meta li { padding: 18px 0; display: flex; flex-direction: column; gap: 6px; }
+.apps-meta li:first-child { padding-top: 0; }
+.apps-meta li + li { border-top: 1px solid var(--line); }
+.apps-meta__top { display: flex; align-items: baseline; gap: 10px; }
+.apps-meta__n { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--sun); }
+.apps-meta__label { font-family: var(--display); font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
+.apps-meta__desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+
+/* -------------------------------------------- featured Pooled */
+.apps-featured { padding-top: clamp(56px, 6.6vw, 96px); }
+.apps-pooled {
+  display: grid; grid-template-columns: minmax(0, 620fr) minmax(0, 500fr);
+  min-height: 720px; overflow: hidden;
+}
+.apps-pooled__copy {
+  padding: 64px 56px; display: flex; flex-direction: column; justify-content: center;
+}
+.apps-pooled__id { display: flex; align-items: center; gap: 24px; }
+.apps-pooled__name {
+  font-family: var(--display); font-size: 40px; letter-spacing: -1.6px; line-height: 1.05;
+}
+.apps-pooled__tag { margin-top: 8px; font-size: 17px; line-height: 1.5; color: var(--ink-2); }
+.apps-pooled__body { margin-top: 30px; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+.apps-points { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+.apps-points li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 16px; font-weight: 600; line-height: 1.5;
+}
+.apps-points svg { color: var(--sun); margin-top: 3px; flex: none; }
+.apps-pooled__cta { margin-top: 40px; gap: 14px; }
+
+.apps-pooled__stage { position: relative; overflow: hidden; min-height: 100%; }
+.apps-pooled__stage img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: left center;
+}
+
+/* ------------------------------------------------ in the works */
+.apps-works { padding-top: clamp(72px, 7.6vw, 110px); scroll-margin-top: 24px; }
+.apps-works .sec-head > p { max-width: 420px; font-size: 16px; line-height: 1.6; }
+.apps-works__head { display: flex; flex-direction: column; gap: 14px; }
+.apps-works__grid {
+  margin-top: 40px;
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px;
+}
+.apps-slot {
+  background: var(--surface); border-radius: 28px; padding: 40px;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+.apps-slot__top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.apps-slot__tile.tile { --s: 56px; border-radius: 18px; }
+.apps-slot__tile.tile svg { width: 24px; height: 24px; }
+.apps-slot__pill {
+  display: inline-block; padding: 8px 15px; border-radius: 20px; background: var(--bg);
+  font-size: 12px; font-weight: 700; letter-spacing: .6px; color: var(--ink-3);
+}
+.apps-slot__title {
+  margin-top: 28px; font-family: var(--display); font-size: 24px; letter-spacing: -1px; line-height: 1.2;
+}
+.apps-slot p { margin-top: 12px; font-size: 16px; line-height: 1.6; }
+
+/* ------------------------------------------------------ in common */
+.apps-common-wrap { padding-top: clamp(72px, 7.6vw, 110px); }
+.apps-common { padding: clamp(28px, 4.2vw, 60px); }
+.apps-common__head { max-width: 580px; display: flex; flex-direction: column; gap: 14px; }
+.apps-common .sec-head > p { max-width: 360px; font-size: 16px; line-height: 1.6; }
+.apps-common__grid {
+  margin-top: 52px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px;
+}
+.apps-rule { display: flex; flex-direction: column; gap: 18px; }
+.apps-rule__tile.tile { --s: 56px; border-radius: 22px; }
+.apps-rule__tile.tile svg { width: 26px; height: 26px; }
+.apps-rule__title { font-family: var(--display); font-size: 22px; letter-spacing: -1px; line-height: 1.2; }
+.apps-rule p { font-size: 16px; line-height: 1.6; margin-top: -6px; }
+
+/* ------------------------------------------------------ closing CTA */
+.apps-cta-wrap { padding-top: clamp(72px, 7.6vw, 110px); padding-bottom: 12px; }
+.apps-cta {
+  padding: clamp(48px, 5vw, 72px) clamp(24px, 5.6vw, 80px);
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+}
+.apps-cta__icon .pooled-icon { width: 72px; height: 72px; }
+.apps-cta__title {
+  margin-top: 26px; font-family: var(--display); font-size: clamp(32px, 3.4vw, 44px);
+  letter-spacing: -1.6px; line-height: 1.08;
+}
+.apps-cta__body { margin-top: 18px; max-width: 620px; font-size: 17px; line-height: 1.6; color: var(--ink-2); }
+.apps-cta__btns { margin-top: 36px; gap: 14px; justify-content: center; }
+.apps-cta__light { font-weight: 700; box-shadow: inset 0 0 0 .5px var(--line); }
+
+/* ------------------------------------------------------ responsive */
+@media (max-width: 1080px) {
+  .apps-hero { gap: 48px; }
+  .apps-pooled { grid-template-columns: minmax(0, 1fr) minmax(0, 420px); }
+  .apps-pooled__copy { padding: 48px 40px; }
+  .apps-common__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 32px; }
+}
+
+@media (max-width: 860px) {
+  .apps-hero { flex-direction: column; align-items: flex-start; }
+  .apps-meta { width: 100%; max-width: 480px; }
+  .apps-pooled { grid-template-columns: 1fr; min-height: 0; }
+  .apps-pooled__stage { min-height: 0; max-height: 560px; }
+  .apps-pooled__stage img { position: static; width: min(100%, 440px); height: auto; margin: 0 auto; }
+  .apps-works__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .apps-pooled__copy { padding: 32px 24px; }
+  .apps-pooled__id { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .apps-pooled__id .pooled-icon { width: 88px; height: 88px; }
+  .apps-pooled__name { font-size: 34px; }
+  .apps-slot { padding: 28px 24px; border-radius: 24px; }
+  .apps-common { border-radius: 28px; }
+  .apps-common__grid { grid-template-columns: 1fr; gap: 32px; }
+  .apps-cta { border-radius: 28px; }
+}

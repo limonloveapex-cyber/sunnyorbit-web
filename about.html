@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" href="assets/img/sunnyorbit-180.png">
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/so.css">
-
+<link rel="stylesheet" href="assets/css/pages/about.css">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:title" content="About — SunnyOrbit">
@@ -67,7 +67,143 @@
 
 
 <main id="main">
-<section class="wrap page-hero"><h1 class="h1">about</h1><p class="lede">Under construction.</p></section>
+<!-- ABOUT (design frame lwQ0i). "Where we stand today" carries only facts
+     checked with the owner; the design's unverified company claims are replaced. -->
+
+<section class="about-hero">
+  <div class="wrap about-hero__inner">
+    <div class="about-hero__copy" data-stagger>
+      <p class="eyebrow" data-reveal>About</p>
+      <h1 class="about-hero__title" data-reveal>A small studio with a simple goal</h1>
+      <p class="about-hero__intro" data-reveal>SunnyOrbit is an independent studio that builds simple
+        mobile apps for everyday life. We design around what helps you, not what keeps you on screen,
+        and we work on one focused app at a time.</p>
+    </div>
+
+    <div class="about-orbit" aria-hidden="true" data-stagger>
+      <span class="about-float about-float--wallet" data-reveal="pop"><span class="tile"><svg aria-hidden="true" focusable="false" class="i i-wallet" xmlns="http://www.w3.org/2000/svg" width="37" height="37" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1" /> <path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4" /> </svg></span></span>
+      <span class="about-float about-float--lock" data-reveal="pop"><span class="tile tile--violet"><svg aria-hidden="true" focusable="false" class="i i-lock" xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <rect width="18" height="11" x="3" y="11" rx="2" ry="2" /> <path d="M7 11V7a5 5 0 0 1 10 0v4" /> </svg></span></span>
+      <span class="about-float about-float--compass" data-reveal="pop"><span class="tile tile--mint"><svg aria-hidden="true" focusable="false" class="i i-compass" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <circle cx="12" cy="12" r="10" /> <path d="m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z" /> </svg></span></span>
+    </div>
+  </div>
+</section>
+
+<section class="wrap about-why" aria-labelledby="why-title">
+  <div class="about-why__row">
+    <div class="about-why__head" data-reveal>
+      <p class="eyebrow">Why we exist</p>
+      <h2 class="about-h2" id="why-title">Small frictions deserve small tools</h2>
+    </div>
+    <div class="about-why__copy" data-stagger>
+      <p data-reveal>Everyday life is full of small frictions. Keeping track of the house kitty,
+        remembering who paid for the groceries, working out what a shared trip actually cost. None of
+        it is difficult on its own, but it adds up, and it usually lands on whoever is willing to keep
+        the list.</p>
+      <p data-reveal>Most apps solve these moments by asking for a lot in return. They want your
+        attention, your contacts, your spending history and a subscription before they will show you
+        a total. We think a tool for a two-minute task should not cost you any of that.</p>
+      <p class="about-why__strong" data-reveal>So SunnyOrbit builds the other kind of app. It does the
+        job, stays quiet, and respects the person holding the phone.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap about-values" aria-labelledby="values-title">
+  <div class="sec-head" data-reveal>
+    <h2 class="about-h2" id="values-title">What we believe</h2>
+    <p>Four ideas decide what goes into a SunnyOrbit app and, more often, what stays out of it.</p>
+  </div>
+
+  <div class="about-values__grid" data-stagger>
+    <article class="card about-value" data-reveal="card">
+      <span class="tile about-value__tile pop-in"><svg aria-hidden="true" focusable="false" class="i i-timer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <line x1="10" x2="14" y1="2" y2="2" /> <line x1="12" x2="15" y1="14" y2="11" /> <circle cx="12" cy="14" r="8" /> </svg></span>
+      <h3 class="about-value__title">Usefulness over engagement</h3>
+      <p class="muted">A good session is a short one. We judge a release by the time it saves, not the
+        time it takes.</p>
+    </article>
+    <article class="card about-value" data-reveal="card">
+      <span class="tile tile--violet about-value__tile pop-in"><svg aria-hidden="true" focusable="false" class="i i-shield-check" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg></span>
+      <h3 class="about-value__title">Privacy by default</h3>
+      <p class="muted">We ask for the least data the app needs to work. Nothing is collected to sell,
+        and nothing is shared with advertisers.</p>
+    </article>
+    <article class="card about-value" data-reveal="card">
+      <span class="tile tile--sky about-value__tile pop-in"><svg aria-hidden="true" focusable="false" class="i i-eye" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg></span>
+      <h3 class="about-value__title">Clarity over cleverness</h3>
+      <p class="muted">Plain words and clear numbers. If a screen needs a tutorial, then the screen is
+        the problem.</p>
+    </article>
+    <article class="card about-value" data-reveal="card">
+      <span class="tile tile--amber about-value__tile pop-in"><svg aria-hidden="true" focusable="false" class="i i-message-circle" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /> </svg></span>
+      <h3 class="about-value__title">Ship small and listen</h3>
+      <p class="muted">We prefer small updates to big launches, and a real person reads what people
+        write to us.</p>
+    </article>
+  </div>
+</section>
+
+<section class="wrap about-facts" aria-labelledby="facts-title">
+  <div class="sec-head" data-reveal>
+    <h2 class="about-h2" id="facts-title">Where we stand today</h2>
+    <p>No growth charts or milestones to show off, just the plain facts about the studio.</p>
+  </div>
+
+  <ul class="about-facts__panel" data-reveal="card" data-stagger>
+    <li data-reveal>
+      <svg aria-hidden="true" focusable="false" class="i i-building-2" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 12h4" /> <path d="M10 8h4" /> <path d="M14 21v-3a2 2 0 0 0-4 0v3" /> <path d="M6 10H4a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2" /> <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" /> </svg>
+      <h3 class="about-fact__title">A Delaware company</h3>
+      <p>SunnyOrbit is a trading name of Moiasun LLC, a Delaware limited liability company.</p>
+    </li>
+    <li data-reveal>
+      <svg aria-hidden="true" focusable="false" class="i i-package" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z" /> <path d="M12 22V12" /> <polyline points="3.29 7 12 12 20.71 7" /> <path d="m7.5 4.27 9 5.15" /> </svg>
+      <h3 class="about-fact__title">One app so far: Pooled</h3>
+      <p>More are planned. None gets a name until it is genuinely ready.</p>
+    </li>
+    <li data-reveal>
+      <svg aria-hidden="true" focusable="false" class="i i-shield-check" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /> </svg>
+      <h3 class="about-fact__title">No ads or tracking</h3>
+      <p>Nothing we ship shows ads, runs analytics or sells what you put into it.</p>
+    </li>
+    <li data-reveal>
+      <svg aria-hidden="true" focusable="false" class="i i-gift" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 7v14" /> <path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8" /> <path d="M7.5 7a1 1 0 0 1 0-5A4.8 8 0 0 1 12 7a4.8 8 0 0 1 4.5-5 1 1 0 0 1 0 5" /> <rect x="3" y="7" width="18" height="4" rx="1" /> </svg>
+      <h3 class="about-fact__title">Free in early access</h3>
+      <p>Pooled has no price and no subscription while it is in early access.</p>
+    </li>
+  </ul>
+</section>
+
+<section class="wrap about-first" aria-labelledby="first-title">
+  <div class="panel about-first__panel" data-reveal>
+    <div class="about-first__copy" data-stagger>
+      <div data-reveal="pop"><svg class="pooled-icon" width="120" height="120" viewBox="0 0 320 320" role="img" aria-label="Pooled app icon" focusable="false"><defs><linearGradient id="pg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A2C22"/><stop offset="1" stop-color="#0D0E09"/></linearGradient></defs><rect width="320" height="320" rx="72" fill="url(#pg5)"/><rect x="100" y="78" width="120" height="96" rx="22" fill="#C9BCFF"/><rect x="64" y="112" width="192" height="130" rx="34" fill="#CBF264"/><rect x="196" y="159" width="48" height="36" rx="12" fill="#1A1B16"/></svg></div>
+      <h2 class="about-h2" id="first-title" data-reveal>Pooled is the app we built first</h2>
+      <p class="about-first__body" data-reveal>Pooled is a shared money tracker for Android. It keeps
+        a household's or a group's spending in one place, with a live balance for every member, and it
+        works without an account: with no account, nothing leaves your phone.</p>
+      <a class="about-first__link" href="pooled/" data-reveal>Read more about Pooled <svg aria-hidden="true" focusable="false" class="i i-arrow-right" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M5 12h14" /> <path d="m12 5 7 7-7 7" /> </svg></a>
+    </div>
+    <div class="about-first__phone">
+      <img src="assets/img/about-phone.webp" width="406" height="870"
+        alt="Pooled's dashboard on an Android phone, showing the month's balance and shared spaces"
+        loading="lazy" decoding="async" data-parallax="0.92">
+    </div>
+  </div>
+</section>
+
+<section class="wrap about-cta-wrap" aria-labelledby="about-cta-title">
+  <div class="panel about-cta" data-reveal data-stagger>
+    <span class="about-cta__accent about-cta__accent--sun" aria-hidden="true"><span class="tile"><svg aria-hidden="true" focusable="false" class="i i-users" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /> </svg></span></span>
+    <span class="about-cta__accent about-cta__accent--violet" aria-hidden="true"><span class="tile tile--violet"><svg aria-hidden="true" focusable="false" class="i i-heart" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5" /> </svg></span></span>
+    <h2 class="about-cta__title" id="about-cta-title" data-reveal>See what a quieter app feels like</h2>
+    <p class="about-cta__body" data-reveal>Pooled is free during early access. If something feels off
+      or missing, write to us and a real person will read it.</p>
+    <div class="btn-row about-cta__btns" data-reveal>
+      <a class="btn btn--sun" href="https://play.google.com/store/apps/details?id=com.limon.pooled"
+        rel="noopener">Get Pooled on Google Play</a>
+      <a class="btn btn--ink" href="contact.html">Contact the studio</a>
+    </div>
+  </div>
+</section>
 
 </main>
 

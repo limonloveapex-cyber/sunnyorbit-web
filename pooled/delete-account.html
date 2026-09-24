@@ -99,7 +99,206 @@
 
 
 <main id="main">
-<section class="section"><div class="wrap"><h1 class="h-hero h-hero--sm">Delete your Pooled account</h1></div></section>
+<!-- ============================================================ hero -->
+<!-- Google Play's account-deletion web resource for Pooled (Moiasun LLC).
+     Ported from the app's delete-account.html (hosting/prod in the app repo)
+     and corrected against the code on 2026-09-24:
+     - the control is "Delete account" when signed in and "Reset everything"
+       with no account (app_drawer.dart, account_page.dart);
+     - confirmation is typing a number the dialog shows; a password or the
+       Google picker is asked for only when Firebase wants a recent sign-in
+       (reset_everything.dart);
+     - Firestore point-in-time recovery is off and no backups exist; version
+       retention is one hour (Firestore admin API, production project). -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="stack" style="--gap:14px;max-width:760px">
+      <p class="eyebrow eyebrow--lilac">Account</p>
+      <h1 class="h-hero h-hero--sm">Delete your Pooled account</h1>
+      <p class="muted" style="font-size:15px">Last updated: 24 September 2026. This page is for the Pooled app for Android, published by Moiasun LLC (trading as SunnyOrbit).</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="prose">
+      <div class="summary">
+        <p><strong>The short version.</strong></p>
+        <ul>
+          <li>In Pooled, open the menu and choose <strong>Delete account</strong>.
+            It erases your ledger and your uploaded photos from the cloud, deletes
+            the account, and wipes the phone.</li>
+          <li>If you cannot get into the app, email
+            <a href="mailto:support@sunnyorbit.com?subject=Delete%20my%20Pooled%20account">support@sunnyorbit.com</a>
+            from your account's email address and we will do it for you within 30
+            days.</li>
+          <li>Money you shared with other people stays in <em>their</em> ledgers,
+            with your name taken off it. That part is explained below, because it is
+            the one thing that is not simply deleted.</li>
+        </ul>
+      </div>
+
+      <h2>Doing it yourself, in the app</h2>
+      <ul>
+        <li><strong>Step 1.</strong> Open Pooled.</li>
+        <li><strong>Step 2.</strong> Tap your picture at the top of the home screen to
+          open the menu.</li>
+        <li><strong>Step 3.</strong> Choose <strong>Delete account</strong>, near the
+          bottom of the menu. (It is also at the foot of your
+          <strong>Profile</strong> screen.)</li>
+        <li><strong>Step 4.</strong> To confirm, type the number the app shows you.
+          If you have not signed in recently, Google asks you to prove it is you,
+          with your password or by choosing your Google account again, so that
+          somebody who picks up your unlocked phone cannot do this to you.</li>
+      </ul>
+      <p>
+        It happens immediately. There is no waiting period, no &ldquo;we are sorry to
+        see you go&rdquo; email, and nothing to cancel afterwards. That also means
+        there is no undo, so take an export first if you want to keep your records.
+        <strong>Export</strong> is in the same menu.
+      </p>
+      <p>
+        <strong>No account?</strong> Then the same control is called
+        <strong>Reset everything</strong>. With no account, nothing was ever sent to
+        us, so there is nothing of yours in the cloud to delete. Reset everything
+        wipes the phone and returns the app to its welcome screen. Uninstalling the
+        app does the same.
+      </p>
+
+      <h2>If you cannot get into the app</h2>
+      <p>
+        Lost the phone, forgotten the password, or already uninstalled? Email us and
+        ask us to delete the account:
+      </p>
+      <p>
+        <a href="mailto:support@sunnyorbit.com?subject=Delete%20my%20Pooled%20account"><strong>support@sunnyorbit.com</strong></a>,
+        with the subject line &ldquo;Delete my Pooled account&rdquo;.
+      </p>
+      <ul>
+        <li><strong>Send it from the email address the account uses.</strong> That is
+          how we know the request is yours. If you can no longer use that address,
+          tell us the address and we will work out another way to confirm it with
+          you.</li>
+        <li>Include the <strong>email address of the account</strong>, if it is not
+          the one you are writing from, and the name shown on your profile.</li>
+        <li><strong>Never send your password.</strong> We will never ask for it, and
+          we do not need it to delete the account.</li>
+      </ul>
+      <p>
+        We will confirm it is your address, delete the account and everything listed
+        below, and write back to say it is done. Expect that within
+        <strong>30 days</strong>, and normally much sooner. If we cannot confirm that
+        the request came from the account holder, we will not act on it, because the
+        alternative is that anybody could delete anybody's ledger by sending an email.
+      </p>
+
+      <h2>What is deleted</h2>
+      <p>Everything below goes, from our servers and from the phone:</p>
+      <ul>
+        <li>Your sign-in: the account itself, so the address can be used again from
+          scratch.</li>
+        <li>Your profile: name, email address, profile picture, the date you accepted
+          the Terms of Use, and your block list.</li>
+        <li>Your personal wallets in full: every expense, every income, every
+          transfer, every budget, every category you made, every grocery list and
+          everything on it, including anything you had already deleted in the
+          app.</li>
+        <li>Every lent &amp; borrowed record, and every repayment against it.</li>
+        <li>Every receipt photo, every lent &amp; borrowed photo and your profile
+          picture, both the copy on the phone and the copy uploaded to cloud
+          storage.</li>
+        <li>Any pending request you had sent to join somebody's shared space.</li>
+      </ul>
+      <p>
+        On the phone this is a real erase rather than a marker saying
+        &ldquo;deleted&rdquo;: the app comes back at its welcome screen with nothing
+        in it, the way it was before you installed it.
+      </p>
+
+      <h2>Photos</h2>
+      <p>
+        <strong>Your uploaded photos are deleted too, in the same press of the
+        button.</strong> Every receipt and lent &amp; borrowed photo in your personal
+        wallets, and your profile picture, are removed from cloud storage while you
+        are still signed in. There is nothing to email us about afterwards and nothing
+        to wait for.
+      </p>
+      <p>
+        If any photo cannot be removed, usually because the connection dropped, the
+        app stops and deletes <em>nothing</em>. It tells you which file it could not
+        remove, and lets you try again. It will not delete your account over a photo
+        that would then be stranded in storage with no account left that could reach
+        it.
+      </p>
+      <p>
+        The one exception is <strong>photos you attached to entries in a shared
+        space</strong>. Those stay with the entries, for the same reason the entries
+        do, which the next section explains. You lose your own access to them when
+        your membership closes. If you want them gone, take them off those entries, or
+        leave the space, <strong>before</strong> deleting your account.
+      </p>
+
+      <h2>What stays, and why</h2>
+      <p>
+        <strong>Shared spaces you were in with other people.</strong> If you and a
+        flatmate kept a shared ledger, that ledger is theirs as much as yours, and the
+        money has to still add up for them after you leave. So the space itself stays,
+        and the entries and transfers in it stay.
+      </p>
+      <p>What we do take off them is you:</p>
+      <ul>
+        <li>Your name is replaced with a generic label.</li>
+        <li>Your profile picture is taken off your membership, so they no longer see
+          it.</li>
+        <li>Your membership is closed, so the space no longer appears for you and you
+          can no longer read it.</li>
+        <li>Receipt photos you attached to entries in that space stay with those
+          entries, for the same reason the entries do.</li>
+      </ul>
+      <p>
+        What remains is an anonymous entry in somebody else's household accounts,
+        something like &ldquo;someone put in ৳600&rdquo;, with no name or picture
+        attached. A note you typed on one of those entries stays with it, so if you
+        wrote anything identifying in a note, edit it before you go. We think this is
+        the right balance between your right to be forgotten and their right to have
+        their own records make sense. If you want your name removed from a shared
+        space <em>before</em> deleting your account, leave the space first.
+      </p>
+      <p>
+        <strong>Shared spaces you created are not deleted either</strong>, not even one
+        that nobody else ever joined. Deleting your account removes your own personal
+        wallets, and leaves every shared space where it is so that it is never deleted
+        out from under somebody else. If you want a shared space gone, delete the
+        space itself in the app first.
+      </p>
+
+      <h2>Backups</h2>
+      <p>
+        We do not keep backups of the Pooled database, and point-in-time recovery is
+        switched off. Our database, Google Cloud Firestore, keeps earlier versions of
+        changed or deleted records for one hour, after which they are gone. Google may
+        take longer to clear deleted data out of its own systems, as its Firebase data
+        processing terms set out. Nobody can read or restore a single person's data
+        from there.
+      </p>
+
+      <h2>If it does not work</h2>
+      <p>
+        Deleting a full ledger is hundreds of small operations, and on a bad
+        connection some of them can fail. If that happens the app tells you so and
+        leaves the account intact rather than half-erased. Try again on a better
+        signal. If it keeps failing, email
+        <a href="mailto:support@sunnyorbit.com?subject=Delete%20my%20Pooled%20account">support@sunnyorbit.com</a>
+        and we will finish it from our side.
+      </p>
+      <p>
+        The <a href="privacy.html">Pooled Privacy Policy</a> has the full detail of
+        what we hold and for how long.
+      </p>
+    </div>
+  </div>
+</section>
 
 </main>
 
