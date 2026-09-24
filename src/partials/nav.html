@@ -1,0 +1,32 @@
+<header class="site-header">
+  <div class="nav-pill" id="nav-pill" data-reveal="nav">
+    <a class="so-lockup" href="index.html" aria-label="SunnyOrbit home">
+      <span class="sun-mark">{{icon:sun:14}}</span>
+      <span class="so-wordmark">SunnyOrbit</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="apps.html" data-nav="apps">Apps</a>
+      <a href="how-we-build.html" data-nav="how">How we build</a>
+      <a href="about.html" data-nav="about">About</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="pill-btn pill-btn--soft" href="contact.html" data-nav="contact">Contact</a>
+      <a class="pill-btn pill-btn--ink" href="pooled/">Explore Pooled</a>
+    </div>
+
+    <!-- Below 860px the links fold into this panel. Every link in it is also
+         in the footer, so with JavaScript off nothing becomes unreachable. -->
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span class="sr-only">Menu</span>{{icon:menu:20}}
+    </button>
+    <div class="nav-panel" id="nav-panel">
+      <a href="apps.html">Apps</a>
+      <a href="how-we-build.html">How we build</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a class="pill-btn pill-btn--ink" href="pooled/">Explore Pooled</a>
+    </div>
+  </div>
+</header>

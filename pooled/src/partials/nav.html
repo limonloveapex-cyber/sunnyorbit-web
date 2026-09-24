@@ -1,0 +1,56 @@
+<header class="nav" id="site-nav">
+  <div class="wrap nav__inner">
+    <!-- No data-nav on the lockup: it links home, but marking it as the
+         current page would announce two current pages in the same nav. -->
+    <a class="lockup" href="index.html">{{mark}}Pooled</a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html" data-nav="home">Home</a>
+      <a href="how-it-works.html" data-nav="how">How it works</a>
+      <a href="features.html" data-nav="features">Features</a>
+      <a href="faq.html" data-nav="faq">FAQ</a>
+      <a href="faq.html#support">Support</a>
+    </nav>
+
+    <a class="btn btn--dark nav__cta" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a>
+
+    <!-- Below 900px the links collapse into this. It is a <button> and a real
+         panel rather than a checkbox hack so that screen readers are told the
+         state, and so the page still works if the script never runs: with no
+         JavaScript the panel stays shut and every link in it is also in the
+         footer, which is why the footer carries the full set. -->
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span class="sr-only">Menu</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+
+  <div class="nav__panel" id="nav-panel">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="features.html">Features</a>
+    <a href="faq.html">FAQ</a>
+    <a href="faq.html#support">Support</a>
+    <a class="btn btn--dark" style="margin-top:16px" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a>
+  </div>
+</header>
+
+<script>
+/* The only script on the site: a menu toggle and a hairline on the nav once
+   the page has scrolled. Inline because one <script> tag is cheaper than one
+   more request, and small enough to read in full before trusting it. */
+(function () {
+  var nav = document.getElementById('site-nav');
+  var btn = nav.querySelector('.nav__toggle');
+  btn.addEventListener('click', function () {
+    var open = nav.getAttribute('data-open') === 'true';
+    nav.setAttribute('data-open', String(!open));
+    btn.setAttribute('aria-expanded', String(!open));
+  });
+  var onScroll = function () {
+    nav.setAttribute('data-scrolled', String(window.scrollY > 8));
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>

@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pooled — Shared Money Tracker for Android</title>
+<meta name="description" content="Pooled is a free money tracker for Android. Track daily spending, share a space with roommates or family, and see what everyone has left. Works offline, no account needed.">
+<meta name="theme-color" content="#F5F4EF">
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<meta name="robots" content="noindex, nofollow">
+<!-- Preview build: no SITE_ORIGIN set, so this is noindex and carries no
+     canonical tag. Both change the moment the domain is configured. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pooled — Shared Money Tracker for Android">
+<meta property="og:description" content="Pooled is a free money tracker for Android. Track daily spending, share a space with roommates or family, and see what everyone has left. Works offline, no account needed.">
+<meta property="og:site_name" content="Pooled">
+<meta name="twitter:card" content="summary_large_image">
+<!--
+  Pooled — a SunnyOrbit product.
+
+  Six static pages, no framework, no build output beyond plain HTML. Nothing
+  on this site is fetched from a third party: the fonts are self-hosted in
+  assets/fonts and there is no script, no CDN, no analytics and no tracking
+  pixel anywhere in the repository. The app's whole pitch is that it does not
+  watch you; a marketing site that loaded a tracker to say so would be the
+  advertisement for the opposite.
+
+  Every claim on these pages was checked against the shipped code before it
+  was written — see hosting/notes/website-and-policy-brief.md in the app repo.
+  If a feature described here stops being true, delete the line. Do not soften
+  it.
+
+  Edit src/ and run `node tools/build.js`; this file is generated.
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav__inner">
+    <!-- No data-nav on the lockup: it links home, but marking it as the
+         current page would announce two current pages in the same nav. -->
+    <a class="lockup" href="index.html"><svg class="mark" viewBox="0 0 320 320" role="img" aria-label="Pooled" focusable="false"><rect width="320" height="320" rx="72" fill="#1E2018"/><rect x="100" y="78" width="120" height="96" rx="22" fill="#C9BCFF"/><rect x="64" y="112" width="192" height="130" rx="34" fill="#CBF264"/><rect x="196" y="159" width="48" height="36" rx="12" fill="#1A1B16"/></svg>Pooled</a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="how-it-works.html" >How it works</a>
+      <a href="features.html" >Features</a>
+      <a href="faq.html" >FAQ</a>
+      <a href="faq.html#support">Support</a>
+    </nav>
+
+    <a class="btn btn--dark nav__cta" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a>
+
+    <!-- Below 900px the links collapse into this. It is a <button> and a real
+         panel rather than a checkbox hack so that screen readers are told the
+         state, and so the page still works if the script never runs: with no
+         JavaScript the panel stays shut and every link in it is also in the
+         footer, which is why the footer carries the full set. -->
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span class="sr-only">Menu</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+
+  <div class="nav__panel" id="nav-panel">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="features.html">Features</a>
+    <a href="faq.html">FAQ</a>
+    <a href="faq.html#support">Support</a>
+    <a class="btn btn--dark" style="margin-top:16px" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a>
+  </div>
+</header>
+
+<script>
+/* The only script on the site: a menu toggle and a hairline on the nav once
+   the page has scrolled. Inline because one <script> tag is cheaper than one
+   more request, and small enough to read in full before trusting it. */
+(function () {
+  var nav = document.getElementById('site-nav');
+  var btn = nav.querySelector('.nav__toggle');
+  btn.addEventListener('click', function () {
+    var open = nav.getAttribute('data-open') === 'true';
+    nav.setAttribute('data-open', String(!open));
+    btn.setAttribute('aria-expanded', String(!open));
+  });
+  var onScroll = function () {
+    nav.setAttribute('data-scrolled', String(window.scrollY > 8));
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+
+<main id="main">
+<!-- ============================================================ hero -->
+<section class="section" style="padding-top:clamp(40px,5vw,72px)">
+  <div class="wrap split" style="--split:minmax(0,460px) minmax(0,1fr)">
+
+    <div class="stack" style="--gap:24px">
+      <h1 class="h-hero">Make shared money simple</h1>
+      <p class="lede">
+        Pooled is a money tracker for the things you pay for together. Track
+        what you spend, share a space with the people you live with, and see
+        exactly what everyone has left. Free, works offline, and no account
+        needed to start.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--dark" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Get Pooled</a>
+        <a class="btn btn--ghost" href="how-it-works.html">See how it works</a>
+      </div>
+    </div>
+
+    <!-- Three shots from the app, overlapping as drawn. Below 900px only the
+         first survives: three phones stacked vertically is a scroll, not a
+         composition. -->
+    <!-- min-height lives in the stylesheet, not here: an inline style beats a
+         media query, so setting it here left a 620px hole under the single
+         phone on a narrow screen. -->
+    <div class="phone-stack phone-stack--hero">
+      <img class="phone hero-phone hero-phone--c" src="assets/img/landing-hero-phone-center.webp" width="406" height="870"
+           alt="The Pooled dashboard showing a balance and recent entries." fetchpriority="high" decoding="async">
+      <img class="phone hero-phone hero-phone--l" src="assets/img/landing-hero-phone-left.webp" width="495" height="908"
+           alt="A shared space ledger listing each member and their balance." loading="lazy" decoding="async">
+      <img class="phone hero-phone hero-phone--r" src="assets/img/landing-hero-phone-right.webp" width="495" height="908"
+           alt="The amount keypad while adding an expense." loading="lazy" decoding="async">
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================================================== features -->
+<section class="section">
+  <div class="wrap split" style="--split:minmax(0,480px) minmax(0,568px)">
+
+    <div class="split__visual">
+      <img class="phone" src="assets/img/landing-dashboard.webp" width="410" height="864"
+           style="max-width:410px;margin-inline:auto"
+           alt="The Pooled dashboard: balance, this month's spend, and a list of recent entries."
+           loading="lazy" decoding="async">
+    </div>
+
+    <div class="stack" style="--gap:18px">
+      <p class="eyebrow eyebrow--lilac">Features</p>
+      <h2 class="h-sec">Everything a shared money tracker needs</h2>
+
+      <ul class="feature-list" style="margin-top:12px">
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <div>
+            <h3>Shared spaces</h3>
+            <p>A space for the flat, the trip or the family. Everyone adds
+              what they spent, and every member's balance updates for the
+              whole group.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ico ico--lilac"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h2m4 0h2M8 14h2m4 0h2M8 18h8"/></svg></span>
+          <div>
+            <h3>Two-tap entries</h3>
+            <p>The keypad opens on the amount, so a coffee takes three taps.
+              There is a calculator in it for when the number needs working
+              out first.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ico ico--amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></span>
+          <div>
+            <h3>Budgets and analytics</h3>
+            <p>A limit per category, a bar that fills as the month goes on,
+              and a weekly breakdown that shows which weeks were the
+              expensive ones.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
+          <div>
+            <h3>Lent &amp; borrowed, back to zero</h3>
+            <p>Log what you lent or borrowed, record part repayments as they
+              come in, and watch the outstanding balance count down to
+              nothing.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================================================== advantages -->
+<section class="section">
+  <div class="wrap">
+
+    <div class="split" style="--split:minmax(0,568px) minmax(0,480px)">
+      <div class="stack" style="--gap:16px">
+        <p class="eyebrow eyebrow--lilac">Advantages</p>
+        <h2 class="h-sec">Why choose Pooled?</h2>
+        <h3 class="h-block" style="font-size:26px;margin-top:8px">See what everyone has left</h3>
+        <p class="lede">
+          Open a shared space for your flatmates, a weekend trip or the
+          family budget. Send someone money ahead of time and watch it draw
+          down as they spend it. Every entry lands in one ledger, every
+          member has a running balance, and the whole group is looking at the
+          same numbers.
+        </p>
+      </div>
+
+      <div class="split__visual">
+        <img class="phone" src="assets/img/landing-shared-ledger.webp" width="410" height="864"
+             style="max-width:410px;margin-inline:auto"
+             alt="A shared space in Pooled, listing each member with their current balance."
+             loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="split split--reverse" style="--split:minmax(0,540px) minmax(0,508px);margin-top:clamp(48px,6vw,96px)">
+      <div class="split__visual">
+        <img src="assets/img/landing-control-collage.webp" width="540" height="726"
+             style="max-width:540px;margin-inline:auto"
+             alt="App lock with a PIN, and the export screen offering CSV and PDF."
+             loading="lazy" decoding="async">
+      </div>
+
+      <div class="stack" style="--gap:16px">
+        <p class="eyebrow eyebrow--lilac">Privacy and control</p>
+        <h3 class="h-block" style="font-size:26px">Your money, your rules</h3>
+        <p class="lede">
+          Lock Pooled behind a PIN, a password or your fingerprint. Set
+          budgets that match how you actually spend. Keep adding entries with
+          no signal and let them sync when you are back. Without an account,
+          nothing you record ever leaves your phone.
+        </p>
+        <ul class="ticks" style="margin-top:8px">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#E6F7BE"/><path d="M7.5 12.4l3 3 6-6.5" stroke="#3D7F5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>App lock</strong> with a PIN, password or fingerprint</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#E6F7BE"/><path d="M7.5 12.4l3 3 6-6.5" stroke="#3D7F5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Monthly budgets</strong> for every category</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#E6F7BE"/><path d="M7.5 12.4l3 3 6-6.5" stroke="#3D7F5C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Add entries offline</strong> and sync them later</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================== why we built -->
+<!-- The design put a customer testimonial here. Pooled has not been released,
+     so it has no customers, and a quote attributed to a person who does not
+     exist is a fabricated review whichever way it is labelled. The slot keeps
+     its shape and its quote-mark art; the words are ours and are true. -->
+<section class="section" style="background:var(--surface-alt)">
+  <div class="wrap">
+    <div class="sec-head" style="margin-inline:auto;text-align:center">
+      <p class="eyebrow eyebrow--lilac">Why we built it</p>
+      <h2 class="h-sec">Shared money is where budgeting apps give up</h2>
+    </div>
+
+    <div class="split" style="--split:minmax(0,420px) minmax(0,568px);margin-top:48px">
+      <div class="split__visual">
+        <img src="assets/img/landing-quote-art.webp" width="480" height="440"
+             style="max-width:420px;margin-inline:auto" alt="" loading="lazy" decoding="async">
+      </div>
+
+      <div class="stack" style="--gap:18px">
+        <p class="lede" style="font-size:19px;color:var(--ink)">
+          Nearly every money app assumes one person with one wallet. Real life
+          is not like that. Rent is split four ways, somebody else did the
+          shopping, and the ৳500 you lent your brother in March has been
+          quietly forgotten by both of you.
+        </p>
+        <p class="lede">
+          Pooled started as a household ledger that had to reconcile, because
+          the version that did not reconcile caused arguments. Balances are
+          never stored — they are recalculated from the records every time, so
+          the number on your screen can always be traced back to the entries
+          that made it.
+        </p>
+        <p class="lede">
+          It is built by SunnyOrbit, a small independent studio. The same
+          people write the code, answer the email and ship the updates.
+        </p>
+        <p style="font-size:15px;font-weight:700">— The SunnyOrbit team</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================= faq -->
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head" style="margin-inline:auto;text-align:center">
+      <p class="eyebrow eyebrow--lilac">FAQ</p>
+      <h2 class="h-sec">Frequently asked questions</h2>
+    </div>
+
+    <div class="grid grid--2" style="margin-top:48px">
+      <div class="card">
+        <h3>Is Pooled free to use?</h3>
+        <p>Yes. Pooled is in early access and every feature is switched on for
+          everybody. There is no price, no trial and nothing to cancel.</p>
+      </div>
+      <div class="card">
+        <h3>Do I need to connect a bank account?</h3>
+        <p>No. Pooled never asks for bank logins. You add entries by hand in a
+          few taps, so setup stays simple and your accounts stay untouched.</p>
+      </div>
+      <div class="card">
+        <h3>How do shared spaces work?</h3>
+        <p>Create a space for a flat, a trip or a family, invite people with a
+          six-character code, and every entry anyone adds updates the balances
+          the whole group can see.</p>
+      </div>
+      <div class="card">
+        <h3>Can I set budgets and track money I lent?</h3>
+        <p>Yes. Set a monthly limit per category, and log money you lent or
+          borrowed with part repayments until the balance reaches zero.</p>
+      </div>
+      <div class="card">
+        <h3>Is my data private?</h3>
+        <p>Without an account nothing leaves your phone, and what is stored
+          there is encrypted. There is no analytics, no advertising and no
+          tracking, and the app contacts no company at all except Google, and
+          only once you make an account.</p>
+      </div>
+      <div class="card">
+        <h3>Can I export to CSV or PDF?</h3>
+        <p>Yes. Export any date range as a CSV for a spreadsheet, or a PDF with
+          category and payment-method breakdowns.</p>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:36px">
+      <a class="btn btn--ghost" href="faq.html">Read all the questions</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================= cta -->
+<section class="section">
+  <div class="wrap">
+    <div class="panel-dark">
+      <div class="rings" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <div class="split" style="--split:minmax(0,540px) minmax(0,1fr);gap:40px">
+        <div class="stack" style="--gap:20px">
+          <h2 class="h-sec" style="font-size:clamp(32px,4.4vw,52px)">Ready to take control of your money?</h2>
+          <p class="lede">
+            Track what you spend, share a space with the people you live
+            with, and know where everyone stands. Free on Android and ready to
+            use in under a minute.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn--lime btn--play" href="https://play.google.com/store/apps/details?id=com.limon.pooled">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M3.6 2.3c-.4.3-.6.8-.6 1.4v16.6c0 .6.2 1.1.6 1.4l9-9.7-9-9.7zm10.1 8.6 2.9-3.1-9-5.1c-.3-.2-.6-.2-.9-.1l7 8.3zm0 2.2-7 8.3c.3.1.6.1.9-.1l9-5.1-2.9-3.1zm1.1-1.1 3.3-3.5c.6.4 1 .9 1 1.5s-.4 1.1-1 1.5l-3.3-3.5z"/></svg>
+              Get it on Google Play
+            </a>
+          </div>
+          <p style="font-size:14px;color:#9FA196">Android 7.0 and above &middot; Works offline &middot; No account needed</p>
+        </div>
+
+        <div class="split__visual" style="align-self:end">
+          <img class="phone" src="assets/img/landing-cta-phone.webp" width="523" height="918"
+               style="max-width:420px;margin-inline:auto"
+               alt="The Pooled dashboard on a phone." loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="lockup"><svg class="mark" viewBox="0 0 320 320" role="img" aria-label="Pooled" focusable="false"><rect width="320" height="320" rx="72" fill="#1E2018"/><rect x="100" y="78" width="120" height="96" rx="22" fill="#C9BCFF"/><rect x="64" y="112" width="192" height="130" rx="34" fill="#CBF264"/><rect x="196" y="159" width="48" height="36" rx="12" fill="#1A1B16"/></svg>Pooled</span>
+        <a class="footer__byline" href="../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke-linecap="round"/></svg>
+          A SunnyOrbit product
+        </a>
+      </div>
+
+      <div class="footer__contact">
+        <p class="eyebrow">Questions or feedback</p>
+        <a href="mailto:support@sunnyorbit.com">support@sunnyorbit.com</a>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="footer__cols">
+      <div>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="delete-account.html">Delete your account</a></li>
+          <!-- The design listed a Cookie Policy here. This site sets no
+               cookies and runs no analytics, so there would be nothing for
+               that page to say; privacy.html states it in one line instead.
+               Restore the link the day something here sets a cookie. -->
+        </ul>
+      </div>
+
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a></li>
+          <li><a href="features.html#early-access">Pooled Pro</a></li>
+          <li><a href="features.html#widgets">Widgets</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Stay up to date</h2>
+        <!-- The design drew an email field and a Subscribe button. A field
+             that posts nowhere is a field that quietly throws addresses away,
+             and wiring a real one means a third-party form endpoint watching
+             every visitor of a site whose entire claim is that nothing here
+             watches you. Until a self-hosted list exists, this is a mailto:
+             that lands in the same inbox and keeps the promise. -->
+        <p class="muted" style="margin-top:14px;font-size:14px">
+          Want to know when Pooled lands on Google Play? Send us a blank email
+          and we will write to you once, on the day it does.
+        </p>
+        <a class="btn btn--lime" style="margin-top:14px"
+           href="mailto:support@sunnyorbit.com?subject=Tell%20me%20when%20Pooled%20launches">
+          Email us
+        </a>
+      </div>
+    </div>
+
+    <hr>
+
+    <p class="footer__bottom">
+      Pooled is published by Moiasun LLC, trading as
+      <a href="../index.html">SunnyOrbit</a>. &copy; 2026 Moiasun LLC. All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
+
+</body>
+</html>

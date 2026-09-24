@@ -1,0 +1,504 @@
+<!-- ============================================================ hero -->
+<!-- The prose below is ported from hosting/prod/privacy.html in the app repo,
+     which was written against the code rather than from a template: it names
+     the one third-party request the app makes, admits the cloud copy is not
+     end-to-end encrypted, and says which records survive an account deletion.
+     The design file carried a generic twelve-heading policy instead. Keeping
+     the verified text and restyling it was the only defensible direction --
+     a prettier policy that described a different app would be worse than no
+     redesign at all.
+
+     If the app changes, this page changes with it. The brief that governs
+     what may be claimed is hosting/notes/website-and-policy-brief.md. -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="stack" style="--gap:14px;max-width:760px">
+      <p class="eyebrow eyebrow--lilac">Legal</p>
+      <h1 class="h-hero h-hero--sm">Privacy Policy</h1>
+      <p class="muted" style="font-size:15px">Last updated: 17 September 2026. This policy covers the Pooled Android app and this website.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="prose">
+      <div class="summary">
+        <p><strong>The short version.</strong></p>
+        <ul>
+          <li>Pooled works without an account. Until you make one, everything you
+            record stays on your phone.</li>
+          <li>If you make an account, your ledger is copied to Google Cloud Firestore
+            so it survives a lost phone. We can technically read that copy; it is not
+            end-to-end encrypted.</li>
+          <li>With an account, your receipts, loan photos and profile picture are
+            also uploaded, to Google Cloud Storage. A photo on an entry in a
+            <em>shared</em> space can be seen by everyone in that space.</li>
+          <li>On your phone, the ledger and your receipt photos are encrypted with a
+            key held in the Android Keystore.</li>
+          <li>There is no analytics, no advertising, no crash reporting and no
+            tracking SDK in this app. None.</li>
+          <li>Once per launch the app asks an IP-lookup service which country you are
+            connecting from, so it can guess your currency. That service sees your IP
+            address. Details are below, and you should read them.</li>
+          <li>“Reset everything” erases the cloud copy, both the records and the
+            uploaded photos, and wipes the phone.</li>
+        </ul>
+      </div>
+      
+      <h2>Who this policy is from</h2>
+      <p>
+        Pooled is published by <span class="fill">[TO FILL: legal entity name]</span>,
+        of <span class="fill">[TO FILL: postal address]</span>. This policy is
+        governed by the law of
+        <span class="fill">[TO FILL: country you live in]</span>. That does not take
+        away any right you have under the law of the country you are in. Where your
+        local law gives you more, your local law wins. In this document “we” means
+        that publisher and “you” means the person using the app.
+      </p>
+      
+      <h2>What stays on your phone</h2>
+      <p>
+        Pooled is local-first. An account is for <em>backing up</em> what is
+        already on your phone, not for permission to use the app. Everything below
+        works with the phone in flight mode and no account at all:
+      </p>
+      <ul>
+        <li>Your expenses and income: the amount, category, note, date and how it was
+          paid.</li>
+        <li>Budgets, transfers, grocery lists, and loans and their repayments.</li>
+        <li>Receipt photos. These always stay on the phone, and they are also
+          uploaded once you have an account (see “Photos” below).</li>
+        <li>Your app-lock PIN or password. It is stored as a salted, stretched
+          derived key, never the secret itself, and it never leaves the phone.</li>
+        <li>Your chosen currency, language and app settings.</li>
+      </ul>
+      <p>
+        Android's own backup is switched off for this app. Neither the automatic
+        backup to your Google Drive nor the phone-to-phone transfer when you set up a
+        new device will copy Pooled's data, because a ledger holding salaries and
+        spending is not something that should travel somewhere you did not choose to
+        put it. The deliberate way to take your records out of the app is the Export
+        screen, which produces a CSV or PDF that you hand to whatever you like.
+      </p>
+      
+      <h2>What we hold when you make an account</h2>
+      
+      <h3>Your identity</h3>
+      <p>Firebase Authentication, operated by Google, holds:</p>
+      <ul>
+        <li>your email address;</li>
+        <li>your password, which Google holds in hashed form; we never see it, and
+          neither does the app after you type it;</li>
+        <li>your display name;</li>
+        <li>whether your email address has been verified;</li>
+        <li>a profile picture URL, if you have one.</li>
+      </ul>
+      <p>
+        If you sign in with Google instead, we receive your Google account's email
+        address, display name and profile picture from Google rather than collecting
+        them ourselves. We do not ask Google for anything else. No contacts, no
+        Drive, no calendar.
+      </p>
+      
+      <h3>Your ledger</h3>
+      <p>
+        With an account, the app copies your records to Google Cloud Firestore, under
+        <code>users/{your-user-id}</code> and <code>spaces/{space-id}</code>. That
+        copy includes, in full:
+      </p>
+      <ul>
+        <li><strong>Every expense and income entry</strong>: the amount, the
+          <em>note you typed</em>, the category, the date, and the payment
+          method.</li>
+        <li><strong>Spaces and their members</strong>: the name of each personal,
+          family or business ledger, its currency, and the display name and picture
+          of everyone in it.</li>
+        <li><strong>Transfers</strong> between people inside a shared space.</li>
+        <li><strong>Budgets</strong>, per category per month.</li>
+        <li><strong>Grocery lists</strong> and their items, including prices and who
+          ticked them off.</li>
+        <li><strong>Loans and repayments</strong>, including the <em>name of the
+          other person</em>, because that is what a loan record is for. See
+          “Other people's information” below.</li>
+        <li><strong>Invite codes</strong> for shared spaces, and requests to join
+          them.</li>
+      </ul>
+      <p>
+        Notes are free text. If you type someone's name, an account number or a
+        medical detail into the note on an expense, that is what gets stored, because
+        the app does not read your notes or decide which of them are sensitive.
+      </p>
+      <p>
+        This copy is not end-to-end encrypted. It is encrypted in transit (TLS) and
+        encrypted at rest by Google, but the service can read it, and so can we
+        through the Firebase console. Access rules keyed to your user ID stop other
+        users of Pooled from reading it. If that is not a trade you want to make,
+        use the app without an account: everything except the cloud backup still
+        works.
+      </p>
+      
+      <h3>Photos</h3>
+      <p>
+        <strong>With an account, the photos you attach in the app are uploaded to
+        Google Cloud Storage</strong>, so that they survive a lost phone and appear on
+        your other devices. A copy always stays on the phone as well. Without an
+        account nothing is uploaded; photos you attached before making one are
+        uploaded the next time you sign in.
+      </p>
+      <p>That means these, and only these:</p>
+      <ul>
+        <li><strong>Receipt photos</strong> you attach to an expense or income entry,
+          stored under <code>spaces/{space-id}/entries/…</code>.</li>
+        <li><strong>Photos on a loan</strong>: a picture of the other person if you
+          add one, and any receipt or IOU note you attach. These are stored under
+          <code>spaces/{space-id}/loans/…</code>.</li>
+        <li><strong>Your profile picture</strong>, if you set one, stored under
+          <code>users/{your-user-id}/avatar</code>.</li>
+      </ul>
+      <p>
+        The app resizes each photo before it is stored, to at most 1280 pixels on the
+        long edge. It also <strong>removes the notes your camera writes into the
+        file</strong> before the photo is saved anywhere: the EXIF block, the XMP
+        block and any embedded comment. That includes
+        <strong>where the photo was taken</strong>, if your camera records it, and
+        also the camera's serial number and the original timestamp. This happens the
+        moment you pick or take the picture, so the copy on your phone, the copy in
+        cloud storage and the copy inside any PDF you export are all stripped. The
+        picture itself is untouched: the same image data, the same format, never
+        re-compressed.
+        <!-- `lib/data/photo_metadata.dart`, applied in `pick()` in both photo
+             repositories, proved by `test/data/photo_metadata_test.dart`. One
+             honest limit is stated in the next sentence rather than left out. -->
+      </p>
+      <p>
+        The one format this cannot strip is HEIC/HEIF, because its metadata is not a
+        block that can be cut out. It does not arise in practice, because the app
+        always asks the system to re-encode a picked photo, which produces a JPEG.
+        The app never re-adds anything it has removed. If you want to be certain,
+        turn off location tagging in your camera app as well.
+      </p>
+      
+      <h4>Who can see them</h4>
+      <ul>
+        <li><strong>Photos in your personal space</strong> can be read only by your
+          own account.</li>
+        <li><strong>Photos in a shared space</strong>, such as a family or business
+          ledger, can be seen by <strong>every current member of that space</strong>, because
+          seeing the receipt is the point of sharing it. Someone removed from the
+          space loses access to its photos.</li>
+        <li><strong>Your profile picture</strong> can be loaded by any signed-in
+          Pooled account, so that people who share a space with you can see your
+          face next to your name. Pick a picture you are comfortable being public
+          to other users of the app, or none at all.</li>
+      </ul>
+      <p>
+        These rules are enforced by Google's servers, not by the app. Like the rest
+        of your cloud data, the photos are encrypted in transit and at rest by Google
+        but are <strong>not end-to-end encrypted</strong>: the service can read them,
+        and so can we through the Firebase console.
+      </p>
+      
+      <h4>When they are deleted</h4>
+      <ul>
+        <li>Taking a photo off an entry, deleting the entry, or deleting the loan
+          deletes the uploaded copy as well as the one on the phone. If the phone is
+          offline at that moment, the app deletes the uploaded copy the next time it
+          can.</li>
+        <li>Changing or removing your profile picture deletes the old one.</li>
+        <li>Deleting your account deletes every photo in your personal ledger and
+          your profile picture, in the same action. Photos you put in a
+          <em>shared</em> space are the exception. See “How long we keep it”
+          below, which says exactly why.</li>
+      </ul>
+      
+      <h2>The one thing the app sends to a third party</h2>
+      <p>
+        Every time Pooled launches, it makes a single request to
+        <strong>ipinfo.io</strong>, asking only which country your connection is
+        coming from. If that request fails, it tries <strong>api.country.is</strong>
+        instead. The app does this so that a person in Dhaka is not asked to pick
+        their currency out of a list on their first screen.
+      </p>
+      <p>What this does and does not mean, plainly:</p>
+      <ul>
+        <li>The request carries <strong>no identifier</strong>. Not your user ID, not
+          your email, not a device ID, not an advertising ID, and nothing at all
+          about your records. It is a bare GET with no parameters.</li>
+        <li>But any web request reveals the IP address it came from.
+          <strong>ipinfo.io is a commercial IP-intelligence company</strong>, and it
+          therefore learns that an IP address made a request, which is the same thing
+          it learns from any visitor. We have no contract with it, and its handling of
+          that request is governed by its own privacy policy, not this one.</li>
+        <li>The only thing the app keeps is a two-letter country code, used once to
+          pick a default currency. api.country.is also returns the IP address it saw;
+          the app reads the country field and discards the rest.</li>
+        <li>The second service is only contacted if the first fails, so in the
+          ordinary case exactly one company sees the request.</li>
+        <li>If the request fails or times out, the app falls back to your phone's own
+          region setting and nothing is sent at all.</li>
+        <li>The currency it picks is a guess you can change in two taps, in Settings.
+          We cannot currently offer a switch to disable the lookup; if you need one,
+          tell us at the address below.</li>
+      </ul>
+      
+      <h2>How your data is protected</h2>
+      <h3>On your phone</h3>
+      <p>
+        Your ledger and your receipt photos are encrypted at rest with AES-GCM under
+        a 256-bit key that is generated on the device and held in the Android
+        Keystore. Deleting the data discards the key with it.
+      </p>
+      <p>
+        Here is what that does and does not cover. It protects the files if
+        they leave the phone, for example in a forensic dump or on a rooted device.
+        It does not make your data unreadable to us, because the cloud copy described
+        above is a separate copy that is not encrypted with that key. <strong>This is
+        device-at-rest encryption, not end-to-end encryption.</strong>
+      </p>
+      
+      <h3>In transit and in the cloud</h3>
+      <p>
+        All traffic between the app and Google's services uses TLS. In Firestore,
+        your documents are readable only by an account whose user ID matches them, or
+        by the other members of a space you have joined. That is enforced by
+        server-side security rules, not by the app. Cloud Storage applies the same kind of rules
+        to photos, as set out under “Photos” above.
+      </p>
+      
+      <h2>What this app does not do</h2>
+      <p>
+        This is unusual enough to be worth stating flatly, and it is verifiable from
+        the app's dependency list:
+      </p>
+      <ul>
+        <li><strong>No analytics.</strong> Nothing counts your screens, sessions or
+          taps. There is no Firebase Analytics, no Google Analytics, no third-party
+          product analytics.</li>
+        <li><strong>No crash reporting.</strong> There is no Crashlytics or
+          equivalent. Errors are written to the device's own log and go nowhere.</li>
+        <li><strong>No advertising and no ad SDK.</strong> No ad network is built
+          into this app and no ad is served. Nothing collects an advertising ID.</li>
+        <li><strong>No tracking, attribution or fingerprinting SDK</strong> of any
+          kind.</li>
+        <li><strong>We do not sell or share your personal information</strong>, for
+          advertising or for anything else.</li>
+        <li><strong>We do not use your records to train anything.</strong></li>
+      </ul>
+      <p>
+        The only companies that touch your data are Google (for Firebase
+        Authentication, Cloud Firestore and Cloud Storage for Firebase) and the
+        IP-lookup service described above, which sees an IP address and nothing
+        else.
+      </p>
+      
+      <h2>Permissions the app asks for</h2>
+      <ul>
+        <li><strong>Internet.</strong> To sign in, to back up your ledger and your
+          photos, and for the country lookup.</li>
+        <li><strong>Camera and photos.</strong> Only when you attach a receipt to an
+          expense. The app opens the picker you chose; it does not browse your
+          gallery.</li>
+        <li><strong>Notifications.</strong> For one reminder, suggesting you make an
+          account so your records are backed up. It is requested the first time a
+          reminder is actually scheduled, not on first launch, and the app works
+          normally if you decline.</li>
+        <li><strong>Run at startup.</strong> So that a reminder you have already
+          agreed to survives a reboot instead of silently vanishing.</li>
+        <li><strong>Biometrics.</strong> Optional, for unlocking the app. Your
+          fingerprint or face is handled entirely by Android; the app is only told
+          yes or no, and never receives or stores any biometric data.</li>
+      </ul>
+      
+      <h2>Other people's information</h2>
+      <p>
+        Two features let you record things about people who are not you. A loan
+        stores the name of the person you lent to or borrowed from, and a photo of
+        them if you add one. A shared space stores the display name and picture of
+        each member. If you enter somebody else's details, you are responsible for
+        doing so lawfully and for telling them, where the law where you live requires
+        it. We hold that information only to make the feature work, and it is deleted
+        along with the record it belongs to.
+      </p>
+      
+      <h2>How long we keep it, and how to make it stop</h2>
+      <p>
+        We keep your data for as long as your account exists. There is no scheduled
+        purge and no retention timer: it is there until you remove it.
+      </p>
+      <p>
+        <strong>Reset everything</strong>, on the account screen, does all of this in
+        one go:
+      </p>
+      <ol>
+        <li>erases your profile, your loans and your personal ledger from Firestore:
+          every entry, transfer, category, budget, grocery list and item;</li>
+        <li><strong>deletes every photo you uploaded</strong> from Cloud Storage:
+          the receipts and loan photos in your personal ledger, and your profile
+          picture;</li>
+        <li>deletes your Firebase Authentication account, so the email address and
+          password go with it;</li>
+        <li>wipes the copy on the phone, including the encryption key and every
+          photo, and returns the app to its welcome screen.</li>
+      </ol>
+      <p>
+        <strong>There is nothing to write to us about afterwards, and nothing to
+        wait 30 days for.</strong> The photos go in the same press of the button as
+        the records, while you are still signed in. That is the only moment they can
+        go, because the permission to delete them is your sign-in.
+      </p>
+      <p>
+        The order matters and is enforced. The photos are removed before the
+        documents that grant access to them, and the account is deleted last of all.
+        If any part of the cloud copy cannot be erased, usually because the
+        connection dropped, then nothing is deleted at all. The app tells you which
+        file or record it could not remove, and you can try again. It will not leave
+        you with an unreachable ledger or an unreachable photo in the cloud that
+        nobody could ever remove.
+      </p>
+      <p>
+        <strong>One honest exception.</strong> A <em>shared</em> space is not deleted,
+        even one you created. Other members' money is recorded in it and their
+        ledgers still have to add up, so the space and its records carry on for them.
+        What happens instead is that your membership is marked as ended and your own
+        link to the space is removed, so you lose access to it. Your name and your
+        profile picture come off your membership in the same step, so the remaining
+        members no longer see either. What is left is an unnamed former member, still
+        attached to the transfers that involved you, because their ledger has to
+        account for that money. Receipt photos you attached to entries in
+        that space stay with those entries, visible to its remaining members, for the
+        same reason the entries do. A row reading “৳600 · Groceries” with its
+        receipt deleted is a worse record for them than one with it. You lose your
+        own access to those photos the moment your membership closes. If you want
+        them gone, take them off the entries, or leave the space, <em>before</em>
+        deleting your account. If you want a shared space removed entirely, delete
+        the space itself before deleting your account, or ask the other members to.
+      </p>
+      <p>
+        Uninstalling the app without deleting your account removes the copy on the
+        phone but leaves the cloud copy in place. Sign in again on any device and it
+        comes back.
+      </p>
+      
+      <h2>Your rights</h2>
+      <p>
+        Depending on where you live, you may have the right to access, correct,
+        export, restrict or erase the personal data we hold about you, and to object
+        to our processing of it. Most of these you can exercise yourself, immediately
+        and without asking us: the app's Export screen produces a full CSV or PDF of
+        your records, the account screen lets you change your name and email address,
+        and “Reset everything” erases everything as set out above.
+      </p>
+      <p>
+        For anything you cannot do in the app, or if you want written confirmation of
+        what we hold, write to the address below and we will answer within 30 days.
+        We will not charge you for it and we will not treat you differently for
+        asking.
+      </p>
+      
+      <h3>If you are in the EU or the UK</h3>
+      <p>
+        You have the rights the GDPR gives you: access, rectification, erasure,
+        restriction, portability, and objection. Our lawful basis for holding your
+        ledger is performance of the contract you entered into by making an account.
+        We cannot sync your records to another phone without holding them. If you are
+        not satisfied with our answer you may complain to your national data
+        protection authority, or to the Information Commissioner's Office in the UK.
+      </p>
+      
+      <h3>If you are in California</h3>
+      <p>
+        You have the right to know what we collect and why, to a copy of it, to have
+        it deleted, and to correct it. <strong>We do not sell your personal
+        information and we do not share it for cross-context behavioural
+        advertising</strong>. There is no advertising in this app at all, so there is
+        nothing to opt out of. Exercising any of these rights will never get you a
+        worse version of Pooled.
+      </p>
+      
+      <h3>If you are in Canada</h3>
+      <p>
+        PIPEDA applies. You may ask for access to your information and challenge its
+        accuracy, and if we cannot resolve a complaint between us you may take it to
+        the Office of the Privacy Commissioner of Canada.
+      </p>
+      
+      <h3>If you are in Australia</h3>
+      <p>
+        The Australian Privacy Principles apply. You may ask for access and
+        correction, and complain to the Office of the Australian Information
+        Commissioner if you are not satisfied with how we handle it.
+      </p>
+      
+      <h3>Wherever you are</h3>
+      <p>
+        If your country gives you a right not listed here, you still have it. Ask and
+        we will honour it. The answer to almost all of these is the same in any case:
+        the Export screen gives you everything we hold, and “Reset everything”
+        removes it, uploaded photos included.
+      </p>
+      
+      <h2>Children</h2>
+      <p>
+        Pooled is not directed at children. You must be at least
+        <strong>13, or the minimum age of digital consent in your country if that is
+        higher</strong> (for example 16 in some EU countries), to make an account,
+        and we do not knowingly collect personal information from anyone younger.
+        If you believe a child has made an account, contact us and we will delete it.
+      </p>
+      
+      <h2>Where your data is held</h2>
+      <p>
+        Firebase Authentication, Cloud Firestore and Cloud Storage for Firebase are
+        operated by Google. Your records are held in the Firebase region configured
+        for this project, <code>nam5</code> (United States). Your photos are held in
+        the project's Cloud Storage bucket, located in
+        <!-- Still not readable from the repo, and looked for again. Everything the
+             repo knows about the bucket is its *name*:
+             `spendnest-7ab42.firebasestorage.app`, in google-services.json and
+             lib/firebase_options.dart. A `.firebasestorage.app` name encodes no
+             region: it is the same suffix for every bucket in every location. And
+             there is no firebase.json `storage.location`, no gcloud config and no
+             note anywhere that records it.
+      
+             It also must not be guessed from the Firestore region. `nam5` is the
+             database, not the bucket, and CHANGELOG 2.1.0 records the opposite
+             suspicion out loud: cross-service Storage rules were failing, which
+             happens when the bucket and the database are in *incompatible*
+             locations. So "probably the US" is exactly the inference the evidence
+             argues against.
+      
+             Firebase console → Storage → the bucket's details shows it; it is fixed
+             at creation. Kept short on purpose, because `.fill` does not wrap. -->
+        <span class="fill">[TO CONFIRM: bucket location]</span>. Both
+        may be processed by Google in other countries in the course of running those
+        services. Google's handling of them is covered by its own terms and by the data
+        processing terms we have accepted as a Firebase customer.
+      </p>
+      
+      <h2>Changes to this policy</h2>
+      <p>
+        If we change what the app collects or who it is shared with, we will update
+        this page and change the date at the top before shipping the release that
+        makes the change. The current version always lives at this URL, so the date
+        above is the one to check.
+      </p>
+      
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy, requests about your data, or anything else:
+        <a href="mailto:support@sunnyorbit.com">support@sunnyorbit.com</a>.
+      </p>
+      <p>
+        Postal address for formal requests:
+        <span class="fill">[TO FILL: postal address]</span>.
+      </p>
+      <h2>Cookies on this website</h2>
+      <p>
+        This site sets no cookies, runs no analytics and loads nothing from a
+        third party. The fonts are served from this domain. There is no
+        consent banner because there is nothing to consent to.
+      </p>
+    </div>
+  </div>
+</section>

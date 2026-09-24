@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" width="320" height="320" role="img" aria-label="Pooled">
+  <title>Pooled</title>
+  <!-- "Wallet Evolved": lime wallet, lilac card behind it, ink clasp, on a
+       vertical ink gradient. Geometry is the 320 grid from
+       pooled/dist/pencil/brand/WALLET-EVOLVED-SPEC.md, the same numbers the
+       Android launcher is generated from, so the site and the phone show one
+       icon. The inline nav mark drops the gradient for a flat ink; at 34px it
+       reads the same. -->
+  <defs>
+    <linearGradient id="pooled-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2A2C22"/>
+      <stop offset="1" stop-color="#0D0E09"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" rx="72" fill="url(#pooled-ground)"/>
+  <rect x="100" y="78" width="120" height="96" rx="22" fill="#C9BCFF"/>
+  <rect x="64" y="112" width="192" height="130" rx="34" fill="#CBF264"/>
+  <rect x="196" y="159" width="48" height="36" rx="12" fill="#1A1B16"/>
+</svg>

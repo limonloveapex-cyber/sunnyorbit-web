@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="theme-color" content="#F1F2F4">
+<link rel="icon" href="assets/img/sunnyorbit-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/sunnyorbit-180.png">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/so.css">
+{{pagecss}}
+{{head}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:site_name" content="SunnyOrbit">
+<!--
+  sunnyorbit.com — SunnyOrbit is a trading name of Moiasun LLC.
+
+  Static pages, no framework. Nothing here is fetched from a third party:
+  fonts and icons are served from this domain, there is no analytics, no
+  cookie and no tracking pixel. The one script is assets/js/site.js (menu,
+  contact form, scroll motion); every page reads correctly without it.
+
+  Edit src/ and run `node tools/build.js`; this file is generated.
+-->
+<script>document.documentElement.className = 'js';</script>
+</head>
+<body data-page="{{page}}">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+{{nav}}
+
+<main id="main">
+{{body}}
+</main>
+
+{{footer}}
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+# Preview build with no domain attached yet. Everything is disallowed so
+# the github.io preview is not indexed ahead of the real domain.
+User-agent: *
+Disallow: /

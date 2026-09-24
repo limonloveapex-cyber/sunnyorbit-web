@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{desc}}">
+<meta name="theme-color" content="#F5F4EF">
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+{{canonical}}
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{desc}}">
+<meta property="og:site_name" content="Pooled">
+<meta name="twitter:card" content="summary_large_image">
+<!--
+  Pooled — a SunnyOrbit product.
+
+  Six static pages, no framework, no build output beyond plain HTML. Nothing
+  on this site is fetched from a third party: the fonts are self-hosted in
+  assets/fonts and there is no script, no CDN, no analytics and no tracking
+  pixel anywhere in the repository. The app's whole pitch is that it does not
+  watch you; a marketing site that loaded a tracker to say so would be the
+  advertisement for the opposite.
+
+  Every claim on these pages was checked against the shipped code before it
+  was written — see hosting/notes/website-and-policy-brief.md in the app repo.
+  If a feature described here stops being true, delete the line. Do not soften
+  it.
+
+  Edit src/ and run `node tools/build.js`; this file is generated.
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+{{nav}}
+
+<main id="main">
+{{body}}
+</main>
+
+{{footer}}
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Delete your Pooled account</title>
+<meta name="description" content="How to delete your Pooled account and its data, in the app or by email, and exactly what is removed and what stays.">
+<meta name="theme-color" content="#F5F4EF">
+<link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/site.css">
+<meta name="robots" content="noindex, nofollow">
+<!-- Preview build: no SITE_ORIGIN set, so this is noindex and carries no
+     canonical tag. Both change the moment the domain is configured. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Delete your Pooled account">
+<meta property="og:description" content="How to delete your Pooled account and its data, in the app or by email, and exactly what is removed and what stays.">
+<meta property="og:site_name" content="Pooled">
+<meta name="twitter:card" content="summary_large_image">
+<!--
+  Pooled — a SunnyOrbit product.
+
+  Six static pages, no framework, no build output beyond plain HTML. Nothing
+  on this site is fetched from a third party: the fonts are self-hosted in
+  assets/fonts and there is no script, no CDN, no analytics and no tracking
+  pixel anywhere in the repository. The app's whole pitch is that it does not
+  watch you; a marketing site that loaded a tracker to say so would be the
+  advertisement for the opposite.
+
+  Every claim on these pages was checked against the shipped code before it
+  was written — see hosting/notes/website-and-policy-brief.md in the app repo.
+  If a feature described here stops being true, delete the line. Do not soften
+  it.
+
+  Edit src/ and run `node tools/build.js`; this file is generated.
+-->
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="nav" id="site-nav">
+  <div class="wrap nav__inner">
+    <!-- No data-nav on the lockup: it links home, but marking it as the
+         current page would announce two current pages in the same nav. -->
+    <a class="lockup" href="index.html"><svg class="mark" viewBox="0 0 320 320" role="img" aria-label="Pooled" focusable="false"><rect width="320" height="320" rx="72" fill="#1E2018"/><rect x="100" y="78" width="120" height="96" rx="22" fill="#C9BCFF"/><rect x="64" y="112" width="192" height="130" rx="34" fill="#CBF264"/><rect x="196" y="159" width="48" height="36" rx="12" fill="#1A1B16"/></svg>Pooled</a>
+
+    <nav class="nav__links" aria-label="Primary">
+      <a href="index.html" >Home</a>
+      <a href="how-it-works.html" >How it works</a>
+      <a href="features.html" >Features</a>
+      <a href="faq.html" >FAQ</a>
+      <a href="faq.html#support">Support</a>
+    </nav>
+
+    <a class="btn btn--dark nav__cta" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a>
+
+    <!-- Below 900px the links collapse into this. It is a <button> and a real
+         panel rather than a checkbox hack so that screen readers are told the
+         state, and so the page still works if the script never runs: with no
+         JavaScript the panel stays shut and every link in it is also in the
+         footer, which is why the footer carries the full set. -->
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-panel">
+      <span class="sr-only">Menu</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+
+  <div class="nav__panel" id="nav-panel">
+    <a href="index.html">Home</a>
+    <a href="how-it-works.html">How it works</a>
+    <a href="features.html">Features</a>
+    <a href="faq.html">FAQ</a>
+    <a href="faq.html#support">Support</a>
+    <a class="btn btn--dark" style="margin-top:16px" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a>
+  </div>
+</header>
+
+<script>
+/* The only script on the site: a menu toggle and a hairline on the nav once
+   the page has scrolled. Inline because one <script> tag is cheaper than one
+   more request, and small enough to read in full before trusting it. */
+(function () {
+  var nav = document.getElementById('site-nav');
+  var btn = nav.querySelector('.nav__toggle');
+  btn.addEventListener('click', function () {
+    var open = nav.getAttribute('data-open') === 'true';
+    nav.setAttribute('data-open', String(!open));
+    btn.setAttribute('aria-expanded', String(!open));
+  });
+  var onScroll = function () {
+    nav.setAttribute('data-scrolled', String(window.scrollY > 8));
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+
+<main id="main">
+<section class="section"><div class="wrap"><h1 class="h-hero h-hero--sm">Delete your Pooled account</h1></div></section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="lockup"><svg class="mark" viewBox="0 0 320 320" role="img" aria-label="Pooled" focusable="false"><rect width="320" height="320" rx="72" fill="#1E2018"/><rect x="100" y="78" width="120" height="96" rx="22" fill="#C9BCFF"/><rect x="64" y="112" width="192" height="130" rx="34" fill="#CBF264"/><rect x="196" y="159" width="48" height="36" rx="12" fill="#1A1B16"/></svg>Pooled</span>
+        <a class="footer__byline" href="../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke-linecap="round"/></svg>
+          A SunnyOrbit product
+        </a>
+      </div>
+
+      <div class="footer__contact">
+        <p class="eyebrow">Questions or feedback</p>
+        <a href="mailto:support@sunnyorbit.com">support@sunnyorbit.com</a>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="footer__cols">
+      <div>
+        <h2>Links</h2>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How it works</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="delete-account.html">Delete your account</a></li>
+          <!-- The design listed a Cookie Policy here. This site sets no
+               cookies and runs no analytics, so there would be nothing for
+               that page to say; privacy.html states it in one line instead.
+               Restore the link the day something here sets a cookie. -->
+        </ul>
+      </div>
+
+      <div>
+        <h2>Product</h2>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a></li>
+          <li><a href="features.html#early-access">Pooled Pro</a></li>
+          <li><a href="features.html#widgets">Widgets</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2>Stay up to date</h2>
+        <!-- The design drew an email field and a Subscribe button. A field
+             that posts nowhere is a field that quietly throws addresses away,
+             and wiring a real one means a third-party form endpoint watching
+             every visitor of a site whose entire claim is that nothing here
+             watches you. Until a self-hosted list exists, this is a mailto:
+             that lands in the same inbox and keeps the promise. -->
+        <p class="muted" style="margin-top:14px;font-size:14px">
+          Want to know when Pooled lands on Google Play? Send us a blank email
+          and we will write to you once, on the day it does.
+        </p>
+        <a class="btn btn--lime" style="margin-top:14px"
+           href="mailto:support@sunnyorbit.com?subject=Tell%20me%20when%20Pooled%20launches">
+          Email us
+        </a>
+      </div>
+    </div>
+
+    <hr>
+
+    <p class="footer__bottom">
+      Pooled is published by Moiasun LLC, trading as
+      <a href="../index.html">SunnyOrbit</a>. &copy; 2026 Moiasun LLC. All rights reserved.
+    </p>
+
+  </div>
+</footer>
+
+
+</body>
+</html>

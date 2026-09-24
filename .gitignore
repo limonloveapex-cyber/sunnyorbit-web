@@ -1,0 +1,6 @@
+# Everything committed here is served verbatim by GitHub Pages; there is no
+# ignore list on the serving side. Keep working notes out of the repo.
+.DS_Store
+node_modules/
+tmp/
+*.log
