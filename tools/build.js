@@ -71,46 +71,66 @@ const expand = (html) => html
   .replace(/\{\{icon:([a-z0-9-]+)(?::(\d+))?\}\}/g, (w, n, s) => icon(n, s ? +s : 24))
   .replace(/\{\{pooled-icon:(\d+)\}\}/g, (w, s) => pooledIcon(+s));
 
+/* Titles and descriptions are written for search results, not just the tab:
+   what the page is, in the words someone would search, then the brand.
+   Titles stay under ~60 characters and descriptions under ~155 so Google
+   shows them whole. `type` is the schema.org page type for the structured
+   data below; `crumb` is the page's name in the breadcrumb trail. */
 const pages = {
   index: {
-    title: 'SunnyOrbit — Apps built for everyday life',
-    desc: 'SunnyOrbit builds small, focused mobile apps for everyday life. The first is Pooled, a shared money tracker for Android.',
+    title: 'SunnyOrbit — Simple Mobile Apps for Everyday Life',
+    desc: 'SunnyOrbit is an independent studio making simple, private mobile apps for everyday life. Our first app is Pooled, a shared expense tracker for Android.',
     nav: 'home',
+    type: 'WebPage',
   },
   apps: {
-    title: 'Apps — SunnyOrbit',
-    desc: 'The apps SunnyOrbit has built, and what every one of them has in common.',
+    title: 'Our Apps — Simple, Private Mobile Apps | SunnyOrbit',
+    desc: 'The apps SunnyOrbit has built and is building, starting with Pooled, a free shared expense tracker for Android. No ads, no tracking, no clutter.',
     nav: 'apps',
+    type: 'CollectionPage',
+    crumb: 'Apps',
   },
   about: {
-    title: 'About — SunnyOrbit',
-    desc: 'SunnyOrbit is a small independent studio run by Moiasun LLC. What we believe, and where we stand today.',
+    title: 'About SunnyOrbit — An Independent App Studio',
+    desc: 'SunnyOrbit is an independent studio run by Moiasun LLC, a Delaware company, building small mobile apps that respect your time and your privacy.',
     nav: 'about',
+    type: 'AboutPage',
+    crumb: 'About',
   },
   'how-we-build': {
-    title: 'How we build — SunnyOrbit',
-    desc: 'Fewer features, chosen carefully. How SunnyOrbit decides what to build, and what not to.',
+    title: 'How We Build — Fewer Features, Chosen Carefully | SunnyOrbit',
+    desc: 'How SunnyOrbit decides what goes into an app and what stays out: notice a real problem, build the smallest honest fix, check every claim, then listen.',
     nav: 'how',
+    type: 'WebPage',
+    crumb: 'How we build',
   },
   contact: {
-    title: 'Contact — SunnyOrbit',
-    desc: 'Talk to the people who build SunnyOrbit apps. Help with Pooled, privacy requests, ideas and press.',
+    title: 'Contact SunnyOrbit — Support, Privacy and Press',
+    desc: 'Email the people who build SunnyOrbit apps: help with Pooled, privacy and data requests, bug reports, ideas and press. A person reads every message.',
     nav: 'contact',
+    type: 'ContactPage',
+    crumb: 'Contact',
   },
   privacy: {
-    title: 'Privacy Policy — SunnyOrbit',
-    desc: 'How Moiasun LLC, trading as SunnyOrbit, handles personal information on this website and across its apps.',
+    title: 'Privacy Policy | SunnyOrbit (Moiasun LLC)',
+    desc: 'How Moiasun LLC, trading as SunnyOrbit, handles personal information on this website and in email, and where each app’s own privacy policy lives.',
     nav: null,
+    type: 'WebPage',
+    crumb: 'Privacy Policy',
   },
   terms: {
-    title: 'Terms of Service — SunnyOrbit',
-    desc: 'The terms for using sunnyorbitapps.com and SunnyOrbit apps, published by Moiasun LLC.',
+    title: 'Terms of Service | SunnyOrbit (Moiasun LLC)',
+    desc: 'The terms for using sunnyorbitapps.com and SunnyOrbit apps, published by Moiasun LLC, a Delaware limited liability company.',
     nav: null,
+    type: 'WebPage',
+    crumb: 'Terms of Service',
   },
   cookies: {
-    title: 'Cookie Policy — SunnyOrbit',
-    desc: 'This website sets no cookies and stores nothing in your browser. Here is exactly what that means.',
+    title: 'Cookie Policy — No Cookies, No Tracking | SunnyOrbit',
+    desc: 'sunnyorbitapps.com sets no cookies, runs no analytics and stores nothing in your browser. Here is exactly what that means, and how to check.',
     nav: null,
+    type: 'WebPage',
+    crumb: 'Cookie Policy',
   },
   404: {
     title: 'Page not found — SunnyOrbit',
@@ -127,14 +147,106 @@ const markNav = (html, current) =>
 
 const url = (name) => `${ORIGIN}/${name === 'index' ? '' : `${name}.html`}`;
 
+/* Structured data (schema.org JSON-LD). One Organization and one WebSite,
+   referenced by @id from every page, so search engines read the site as one
+   connected graph: Moiasun LLC, trading as SunnyOrbit, publishes this site and
+   the Pooled app. Every property here is a fact stated elsewhere on the site —
+   no ratings, no review counts, no download numbers, because none exist yet.
+   The Pooled app itself is described on the Pooled site (pooled/tools/build.js)
+   and referenced here by its @id. */
+const ORG = () => ({
+  '@type': 'Organization',
+  '@id': `${ORIGIN}/#organization`,
+  name: 'SunnyOrbit',
+  legalName: 'Moiasun LLC',
+  alternateName: 'Moiasun LLC',
+  url: `${ORIGIN}/`,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${ORIGIN}/assets/img/sunnyorbit-512.png`,
+    width: 512,
+    height: 512,
+  },
+  email: 'support@sunnyorbitapps.com',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '16192 Coastal Highway',
+    addressLocality: 'Lewes',
+    addressRegion: 'DE',
+    postalCode: '19958',
+    addressCountry: 'US',
+  },
+  description: 'An independent studio making simple, private mobile apps for everyday life.',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer support',
+    email: 'support@sunnyorbitapps.com',
+    availableLanguage: 'English',
+  },
+  owns: { '@id': `${ORIGIN}/pooled/#app` },
+});
+
+function structuredData(name, meta) {
+  const page = {
+    '@type': meta.type || 'WebPage',
+    '@id': `${url(name)}#webpage`,
+    url: url(name),
+    name: meta.title,
+    description: meta.desc,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${ORIGIN}/#website` },
+    publisher: { '@id': `${ORIGIN}/#organization` },
+  };
+  if (name === 'index') page.about = { '@id': `${ORIGIN}/#organization` };
+  if (name === 'apps') page.mainEntity = { '@id': `${ORIGIN}/pooled/#app` };
+  const graph = [
+    ORG(),
+    {
+      '@type': 'WebSite',
+      '@id': `${ORIGIN}/#website`,
+      url: `${ORIGIN}/`,
+      name: 'SunnyOrbit',
+      inLanguage: 'en',
+      publisher: { '@id': `${ORIGIN}/#organization` },
+    },
+    page,
+  ];
+  if (meta.crumb) {
+    page.breadcrumb = { '@id': `${url(name)}#breadcrumb` };
+    graph.push({
+      '@type': 'BreadcrumbList',
+      '@id': `${url(name)}#breadcrumb`,
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'SunnyOrbit', item: `${ORIGIN}/` },
+        { '@type': 'ListItem', position: 2, name: meta.crumb, item: url(name) },
+      ],
+    });
+  }
+  /* "</" is escaped so no string inside the JSON can ever close the script. */
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)
+    .replace(/<\//g, '<\\/');
+  return `<script type="application/ld+json">\n${json}\n</script>`;
+}
+
 let built = 0;
 for (const [name, meta] of Object.entries(pages)) {
   const pageCss = fs.existsSync(path.join(root, 'assets/css/pages', `${name}.css`))
     ? `<link rel="stylesheet" href="assets/css/pages/${name}.css">` : '';
 
   const head = ORIGIN && !meta.rooted
-    ? `<link rel="canonical" href="${url(name)}">\n<meta property="og:url" content="${url(name)}">\n`
-      + `<meta property="og:image" content="${ORIGIN}/assets/img/og.png">`
+    ? [
+      `<link rel="canonical" href="${url(name)}">`,
+      `<meta property="og:url" content="${url(name)}">`,
+      `<meta property="og:image" content="${ORIGIN}/assets/img/og.png">`,
+      '<meta property="og:image:width" content="1200">',
+      '<meta property="og:image:height" content="630">',
+      '<meta property="og:image:alt" content="SunnyOrbit — Apps built for everyday life">',
+      '<meta name="twitter:card" content="summary_large_image">',
+      `<meta name="twitter:title" content="${meta.title}">`,
+      `<meta name="twitter:description" content="${meta.desc}">`,
+      `<meta name="twitter:image" content="${ORIGIN}/assets/img/og.png">`,
+      structuredData(name, meta),
+    ].join('\n')
     : '<meta name="robots" content="noindex, nofollow">';
 
   let html = partials.shell

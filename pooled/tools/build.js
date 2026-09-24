@@ -46,37 +46,37 @@ const pages = {
     /* Not "expense splitter", and not "know who owes whom": the app does
        neither. See the FAQ entry "Does Pooled split a bill between people?" —
        a <title> is the one line most likely to be quoted back at you. */
-    title: 'Pooled — Shared Money Tracker for Android',
-    desc: 'Pooled is a free money tracker for Android. Track daily spending, share a space with roommates or family, and see what everyone has left. Works offline, no account needed.',
+    title: 'Pooled: Shared Expense Tracker for Android — Free, No Ads',
+    desc: 'Pooled is a free shared expense tracker for Android. Track spending, share a space with roommates or family, and see what everyone has left. No ads.',
   },
   'how-it-works': {
     out: 'how-it-works.html',
     nav: 'how',
-    title: 'How Pooled works — from the first tap to the whole month',
-    desc: 'The whole flow, in four steps: add an expense on the keypad, keep personal and shared money apart, see where every member stands, and watch the month take shape.',
+    title: 'How Pooled Works — Shared Expense Tracking in 4 Steps',
+    desc: 'Add an expense in seconds, keep personal and shared money apart, see where every member stands, and watch the month take shape. How Pooled works.',
   },
   'features': {
     out: 'features.html',
     nav: 'features',
-    title: 'Features — everything Pooled does with shared money',
-    desc: 'Expense and income tracking, shared spaces with a balance per member, budgets, lent & borrowed, receipt photos, CSV and PDF export, app lock and four home-screen widgets.',
+    title: 'Pooled Features — Budgets, Shared Spaces, Export and More',
+    desc: 'Everything Pooled does: expense and income tracking, shared spaces, budgets, lent and borrowed, receipt photos, CSV and PDF export, app lock and widgets.',
   },
   'faq': {
     out: 'faq.html',
     nav: 'faq',
-    title: 'FAQ & Support — Pooled',
-    desc: 'Answers about tracking money, shared spaces, budgets, lent & borrowed, exports and privacy in Pooled — plus how to reach the team that builds it.',
+    title: 'Pooled FAQ and Support — Shared Expense Tracker Help',
+    desc: 'Answers about Pooled, the shared expense tracker: shared spaces, budgets, exports, privacy and deleting your data, plus how to reach the team.',
   },
   'privacy': {
     out: 'privacy.html',
     nav: null,
-    title: 'Privacy Policy — Pooled',
+    title: 'Privacy Policy — Pooled Shared Expense Tracker',
     desc: 'What Pooled keeps on your phone, what it holds if you make an account, why it talks to no company but Google, and how to delete all of it.',
   },
   'terms': {
     out: 'terms.html',
     nav: null,
-    title: 'Terms of Service — Pooled',
+    title: 'Terms of Service — Pooled Shared Expense Tracker',
     desc: 'The terms for using Pooled, published by Moiasun LLC (SunnyOrbit): what may be shared in a space, reporting and blocking, and the rest.',
   },
   'delete-account': {
@@ -85,12 +85,95 @@ const pages = {
     /* Google Play requires a web page, separate from the app, where someone can
        ask for their account and data to be deleted. The app links here from
        its drawer ("Delete account (web)"). */
-    title: 'Delete your Pooled account',
+    title: 'Delete Your Pooled Account and Data',
     desc: 'How to delete your Pooled account and its data, in the app or by email, and exactly what is removed and what stays.',
   },
 };
 /* No 404 here: the site is served under /pooled/ and the root 404.html (the
    SunnyOrbit one) answers for every missing path, this folder included. */
+
+/* Structured data (schema.org JSON-LD). The home page describes Pooled as a
+   MobileApplication; every page gets a WebPage with a breadcrumb back through
+   Pooled to SunnyOrbit. The publisher is the Organization defined on the
+   company site, referenced by its @id rather than repeated, so both sites
+   describe one company.
+
+   Only facts that appear on these pages go in. Deliberately absent:
+   - aggregateRating / review: there are no ratings yet. Inventing them is
+     both against Google's rules and untrue.
+   - installUrl / downloadUrl: the Play listing is not live, and structured
+     data pointing at a 404 is worse than none. Add it on publish.
+   - FAQPage on faq.html: Google only shows FAQ rich results for
+     well-known government and health sites since 2023, so it would add
+     weight to the page and do nothing. */
+const SITE = ORIGIN.replace(/\/pooled$/, '');
+const APP_ID = `${ORIGIN}/#app`;
+const crumbs = {
+  'how-it-works': 'How it works', features: 'Features', faq: 'FAQ and support',
+  privacy: 'Privacy Policy', terms: 'Terms of Service', 'delete-account': 'Delete your account',
+};
+
+function structuredData(name, meta, pageUrl) {
+  const graph = [];
+  const page = {
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: meta.title,
+    description: meta.desc,
+    inLanguage: 'en',
+    isPartOf: { '@id': `${SITE}/#website` },
+    publisher: { '@id': `${SITE}/#organization` },
+    about: { '@id': APP_ID },
+  };
+  graph.push(page);
+
+  if (name === 'index') {
+    page.mainEntity = { '@id': APP_ID };
+    graph.push({
+      '@type': 'MobileApplication',
+      '@id': APP_ID,
+      name: 'Pooled',
+      alternateName: 'Pooled: Shared Expense Tracker',
+      url: `${ORIGIN}/`,
+      description: meta.desc,
+      image: `${ORIGIN}/assets/img/icon-512.png`,
+      applicationCategory: 'FinanceApplication',
+      operatingSystem: 'Android 7.0 or later',
+      inLanguage: ['en', 'bn', 'hi', 'ur', 'ar', 'es', 'fr', 'pt', 'id'],
+      isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      featureList: [
+        'Expense and income tracking',
+        'Shared spaces with a live balance for every member',
+        'Invite people with a six-character code',
+        'Monthly budgets per category',
+        'Lent and borrowed records with part repayments',
+        'Shared grocery lists',
+        'Receipt photos',
+        'CSV and PDF export',
+        'App lock with PIN, password or fingerprint',
+        'Four home-screen widgets',
+        'Works without an account; no ads, no analytics, no tracking',
+      ],
+      publisher: { '@id': `${SITE}/#organization` },
+      author: { '@id': `${SITE}/#organization` },
+      privacyPolicy: `${ORIGIN}/privacy.html`,
+    });
+  }
+
+  const list = [
+    { '@type': 'ListItem', position: 1, name: 'SunnyOrbit', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'Pooled', item: `${ORIGIN}/` },
+  ];
+  if (crumbs[name]) list.push({ '@type': 'ListItem', position: 3, name: crumbs[name], item: pageUrl });
+  page.breadcrumb = { '@id': `${pageUrl}#breadcrumb` };
+  graph.push({ '@type': 'BreadcrumbList', '@id': `${pageUrl}#breadcrumb`, itemListElement: list });
+
+  const json = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)
+    .replace(/<\//g, '<\\/');
+  return `<script type="application/ld+json">\n${json}\n</script>`;
+}
 
 /* Marks the current page in the nav. Done here rather than with a script so
    it survives with JavaScript off, and so the link is a real <a> either way. */
@@ -115,8 +198,18 @@ for (const [name, meta] of Object.entries(pages)) {
      it. Setting SITE_ORIGIN both makes the canonical tags absolute and drops
      the noindex, so going live is one flag rather than two. */
   const canonical = url
-    ? `<link rel="canonical" href="${url}">\n<meta property="og:url" content="${url}">\n`
-      + `<meta property="og:image" content="${ORIGIN}/assets/img/icon-512.png">`
+    ? [
+      `<link rel="canonical" href="${url}">`,
+      `<meta property="og:url" content="${url}">`,
+      `<meta property="og:image" content="${ORIGIN}/assets/img/og.png">`,
+      '<meta property="og:image:width" content="1200">',
+      '<meta property="og:image:height" content="630">',
+      '<meta property="og:image:alt" content="Pooled — shared expense tracker for Android">',
+      `<meta name="twitter:title" content="${meta.title}">`,
+      `<meta name="twitter:description" content="${meta.desc}">`,
+      `<meta name="twitter:image" content="${ORIGIN}/assets/img/og.png">`,
+      structuredData(name, meta, url),
+    ].join('\n')
     : '<meta name="robots" content="noindex, nofollow">\n'
       + '<!-- Preview build: no SITE_ORIGIN set, so this is noindex and carries no\n'
       + '     canonical tag. Both change the moment the domain is configured. -->';
