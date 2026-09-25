@@ -744,3 +744,24 @@ ul { margin: 0; padding: 0; list-style: none; }
   body { background: #fff; font-size: 12pt; }
   .prose { max-width: none; }
 }
+
+/* ------------------------------------------------ why-we-built-it photo */
+.why-photo { position: relative; margin: 0 auto; width: 100%; max-width: 420px; }
+.why-photo img {
+  width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 24px 48px rgba(26, 27, 22, 0.14);
+}
+/* The design's lime quote badge, kept as an accent on the photo's corner. */
+.why-photo__quote {
+  position: absolute; right: -18px; bottom: -18px;
+  width: 84px; height: 84px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--lime); color: var(--ink);
+  font-family: var(--font-display); font-weight: 700; font-size: 72px; line-height: 1;
+  padding-top: 18px;
+  box-shadow: 0 10px 24px rgba(26, 27, 22, 0.16);
+}
+@media (max-width: 560px) {
+  .why-photo__quote { right: 10px; bottom: -14px; width: 64px; height: 64px; font-size: 56px; padding-top: 14px; }
+}
