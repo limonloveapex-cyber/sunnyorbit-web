@@ -18,13 +18,29 @@
      - A report is never stored: showReportSheet blocks, then hands text to
        the system share sheet (lib/features/common/safety.dart).
 
+     Updated 2026-09-25 for 2.90.4+222, verified in the app repo:
+     - Publisher: launched from the owner's personal Play developer account
+       (developer name SunnyOrbit), not Moiasun LLC's, which comes later.
+     - Every launch, signed in or not, reads config/app (minBuild) from
+       Firestore: MinBuildController.refresh, called from App's
+       currentUserProvider listener with fireImmediately (lib/app/view/app.dart);
+       firestore.rules allows get of config/app to anybody (2.90.1).
+     - App Check is activated in bootstrap (_startAppCheck, Play Integrity in
+       release, monitor mode); activate() only installs the provider, and the
+       token is fetched by the first Firebase call that needs one, which with
+       no account is that launch read.
+     - grants/{uid} = {kind:'og', grantedAt}: owner-only get, create while
+       config/promo.closesAt is ahead, never updated, deleted by AccountPurge.
+       Pro.limitsEnforced and Pro.billingWired are both false.
+     - "Send balance" is "Record a payment" (2.90.3).
+
      If the app changes, this page changes with it. -->
 <section class="section section--tight">
   <div class="wrap">
     <div class="stack" style="--gap:14px;max-width:760px">
       <p class="eyebrow eyebrow--lilac">Legal</p>
       <h1 class="h-hero h-hero--sm">Pooled Privacy Policy</h1>
-      <p class="muted" style="font-size:15px">Effective date: 24 September 2026. Last updated: 24 September 2026. This policy covers the Pooled app for Android. How we handle this website and emails you send us is covered by the <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.</p>
+      <p class="muted" style="font-size:15px">Effective date: 25 September 2026. Last updated: 25 September 2026. This policy covers the Pooled app for Android. How we handle this website and emails you send us is covered by the <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.</p>
     </div>
   </div>
 </section>
@@ -35,8 +51,11 @@
       <div class="summary">
         <p><strong>The short version.</strong></p>
         <ul>
+          <li>Pooled is published on Google Play by an individual developer, named
+            below, under the developer name SunnyOrbit, the brand of Moiasun LLC.</li>
           <li>Pooled works without an account. Until you make one, everything you
-            record stays on your phone.</li>
+            record stays on your phone: none of your records, notes, photos or
+            settings leave it.</li>
           <li>If you make an account, your whole ledger is copied to Google Cloud
             Firestore so it survives a lost phone. We can technically read that
             copy. It is not end-to-end encrypted.</li>
@@ -48,9 +67,14 @@
             key held in the Android Keystore.</li>
           <li>There is no analytics, no advertising, no crash reporting and no
             tracking SDK in this app. None.</li>
-          <li>The app contacts no company except Google, and only once you make an
-            account. Your currency is guessed on the phone from its region and clock,
-            without asking anyone.</li>
+          <li>The app contacts no company except Google. Each time it opens, even with
+            no account, it reads one public setting from Google to check that your
+            version is still supported, with an anti-abuse check (App Check) attached.
+            That carries nothing about you or your money. Your currency is guessed on
+            the phone from its region and clock, without asking anyone.</li>
+          <li>Anyone who makes an account while early access is open gets 6 months
+            of Pro free and an &ldquo;OG&rdquo; badge. Nothing is charged; no billing
+            is connected.</li>
           <li>&ldquo;Delete account&rdquo; erases the cloud copy, both the records and
             the uploaded photos, and wipes the phone. Records you added to a shared
             space stay there for the other members, with your name taken off.</li>
@@ -59,16 +83,27 @@
 
       <h2>Who this policy is from</h2>
       <p>
-        Pooled is published by <strong>Moiasun LLC</strong>, a Delaware limited
-        liability company, trading as SunnyOrbit. Moiasun LLC is the
-        &ldquo;controller&rdquo; of the personal data described here, which
-        means it decides why and how that data is used. In this document
-        &ldquo;we&rdquo; means Moiasun LLC and &ldquo;you&rdquo; means the person
-        using the app.
+        Pooled is published on Google Play by
+        <strong><span class="fill">[TO FILL: your full legal name as verified in Play Console]</span></strong>,
+        an individual developer, under the developer name <strong>SunnyOrbit</strong>.
+        SunnyOrbit is the brand of <strong>Moiasun LLC</strong>, a Delaware limited
+        liability company at 16192 Coastal Highway, Lewes, DE 19958, United States.
+      </p>
+      <p>
+        The &ldquo;controller&rdquo; of the personal data described here, which
+        means the one who decides why and how it is used, is the individual named
+        above, the Play developer, who runs Pooled for SunnyOrbit and Moiasun LLC.
+        In this document &ldquo;we&rdquo; means that person together with Moiasun
+        LLC, and &ldquo;you&rdquo; means the person using the app.
+      </p>
+      <p>
+        Pooled will later move to Moiasun LLC's own Google Play developer account.
+        When it does, we will update this policy before the move and tell you in the
+        app.
       </p>
       <ul>
         <li>Email: <a href="mailto:support@sunnyorbitapps.com?subject=Pooled%20privacy%20request">support@sunnyorbitapps.com</a></li>
-        <li>Post: Moiasun LLC, 16192 Coastal Highway, Lewes, DE 19958, United States</li>
+        <li>Post: Moiasun LLC (Pooled), 16192 Coastal Highway, Lewes, DE 19958, United States</li>
       </ul>
       <p>
         We have not appointed a data protection officer. We are not required to,
@@ -95,6 +130,27 @@
       <p>
         Without an account, we receive none of this. We have no copy of it and no
         way to get one.
+      </p>
+      <p>
+        <strong>What does go out, even with no account.</strong> Each time Pooled
+        opens, it reads one public document from Google Cloud Firestore,
+        <code>config/app</code>. It holds a single number: the oldest version of
+        the app that is still allowed to run. If your version is older, the app
+        shows &ldquo;Update required&rdquo; and a button to Google Play, so that
+        unsupported and possibly insecure versions stop being used. The request
+        carries no account and nothing that identifies you. Like any request over
+        the internet, it does show Google your phone's IP address and the fact that
+        a copy of Pooled was opened. If the phone is offline, the app uses the last
+        answer it saw, or simply runs if it has never seen one.
+      </p>
+      <p>
+        That request also carries a Firebase App Check token. To get one, the app
+        asks Google Play's Integrity service to confirm that this is a genuine copy
+        of Pooled from Google Play on a genuine Android device, and Google turns the
+        answer into a short-lived token, renewed from time to time. It is a verdict
+        about the app and the device, not about you, and it is never shown to us as
+        anything that identifies you. Nothing else leaves the phone until you make an
+        account.
       </p>
       <p>
         Android's own backup is switched off for this app. Neither the automatic
@@ -181,6 +237,21 @@
         <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.
       </p>
 
+      <h3>Your early-access grant</h3>
+      <p>
+        If you make an account while early access is open, Pooled asks the server
+        for an early-access grant: 6 months of Pro, free, and a permanent
+        &ldquo;OG&rdquo; badge. The grant is one small record in Firestore, under
+        <code>grants/{your-user-id}</code>, holding only its kind
+        (<code>og</code>) and the time the server created it. Only your own account
+        can read it; other people, including the members of your spaces, cannot see
+        it or your badge. It is created once, never changed, and deleted with your
+        account. The app asks for it when you sign up, sign in, or open the app
+        signed in; once early access has closed, the server refuses and nothing is
+        created. No payment details are involved: no billing is connected to the
+        app.
+      </p>
+
       <h3>Your ledger</h3>
       <p>
         With an account, the app copies your records to Google Cloud Firestore, under
@@ -194,7 +265,9 @@
         <li><strong>Wallets and spaces, and their members</strong>: the name of each
           personal wallet and each shared space, its currency, and the display name
           and picture of everyone in it.</li>
-        <li><strong>Transfers</strong> between people inside a shared space.</li>
+        <li><strong>Transfers</strong>: payments you record between people inside a
+          shared space, with &ldquo;Record a payment&rdquo;. No money is moved; the
+          app just records it.</li>
         <li><strong>Budgets</strong>, per category per month.</li>
         <li><strong>Grocery lists</strong> and their items, including prices and who
           ticked them off.</li>
@@ -314,20 +387,26 @@
 
       <h2>Who else receives your data</h2>
       <p>
-        Pooled contacts <strong>no company but Google</strong>, and it contacts
-        Google only when you have an account. Google LLC runs these services for us
-        as our <em>processor</em>, which means it handles the data on our behalf and
-        under its data processing terms, not for its own purposes:
+        Pooled contacts <strong>no company but Google</strong>. With no account, it
+        contacts Google only for the launch version check described under
+        &ldquo;What stays on your phone&rdquo;, which carries nothing about you or
+        your money. With an account, it also uses Google for your sign-in, your
+        backup and your photos. Google LLC runs these services for us as our
+        <em>processor</em>, which means it handles the data on our behalf and under
+        its data processing terms, not for its own purposes:
       </p>
       <ul>
-        <li><strong>Firebase Authentication</strong>, for your sign-in;</li>
-        <li><strong>Cloud Firestore</strong>, for the copy of your ledger;</li>
-        <li><strong>Cloud Storage for Firebase</strong>, for your photos;</li>
+        <li><strong>Cloud Firestore</strong>, for the launch version check and, with
+          an account, the copy of your ledger and your early-access grant;</li>
         <li><strong>Firebase App Check</strong>, which asks Google Play to confirm
           that requests come from a genuine copy of the app, to stop scripts from
           abusing the service. It attaches a verdict about the app to requests the
-          app is already making. It does not identify you to us and records no
-          activity.</li>
+          app is already making, including the launch check with no account. It does
+          not identify you to us and records no activity;</li>
+        <li><strong>Firebase Authentication</strong>, for your sign-in, once you have
+          an account;</li>
+        <li><strong>Cloud Storage for Firebase</strong>, for your photos, once you
+          have an account.</li>
       </ul>
       <p>The only other people who can see any of your data are:</p>
       <ul>
@@ -415,8 +494,9 @@
 
       <h2>Permissions the app asks for</h2>
       <ul>
-        <li><strong>Internet.</strong> To sign in and to back up your ledger and your
-          photos, once you have an account.</li>
+        <li><strong>Internet.</strong> For the version check each time the app opens,
+          and, once you have an account, to sign in and to back up your ledger and
+          your photos.</li>
         <li><strong>Camera and photos.</strong> Only when you attach a photo. The app
           opens the picker you chose; it does not browse your gallery.</li>
         <li><strong>Notifications.</strong> For one reminder, suggesting you make an
@@ -465,9 +545,17 @@
           block list</strong>: performance of the contract, and our legitimate interest
           in being able to show that you accepted the rules of shared spaces and in
           letting you protect yourself.</li>
+        <li><strong>Holding and applying your early-access grant</strong>:
+          performance of the contract, because the grant is part of what the Terms
+          of Use give you.</li>
+        <li><strong>The launch version check</strong>: our legitimate interest, and
+          yours, in keeping unsupported and possibly insecure versions of the app
+          from running. It carries nothing about you beyond what any internet request
+          reveals.</li>
         <li><strong>Security</strong>, meaning App Check, sign-in protection, the
           security rules and dealing with abuse: our legitimate interest, and yours,
-          in keeping the service and your data safe.</li>
+          in keeping the service and your data safe and in stopping automated abuse
+          of it.</li>
         <li><strong>Dealing with reports and enforcing the Terms of Use</strong>,
           including closing an account: our legitimate interest in keeping shared
           spaces safe for the people in them.</li>
@@ -487,14 +575,15 @@
       </p>
       <p>
         An account is optional. You do not have to give us any personal data to use
-        Pooled. Without an account, the only things you cannot do are back up to the
+        Pooled, beyond the IP address that the launch version check, like any
+        internet request, shows to Google. Without an account, the only things you cannot do are back up to the
         cloud and share a space with other people.
       </p>
 
       <h2>Where your data is held</h2>
       <p>
         Moiasun LLC is a US company, and Google stores the Pooled cloud data in the
-        United States:
+        United States, whichever Play developer account publishes the app:
       </p>
       <ul>
         <li>Your records (Cloud Firestore) are in the <code>nam5</code> multi-region,
@@ -533,6 +622,8 @@
           and your block list), your lent &amp; borrowed records and your personal
           ledger from Firestore: every entry, transfer, category, budget, grocery list
           and item, including anything marked as deleted;</li>
+        <li>deletes your early-access grant (<code>grants/{your-user-id}</code>), so
+          your free Pro and your OG badge go with the account;</li>
         <li><strong>deletes every photo you uploaded</strong> from Cloud Storage: the
           receipts and lent &amp; borrowed photos in your personal wallets, and your
           profile picture;</li>
@@ -710,7 +801,11 @@
         this page and the date at the top before shipping the release that makes the
         change. If a change materially affects how we use data you have already given
         us, we will also tell you in the app, or by email if you have an account,
-        before it takes effect. The current version always lives at this URL.
+        before it takes effect. The same applies when Pooled moves from its
+        individual publisher to Moiasun LLC's Google Play developer account: we will
+        update this policy before the move and tell you in the app. The current
+        version always lives at
+        <a href="https://sunnyorbitapps.com/pooled/privacy">sunnyorbitapps.com/pooled/privacy</a>.
       </p>
 
       <h2>Contact</h2>
@@ -719,7 +814,7 @@
         <a href="mailto:support@sunnyorbitapps.com?subject=Pooled%20privacy%20question">support@sunnyorbitapps.com</a>.
       </p>
       <p>
-        Post: Moiasun LLC, 16192 Coastal Highway, Lewes, DE 19958, United States.
+        Post: Moiasun LLC (Pooled), 16192 Coastal Highway, Lewes, DE 19958, United States.
       </p>
     </div>
   </div>

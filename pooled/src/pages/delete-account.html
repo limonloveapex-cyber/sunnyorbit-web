@@ -1,5 +1,7 @@
 <!-- ============================================================ hero -->
-<!-- Google Play's account-deletion web resource for Pooled (Moiasun LLC).
+<!-- Google Play's account-deletion web resource for Pooled (published on
+     Google Play by the owner as an individual, developer name SunnyOrbit,
+     brand of Moiasun LLC; updated 2026-09-25 for 2.90.4+222).
      Ported from the app's delete-account.html (hosting/prod in the app repo)
      and corrected against the code on 2026-09-24:
      - the control is "Delete account" when signed in and "Reset everything"
@@ -8,13 +10,19 @@
        Google picker is asked for only when Firebase wants a recent sign-in
        (reset_everything.dart);
      - Firestore point-in-time recovery is off and no backups exist; version
-       retention is one hour (Firestore admin API, production project). -->
+       retention is one hour (Firestore admin API, production project);
+     - 2.90.4: the menu opens from the round menu button at the start of every
+       tab's header; signed in, the menu has only the red "Delete account",
+       and this page is linked from the Account page as "How account deletion
+       works"; signed out, the menu keeps "Delete account (web)"
+       (app_drawer.dart, account_page.dart);
+     - the early-access grant grants/{uid} is deleted by AccountPurge. -->
 <section class="section section--tight">
   <div class="wrap">
     <div class="stack" style="--gap:14px;max-width:760px">
       <p class="eyebrow eyebrow--lilac">Account</p>
       <h1 class="h-hero h-hero--sm">Delete your Pooled account</h1>
-      <p class="muted" style="font-size:15px">Last updated: 24 September 2026. This page is for the Pooled app for Android, published by Moiasun LLC (trading as SunnyOrbit).</p>
+      <p class="muted" style="font-size:15px">Last updated: 25 September 2026. This page is for the Pooled app for Android, published on Google Play by <span class="fill">[TO FILL: your full legal name as verified in Play Console]</span>, an individual developer, under the developer name SunnyOrbit, the brand of Moiasun LLC.</p>
     </div>
   </div>
 </section>
@@ -26,8 +34,9 @@
         <p><strong>The short version.</strong></p>
         <ul>
           <li>In Pooled, open the menu and choose <strong>Delete account</strong>.
-            It erases your ledger and your uploaded photos from the cloud, deletes
-            the account, and wipes the phone.</li>
+            It erases your ledger and your uploaded photos from the cloud, removes
+            your early-access Pro and OG badge, deletes the account, and wipes the
+            phone.</li>
           <li>If you cannot get into the app, email
             <a href="mailto:support@sunnyorbitapps.com?subject=Delete%20my%20Pooled%20account">support@sunnyorbitapps.com</a>
             from your account's email address and we will do it for you within 30
@@ -41,11 +50,13 @@
       <h2>Doing it yourself, in the app</h2>
       <ul>
         <li><strong>Step 1.</strong> Open Pooled.</li>
-        <li><strong>Step 2.</strong> Tap your picture at the top of the home screen to
-          open the menu.</li>
-        <li><strong>Step 3.</strong> Choose <strong>Delete account</strong>, near the
-          bottom of the menu. (It is also at the foot of your
-          <strong>Profile</strong> screen.)</li>
+        <li><strong>Step 2.</strong> Tap the round menu button (&#9776;) at the top of
+          any tab to open the menu.</li>
+        <li><strong>Step 3.</strong> Choose the red <strong>Delete account</strong>,
+          at the bottom of the menu. (It is also at the foot of your
+          <strong>Account</strong> page, which you reach from
+          <strong>Profile</strong> in the menu. The link under it, &ldquo;How
+          account deletion works&rdquo;, opens this page.)</li>
         <li><strong>Step 4.</strong> To confirm, type the number the app shows you.
           If you have not signed in recently, Google asks you to prove it is you,
           with your password or by choosing your Google account again, so that
@@ -59,10 +70,12 @@
       </p>
       <p>
         <strong>No account?</strong> Then the same control is called
-        <strong>Reset everything</strong>. With no account, nothing was ever sent to
-        us, so there is nothing of yours in the cloud to delete. Reset everything
+        <strong>Reset everything</strong>. With no account, none of your records was ever sent
+        to us, so there is nothing of yours in the cloud to delete. Reset everything
         wipes the phone and returns the app to its welcome screen. Uninstalling the
-        app does the same.
+        app does the same. Signed out, the menu also has <strong>Delete account
+        (web)</strong>, which opens this page, for an account you can no longer sign
+        in to.
       </p>
 
       <h2>If you cannot get into the app</h2>
@@ -108,6 +121,7 @@
           picture, both the copy on the phone and the copy uploaded to cloud
           storage.</li>
         <li>Any pending request you had sent to join somebody's shared space.</li>
+        <li>Your early-access grant: any free Pro you still had, and your OG badge.</li>
       </ul>
       <p>
         On the phone this is a real erase rather than a marker saying

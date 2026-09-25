@@ -158,7 +158,7 @@ function structuredData(name, meta, pageUrl) {
       ],
       publisher: { '@id': `${SITE}/#organization` },
       author: { '@id': `${SITE}/#organization` },
-      privacyPolicy: `${ORIGIN}/privacy.html`,
+      privacyPolicy: `${ORIGIN}/privacy`,
     });
   }
 
@@ -190,7 +190,7 @@ for (const [name, meta] of Object.entries(pages)) {
      og:url is what a link preview shows as the source. Both need an absolute
      URL, so both wait for ORIGIN. */
   const url = ORIGIN
-    ? `${ORIGIN}/${meta.out === 'index.html' ? '' : meta.out}`
+    ? `${ORIGIN}/${meta.out === 'index.html' ? '' : meta.out.replace(/\.html$/, '')}`
     : null;
   /* Until the domain is attached the site is a preview on github.io. Search
      engines should not index a preview: it competes with the real domain

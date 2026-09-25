@@ -145,7 +145,10 @@ const pages = {
 const markNav = (html, current) =>
   html.replace(/data-nav="([a-z]+)"/g, (w, k) => (k === current ? 'aria-current="page"' : ''));
 
-const url = (name) => `${ORIGIN}/${name === 'index' ? '' : `${name}.html`}`;
+/* Clean URLs (/about, not /about.html): GitHub Pages serves both, and the
+   clean form is what the Pooled app and the Play Console use, so it is the
+   one search engines are told is canonical. */
+const url = (name) => `${ORIGIN}/${name === 'index' ? '' : name}`;
 
 /* Structured data (schema.org JSON-LD). One Organization and one WebSite,
    referenced by @id from every page, so search engines read the site as one
@@ -297,8 +300,8 @@ fs.writeFileSync(path.join(root, 'robots.txt'), robots.join('\n') + '\n');
 
 if (ORIGIN) {
   const today = new Date().toISOString().slice(0, 10);
-  const pooledPages = ['', 'how-it-works.html', 'features.html', 'faq.html',
-    'privacy.html', 'terms.html', 'delete-account.html'];
+  const pooledPages = ['', 'how-it-works', 'features', 'faq',
+    'privacy', 'terms', 'delete-account'];
   const locs = [
     ...Object.keys(pages).filter((n) => !pages[n].rooted).map(url),
     ...pooledPages.map((p) => `${ORIGIN}/pooled/${p}`),

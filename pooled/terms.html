@@ -13,8 +13,8 @@
 <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="canonical" href="https://sunnyorbitapps.com/pooled/terms.html">
-<meta property="og:url" content="https://sunnyorbitapps.com/pooled/terms.html">
+<link rel="canonical" href="https://sunnyorbitapps.com/pooled/terms">
+<meta property="og:url" content="https://sunnyorbitapps.com/pooled/terms">
 <meta property="og:image" content="https://sunnyorbitapps.com/pooled/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -28,8 +28,8 @@
  "@graph": [
   {
    "@type": "WebPage",
-   "@id": "https://sunnyorbitapps.com/pooled/terms.html#webpage",
-   "url": "https://sunnyorbitapps.com/pooled/terms.html",
+   "@id": "https://sunnyorbitapps.com/pooled/terms#webpage",
+   "url": "https://sunnyorbitapps.com/pooled/terms",
    "name": "Terms of Service — Pooled Shared Expense Tracker",
    "description": "The terms for using Pooled, published by Moiasun LLC (SunnyOrbit): what may be shared in a space, reporting and blocking, and the rest.",
    "inLanguage": "en",
@@ -43,12 +43,12 @@
     "@id": "https://sunnyorbitapps.com/pooled/#app"
    },
    "breadcrumb": {
-    "@id": "https://sunnyorbitapps.com/pooled/terms.html#breadcrumb"
+    "@id": "https://sunnyorbitapps.com/pooled/terms#breadcrumb"
    }
   },
   {
    "@type": "BreadcrumbList",
-   "@id": "https://sunnyorbitapps.com/pooled/terms.html#breadcrumb",
+   "@id": "https://sunnyorbitapps.com/pooled/terms#breadcrumb",
    "itemListElement": [
     {
      "@type": "ListItem",
@@ -66,7 +66,7 @@
      "@type": "ListItem",
      "position": 3,
      "name": "Terms of Service",
-     "item": "https://sunnyorbitapps.com/pooled/terms.html"
+     "item": "https://sunnyorbitapps.com/pooled/terms"
     }
    ]
   }
@@ -170,6 +170,11 @@
          describes them (Play UGC policy, DECISIONS.md U1-U5).
      (b) the business clauses of the earlier site draft, aligned with the
          company terms at ../terms.html (US$50 cap, Delaware, no arbitration).
+     Updated 2026-09-25 for 2.90.4+222: publisher is the owner's personal Play
+     developer account (developer name SunnyOrbit) until Moiasun LLC's account
+     takes over; section 6 is now "Early access and Pro" (grants/{uid},
+     DECISIONS.md P1-P4; Pro.billingWired and Pro.limitsEnforced both false);
+     "Send balance" is "Record a payment"; the launch version check (P5).
      Not reviewed by a lawyer yet. -->
 <section class="section section--tight">
   <div class="wrap">
@@ -177,7 +182,7 @@
       <p class="eyebrow eyebrow--lilac">Legal</p>
       <h1 class="h-hero h-hero--sm">Pooled Terms of Service</h1>
       <p class="muted" style="font-size:15px">
-        Effective date: 24 September 2026. Last updated: 24 September 2026.
+        Effective date: 25 September 2026. Last updated: 25 September 2026.
         In the app these are called the Terms of Use. They cover the Pooled app
         for Android.
       </p>
@@ -194,8 +199,11 @@
         <ul>
           <li>Pooled is a ledger: a notebook for money and shopping. It is not a
             bank and not a lender, and it never moves money.</li>
-          <li>It is free during early access. No billing is connected, so nothing
-            can be charged.</li>
+          <li>Pooled is published on Google Play by an individual developer under the
+            name SunnyOrbit, the brand of Moiasun LLC.</li>
+          <li>Nothing can be charged: no billing is connected. Make an account while
+            early access is open and you get 6 months of Pro free and an OG
+            badge.</li>
           <li>You must be 18 or older to use it.</li>
           <li>A <em>shared space</em> shows everyone in it your name, your picture,
             what you record, your notes and your receipt photos. A personal wallet
@@ -213,11 +221,20 @@
 
       <h2>1. Who we are, and how these terms fit together</h2>
       <p>
-        Pooled is published by <strong>Moiasun LLC</strong>, a Delaware limited
-        liability company, trading as SunnyOrbit, of
-        16192 Coastal Highway, Lewes, DE 19958, United States.
-        &ldquo;We&rdquo; and &ldquo;us&rdquo; mean Moiasun LLC. &ldquo;You&rdquo;
-        means the person using the app.
+        Pooled is published on Google Play by
+        <strong><span class="fill">[TO FILL: your full legal name as verified in Play Console]</span></strong>,
+        an individual developer, under the developer name <strong>SunnyOrbit</strong>.
+        These terms are an agreement between you and that person. SunnyOrbit is the
+        brand of <strong>Moiasun LLC</strong>, a Delaware limited liability company,
+        of 16192 Coastal Highway, Lewes, DE 19958, United States, which owns the
+        Pooled name and brand. &ldquo;We&rdquo; and &ldquo;us&rdquo; mean the
+        publisher named above together with Moiasun LLC. &ldquo;You&rdquo; means
+        the person using the app.
+      </p>
+      <p>
+        Pooled will later move to Moiasun LLC's own Google Play developer account,
+        and Moiasun LLC will then be its publisher. We will update these terms before
+        that happens and tell you in the app.
       </p>
       <p>
         These are the app-specific terms for Pooled. The
@@ -256,7 +273,10 @@
       </p>
       <p>
         You can use Pooled without an account, and if you do, nothing you record
-        leaves your phone. If you make an account:
+        leaves your phone. (Each time it opens, the app does check with Google that
+        your version is still supported; that check carries nothing about you or
+        your money. If your version is too old, the app asks you to update it from
+        Google Play before you carry on.) If you make an account:
       </p>
       <ul>
         <li>give accurate details and keep your email address current, because it
@@ -288,8 +308,8 @@
         enter yourself. It does not lend money, arrange or broker loans, process
         payments, transfer or hold money, check credit, or give financial advice. It
         is not a bank, a payment service or a lender, and it holds no funds.
-        &ldquo;Sending&rdquo; an amount inside the app moves a number in a ledger and
-        nothing else. Any real payment between you and another person happens
+        &ldquo;Record a payment&rdquo; in a shared space records that one person paid
+        another; as the app says, no money is moved, it just records it. Any real payment between you and another person happens
         outside Pooled and is entirely between you.
       </p>
       <p>
@@ -306,18 +326,44 @@
         paying somebody or filing anything official.
       </p>
 
-      <h2>6. Payments</h2>
+      <h2>6. Early access and Pro</h2>
       <p>
         <strong>Pooled takes no payments.</strong> No billing is connected to the
         app, so there is no price, no trial, no subscription and nothing to cancel.
-        Features marked &ldquo;Pro&rdquo; can be switched on in the app without
-        paying while early access lasts, and no money changes hands.
+        Pro is not on sale.
       </p>
       <p>
-        If paid features come later, they will be sold through Google Play. We will
-        show the price in the app before anything is charged, and nothing will be
-        charged unless you agree to it. Google Play's own terms and refund rules will
-        apply to those purchases as well as these terms.
+        <strong>Early access.</strong> If you make an account while early access is
+        open, you get an early-access grant: <strong>6 months of Pro, free</strong>,
+        and a permanent <strong>&ldquo;OG&rdquo; badge</strong>. The app asks for it
+        when you sign up or sign in, and it is held on our server, not on your phone.
+        There is no published closing date; when early access closes, accounts that
+        ask after that do not get a grant.
+      </p>
+      <ul>
+        <li>The 6 months run from the moment our server creates your grant, by the
+          server's clock, and end by themselves. There is nothing to cancel and
+          nothing is charged, then or afterwards.</li>
+        <li>The OG badge stays after the 6 months end, for as long as your account
+          exists.</li>
+        <li>The grant is personal to your account. It cannot be transferred, sold or
+          exchanged for money.</li>
+        <li>Deleting your account deletes the grant, and with it the rest of your
+          free Pro and the badge.</li>
+      </ul>
+      <p>
+        <strong>What Pro adds today.</strong> Today every feature in Pooled works for
+        everybody, with or without Pro, so Pro does not currently unlock anything
+        extra. If we later limit some features to Pro, your grant covers them until
+        its 6 months end.
+      </p>
+      <p>
+        <strong>Paid Pro later.</strong> Paid Pro will come later, sold through
+        Google Play once Pooled has moved to Moiasun LLC's developer account, and
+        from then on new members will pay for it. We will show the price in the app
+        before anything is charged, and nothing will be charged unless you agree to
+        it. Google Play's own terms and refund rules will apply to those purchases as
+        well as these terms.
       </p>
 
       <h2>7. Your content, and shared spaces</h2>
@@ -416,8 +462,8 @@
         space.
       </p>
       <p>
-        <strong>It changes no money.</strong> Not an amount, not a transfer, not a
-        balance, yours or anybody else's. That is deliberate: a shared ledger only
+        <strong>It changes no money.</strong> Not an amount, not a recorded payment,
+        not a balance, yours or anybody else's. That is deliberate: a shared ledger only
         works if every phone in the space agrees about what there is, and a block that
         hid a record would make your copy disagree with everyone else's. Blocking is
         not the same as removing somebody; only the owner of a space can do that.
@@ -522,7 +568,8 @@
         a change materially affects your rights, we will tell you in the app, or by
         email if you have an account, before it takes effect. If you do not agree to
         the new terms, you can stop using Pooled and delete your account. The current
-        version always lives at this URL.
+        version always lives at
+        <a href="https://sunnyorbitapps.com/pooled/terms">sunnyorbitapps.com/pooled/terms</a>.
       </p>
 
       <h2>16. Contact</h2>
@@ -530,7 +577,7 @@
         To send a report, to tell us about somebody misusing the app, or to ask
         anything about these terms:
         <a href="mailto:support@sunnyorbitapps.com?subject=Pooled%20terms">support@sunnyorbitapps.com</a>,
-        or by post to Moiasun LLC,
+        or by post to Moiasun LLC (Pooled),
         16192 Coastal Highway, Lewes, DE 19958, United States.
       </p>
 
