@@ -77,7 +77,7 @@ const pages = {
     out: 'terms.html',
     nav: null,
     title: 'Terms of Service — Pooled Shared Expense Tracker',
-    desc: 'The terms for using Pooled, published by Moiasun LLC (SunnyOrbit): what may be shared in a space, reporting and blocking, and the rest.',
+    desc: 'The terms for using Pooled, the shared expense tracker from SunnyOrbit: what may be shared in a space, reporting and blocking, early access, and the rest.',
   },
   'delete-account': {
     out: 'delete-account.html',
@@ -152,11 +152,14 @@ function structuredData(name, meta, pageUrl) {
         'Shared grocery lists',
         'Receipt photos',
         'CSV and PDF export',
-        'App lock with PIN, password or fingerprint',
+        'App lock with PIN or password, and fingerprint unlock',
         'Four home-screen widgets',
         'Works without an account; no ads, no analytics, no tracking',
       ],
-      publisher: { '@id': `${SITE}/#organization` },
+      /* Published on Google Play from a personal account for now; the brand
+         behind it is the Organization. Update when the app moves to the
+         company account. */
+      publisher: { '@type': 'Person', name: 'Md Muktadir Hossain Limon' },
       author: { '@id': `${SITE}/#organization` },
       privacyPolicy: `${ORIGIN}/privacy`,
     });
