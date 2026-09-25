@@ -303,6 +303,11 @@ button { font: inherit; }
   display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 48px; align-items: start;
   padding-bottom: 40px;
 }
+/* Grid items default to min-width: auto, so one long unbreakable string (a
+   URL in the policy text) widened the whole column past a phone's screen. */
+.legal > * { min-width: 0; }
+.prose { overflow-wrap: break-word; }
+.prose a { overflow-wrap: anywhere; }
 .legal-aside { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 16px; }
 .legal-aside .card { padding: 24px; border-radius: 24px; }
 .legal-aside h2 { font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-3); }

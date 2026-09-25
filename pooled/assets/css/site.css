@@ -468,16 +468,21 @@ ul { margin: 0; padding: 0; list-style: none; }
   justify-content: space-between;
   align-items: flex-start;
 }
+/* Logo on one line, "A SunnyOrbit product" under it. The byline became a
+   link (to the SunnyOrbit home), and an inline <a> after an inline lockup
+   sat beside it on the wrong baseline, underlined. */
+.footer__brand { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
 .footer__brand .lockup { font-size: 22px; }
 .footer__byline {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  margin-top: 10px;
   font-size: 14px;
   font-weight: 600;
   color: var(--ink-2);
+  text-decoration: none;
 }
+.footer__byline:hover { color: var(--ink); }
 .footer__byline svg { width: 16px; height: 16px; color: var(--amber); }
 
 .footer__contact { text-align: right; }
