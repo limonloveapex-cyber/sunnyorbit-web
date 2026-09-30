@@ -40,7 +40,7 @@
     <div class="stack" style="--gap:14px;max-width:760px">
       <p class="eyebrow eyebrow--lilac">Legal</p>
       <h1 class="h-hero h-hero--sm">Pooled Privacy Policy</h1>
-      <p class="muted" style="font-size:15px">Effective date: 25 September 2026. Last updated: 25 September 2026. This policy covers the Pooled app for Android. How we handle this website and emails you send us is covered by the <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.</p>
+      <p class="muted" style="font-size:15px">Effective date: 25 September 2026. Last updated: 1 October 2026. This policy covers the Pooled app for Android. How we handle this website and emails you send us is covered by the <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.</p>
     </div>
   </div>
 </section>
@@ -252,6 +252,23 @@
         app.
       </p>
 
+      <h3>Notifications</h3>
+      <!-- Verified against app 2.98.1: users/{uid}/devices/{sha256(token)} with
+           exactly token, lang, platform, updatedAt (firestore.rules "devices");
+           read by functions/src/joinRequestPush.ts; removed by AccountPurge and,
+           best-effort, by PushService.forget on sign-out. -->
+      <p>
+        If you own a shared space and allow notifications, we store a notification
+        token for this phone (an identifier issued by Google Firebase Cloud
+        Messaging), with the app's language, the phone's platform and the time it
+        was last updated, under your account. Only you and our server can read it.
+        When someone asks to join your space, our server uses it to send you a
+        notification naming the space and the person asking. The app deletes the
+        token when you sign out (if the phone can reach the internet at that
+        moment), and it is always deleted when you delete your account. You can
+        turn these notifications off in your phone's settings at any time.
+      </p>
+
       <h3>Your ledger</h3>
       <p>
         With an account, the app copies your records to Google Cloud Firestore, under
@@ -406,7 +423,10 @@
         <li><strong>Firebase Authentication</strong>, for your sign-in, once you have
           an account;</li>
         <li><strong>Cloud Storage for Firebase</strong>, for your photos, once you
-          have an account.</li>
+          have an account;</li>
+        <li><strong>Cloud Functions</strong> and <strong>Firebase Cloud
+          Messaging</strong>, to send a shared space's owner a notification when
+          someone asks to join, if they have allowed notifications.</li>
       </ul>
       <p>The only other people who can see any of your data are:</p>
       <ul>
@@ -504,10 +524,10 @@
           your photos.</li>
         <li><strong>Camera and photos.</strong> Only when you attach a photo. The app
           opens the picker you chose; it does not browse your gallery.</li>
-        <li><strong>Notifications.</strong> For one reminder, suggesting you make an
-          account so your records are backed up. It is asked for only after you tap
-          &ldquo;Not now&rdquo; on the in-app reminder, not on first launch, and the
-          app works normally if you decline.</li>
+        <li><strong>Notifications.</strong> For a notification when someone asks to
+          join a shared space you own, and for one reminder suggesting you make an
+          account so your records are backed up. The app works normally if you
+          decline.</li>
         <li><strong>Run at startup.</strong> So that a reminder you have already
           agreed to survives a reboot instead of silently vanishing.</li>
         <li><strong>Biometrics.</strong> Optional, for unlocking the app. Your
@@ -557,6 +577,9 @@
           yours, in keeping unsupported and possibly insecure versions of the app
           from running. It carries nothing about you beyond what any internet request
           reveals.</li>
+        <li><strong>Join-request notifications</strong>: your consent, given when you
+          allow notifications on your phone. Turn them off in the phone's settings and
+          the app stops using the token.</li>
         <li><strong>Security</strong>, meaning App Check, sign-in protection, the
           security rules and dealing with abuse: our legitimate interest, and yours,
           in keeping the service and your data safe and in stopping automated abuse
@@ -629,6 +652,7 @@
           and item, including anything marked as deleted;</li>
         <li>deletes your early-access grant (<code>grants/{your-user-id}</code>), so
           your free Pro and your OG badge go with the account;</li>
+        <li>deletes the notification tokens stored for your phones;</li>
         <li><strong>deletes every photo you uploaded</strong> from Cloud Storage: the
           receipts and lent &amp; borrowed photos in your personal wallets, and your
           profile picture;</li>
