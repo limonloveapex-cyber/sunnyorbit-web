@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Pooled Shared Expense Tracker</title>
+<title>Privacy Policy: Pooled Shared Expense Tracker</title>
 <meta name="description" content="What Pooled keeps on your phone, what it holds if you make an account, why it talks to no company but Google, and how to delete all of it.">
 <meta name="theme-color" content="#F5F4EF">
 <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Pooled — shared expense tracker for Android">
-<meta name="twitter:title" content="Privacy Policy — Pooled Shared Expense Tracker">
+<meta name="twitter:title" content="Privacy Policy: Pooled Shared Expense Tracker">
 <meta name="twitter:description" content="What Pooled keeps on your phone, what it holds if you make an account, why it talks to no company but Google, and how to delete all of it.">
 <meta name="twitter:image" content="https://sunnyorbitapps.com/pooled/assets/img/og.png">
 <script type="application/ld+json">
@@ -30,7 +30,7 @@
    "@type": "WebPage",
    "@id": "https://sunnyorbitapps.com/pooled/privacy#webpage",
    "url": "https://sunnyorbitapps.com/pooled/privacy",
-   "name": "Privacy Policy — Pooled Shared Expense Tracker",
+   "name": "Privacy Policy: Pooled Shared Expense Tracker",
    "description": "What Pooled keeps on your phone, what it holds if you make an account, why it talks to no company but Google, and how to delete all of it.",
    "inLanguage": "en",
    "isPartOf": {
@@ -74,7 +74,7 @@
 }
 </script>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Privacy Policy — Pooled Shared Expense Tracker">
+<meta property="og:title" content="Privacy Policy: Pooled Shared Expense Tracker">
 <meta property="og:description" content="What Pooled keeps on your phone, what it holds if you make an account, why it talks to no company but Google, and how to delete all of it.">
 <meta property="og:site_name" content="Pooled">
 <meta property="og:locale" content="en_US">
@@ -196,13 +196,29 @@
        Pro.limitsEnforced and Pro.billingWired are both false.
      - "Send balance" is "Record a payment" (2.90.3).
 
+     Updated 2026-10-07 for paid Pro (app 2.99.x), verified in the app repo:
+     - Publisher: the Play developer account is now Moiasun LLC's organization
+       account (developer name SunnyOrbit).
+     - Billing: purchases_flutter (RevenueCat), appUserID = Firebase uid,
+       automaticDeviceIdentifierCollectionEnabled = false; configured only
+       when a signed-in account opens a selling screen
+       (lib/data/billing/revenuecat_billing_service.dart, lib/app/billing.dart).
+     - Server: entitlements/{uid} (functions/src/billing/store.ts) keeps
+       plan, dates, status and the Play order id; billingSync/{uid};
+       onAccountDeleted deletes both and calls RevenueCat DELETE subscriber.
+     - OG: first 100 accounts after config/og.opensAt, confirmed email, one
+       per inbox; ogEmails/{sha256} kept after deletion (ogGrant.ts).
+       member.og shows the badge to space members (firestore.rules ~1264).
+     - Not in this build, so not described: the 3-month cloud rule and
+       phone-only photos for free users (feat/retention, unmerged).
+
      If the app changes, this page changes with it. -->
 <section class="section section--tight">
   <div class="wrap">
     <div class="stack" style="--gap:14px;max-width:760px">
       <p class="eyebrow eyebrow--lilac">Legal</p>
       <h1 class="h-hero h-hero--sm">Pooled Privacy Policy</h1>
-      <p class="muted" style="font-size:15px">Effective date: 25 September 2026. Last updated: 1 October 2026. This policy covers the Pooled app for Android. How we handle this website and emails you send us is covered by the <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.</p>
+      <p class="muted" style="font-size:15px">Effective date: 25 September 2026. Last updated: 7 October 2026. This policy covers the Pooled app for Android. How we handle this website and emails you send us is covered by the <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.</p>
     </div>
   </div>
 </section>
@@ -213,8 +229,8 @@
       <div class="summary">
         <p><strong>The short version.</strong></p>
         <ul>
-          <li>Pooled is published on Google Play by an individual developer, named
-            below, under the developer name SunnyOrbit, the brand of Moiasun LLC.</li>
+          <li>Pooled is made and published on Google Play by Moiasun LLC, a US
+            company, under its brand and developer name SunnyOrbit.</li>
           <li>Pooled works without an account. Until you make one, everything you
             record stays on your phone: none of your records, notes, photos or
             settings leave it.</li>
@@ -229,39 +245,38 @@
             key held in the Android Keystore.</li>
           <li>There is no analytics, no advertising, no crash reporting and no
             tracking SDK in this app. None.</li>
-          <li>The app contacts no company except Google. Each time it opens, even with
+          <li>Unless you look at or buy Pro, the app contacts no company except Google. Each time it opens, even with
             no account, it reads one public setting from Google to check that your
             version is still supported, with an anti-abuse check (App Check) attached.
             That carries nothing about you or your money. Your currency is guessed on
             the phone from its region and clock, without asking anyone.</li>
-          <li>Anyone who makes an account while early access is open gets 6 months
-            of Pro free and an &ldquo;OG&rdquo; badge. Nothing is charged; no billing
-            is connected.</li>
+          <li>Pooled Pro is an optional subscription, bought through Google Play.
+            We never see your card or bank details. To keep track of who has Pro we
+            use RevenueCat, which receives your account's random user ID and the
+            details of the purchase, and nothing from your ledger.</li>
+          <li>The first 100 accounts made after Pro went on sale get 6 months of Pro
+            free and an &ldquo;OG&rdquo; badge. To give each email address only one
+            place, we keep a one-way hash of the address, even after the account is
+            deleted.</li>
           <li>&ldquo;Delete account&rdquo; erases the cloud copy, both the records and
             the uploaded photos, and wipes the phone. Records you added to a shared
-            space stay there for the other members, under your display name unless you ask us to remove it.</li>
+            space stay there for the other members, under your display name unless you ask us to remove it.
+            Deleting your account does not cancel a Google Play subscription.</li>
         </ul>
       </div>
 
       <h2>Who this policy is from</h2>
       <p>
-        Pooled is published on Google Play by
-        <strong>Md Muktadir Hossain Limon</strong>,
-        an individual developer, under the developer name <strong>SunnyOrbit</strong>.
-        SunnyOrbit is the brand of <strong>Moiasun LLC</strong>, a Delaware limited
-        liability company at 16192 Coastal Highway, Lewes, DE 19958, United States.
+        Pooled is made and published on Google Play by <strong>Moiasun LLC</strong>,
+        a Delaware limited liability company at 16192 Coastal Highway, Lewes, DE
+        19958, United States. Its developer name on Google Play is
+        <strong>SunnyOrbit</strong>, which is Moiasun LLC's brand.
       </p>
       <p>
-        The &ldquo;controller&rdquo; of the personal data described here, which
-        means the one who decides why and how it is used, is the individual named
-        above, the Play developer, who runs Pooled for SunnyOrbit and Moiasun LLC.
-        In this document &ldquo;we&rdquo; means that person together with Moiasun
-        LLC, and &ldquo;you&rdquo; means the person using the app.
-      </p>
-      <p>
-        Pooled will later move to Moiasun LLC's own Google Play developer account.
-        When it does, we will update this policy before the move and tell you in the
-        app.
+        Moiasun LLC is the &ldquo;controller&rdquo; of the personal data described
+        here, which means it decides why and how that data is used. In this
+        document &ldquo;we&rdquo; means Moiasun LLC, and &ldquo;you&rdquo; means
+        the person using the app.
       </p>
       <ul>
         <li>Email: <a href="mailto:support@sunnyorbitapps.com?subject=Pooled%20privacy%20request">support@sunnyorbitapps.com</a></li>
@@ -312,15 +327,17 @@
         answer into a short-lived token, renewed from time to time. It is a verdict
         about the app and the device, not about you, and it is never shown to us as
         anything that identifies you. Nothing else leaves the phone until you make an
-        account.
+        account. Pro can only be bought with an account, so with no account the app
+        never contacts RevenueCat or opens a Google Play purchase.
       </p>
       <p>
         Android's own backup is switched off for this app. Neither the automatic
         backup to your Google Drive nor the phone-to-phone transfer when you set up a
         new device will copy Pooled's data, because a ledger holding salaries and
         spending should not travel somewhere you did not choose to put it. The
-        deliberate way to take your records out of the app is the Export screen,
-        which produces a CSV or PDF that you hand to whatever you like.
+        deliberate way to take your records out of the app is the Export screen, part
+        of Pro, which produces a CSV or PDF that you hand to whatever you like. With
+        or without Pro, you can also ask us for a copy (see &ldquo;Your rights&rdquo;).
       </p>
       <p>
         <strong>One file on the phone is not encrypted.</strong> Pooled's home-screen
@@ -399,19 +416,83 @@
         <a href="../privacy.html">SunnyOrbit Privacy Policy</a>.
       </p>
 
-      <h3>Your early-access grant</h3>
+      <h3>Early-access grants and the OG badge</h3>
       <p>
-        If you make an account while early access is open, Pooled asks the server
-        for an early-access grant: 6 months of Pro, free, and a permanent
-        &ldquo;OG&rdquo; badge. The grant is one small record in Firestore, under
-        <code>grants/{your-user-id}</code>, holding only its kind
-        (<code>og</code>) and the time the server created it. Only your own account
-        can read it; other people, including the members of your spaces, cannot see
-        it or your badge. It is created once, never changed, and deleted with your
-        account. The app asks for it when you sign up, sign in, or open the app
-        signed in; once early access has closed, the server refuses and nothing is
-        created. No payment details are involved: no billing is connected to the
-        app.
+        Before Pro went on sale, anyone who made an account while early access was
+        open got an early-access grant: 6 months of Pro, free, and a permanent
+        &ldquo;OG&rdquo; badge. Since Pro went on sale, the <strong>first 100
+        accounts</strong> made after that day get the same grant, if their email
+        address is confirmed.
+      </p>
+      <p>
+        A grant is one record in Firestore, under <code>grants/{your-user-id}</code>,
+        holding its kind (<code>og</code>), when it was created, when its free Pro
+        ends and, for the first 100, the place number. The server also keeps a
+        matching record of the place it gave you. Only your own account can read
+        these. Your <strong>OG badge</strong> is shown next to your name to the
+        members of the shared spaces you are in. The grant is created once by our
+        server, never changed, and deleted with your account.
+      </p>
+      <p>
+        <strong>One place per email address.</strong> So that one inbox cannot take
+        several of the 100 places, for example by deleting an account and signing up
+        again, our server keeps a <strong>one-way hash</strong> (SHA-256) of the
+        email address of every account that took a place, in a cleaned-up form, with
+        the place number and its dates. It also keeps the same kind of hash for
+        accounts made before Pro went on sale, so those addresses cannot later take
+        one of the 100. The hash is not your address and cannot be turned back into
+        it, but anybody who already knows an address can work out its hash, so we
+        treat it as personal data. We <strong>keep it after you delete your
+        account</strong>, and keep nothing else with it. Addresses from email relay
+        or alias services do not qualify for a place.
+      </p>
+
+      <h3>Purchases and Pro</h3>
+      <!-- Verified 2026-10-07 against app 2.99.x: revenuecat_billing_service.dart
+           (appUserID = uid, no device identifiers), functions/src/billing/*
+           (entitlements/{uid}, billingSync/{uid}, RevenueCat webhook and
+           GET/DELETE /v1/subscribers/{uid}). -->
+      <p>
+        Pooled Pro is an optional subscription. You buy it through
+        <strong>Google Play</strong>, which takes the payment under its own terms and
+        the <a href="https://policies.google.com/privacy" rel="noopener">Google
+        Privacy Policy</a>. We never see your card or bank details, and we do not
+        receive your name or address from Google Play.
+      </p>
+      <p>
+        To confirm a purchase and keep your Pro status with your account, the app and
+        our server use <strong>RevenueCat, Inc.</strong> (United States), a
+        subscription service that acts for us as our processor. The app contacts
+        RevenueCat only when you are signed in and open the Pro screen or your
+        subscription screen, buy, or restore a purchase. RevenueCat receives:
+      </p>
+      <ul>
+        <li>your Pooled user ID, the long random string Firebase gave your account,
+          not your name or email address;</li>
+        <li>the Google Play purchase token and order ID, the product and plan, the
+          price and currency, and the store country;</li>
+        <li>the dates of the purchase, the free trial, each renewal, a cancellation
+          or refund, and when Pro ends.</li>
+      </ul>
+      <p>
+        The app turns off RevenueCat's collection of device and advertising
+        identifiers, and RevenueCat receives nothing from your ledger.
+      </p>
+      <p>
+        Our server keeps a record of your subscription under
+        <code>entitlements/{your-user-id}</code>: whether Pro is active, the plan,
+        the dates, whether it will renew, whether a payment is being retried, whether
+        it was refunded, and the Google Play order ID. That record is what tells the
+        app and our server that you have Pro, so it follows your account to a new
+        phone. Only your own account can read it, and only our server can write it.
+        It is deleted when you delete your account, and at the same moment our
+        server asks RevenueCat to delete its record of you.
+      </p>
+      <p>
+        <strong>Deleting your account does not cancel your subscription.</strong>
+        Google Play keeps charging until you cancel it there. The app warns you of
+        this before it deletes an account with a renewing subscription. Cancel in
+        Google Play under Payments &amp; subscriptions, then Subscriptions.
       </p>
 
       <h3>Notifications</h3>
@@ -566,7 +647,8 @@
 
       <h2>Who else receives your data</h2>
       <p>
-        Pooled contacts <strong>no company but Google</strong>. With no account, it
+        Apart from Pro purchases, which also involve RevenueCat (below), Pooled
+        contacts <strong>no company but Google</strong>. With no account, it
         contacts Google only for the launch version check described under
         &ldquo;What stays on your phone&rdquo;, which carries nothing about you or
         your money. With an account, it also uses Google for your sign-in, your
@@ -576,7 +658,8 @@
       </p>
       <ul>
         <li><strong>Cloud Firestore</strong>, for the launch version check and, with
-          an account, the copy of your ledger and your early-access grant;</li>
+          an account, the copy of your ledger, your early-access grant and your
+          subscription record;</li>
         <li><strong>Firebase App Check</strong>, which asks Google Play to confirm
           that requests come from a genuine copy of the app, to stop scripts from
           abusing the service. It attaches a verdict about the app to requests the
@@ -588,19 +671,30 @@
           have an account;</li>
         <li><strong>Cloud Functions</strong> and <strong>Firebase Cloud
           Messaging</strong>, to send a shared space's owner a notification when
-          someone asks to join, if they have allowed notifications.</li>
+          someone asks to join, if they have allowed notifications. Cloud Functions
+          also run our server's part of Pro: granting early-access places and
+          checking purchases with RevenueCat.</li>
       </ul>
+      <p>
+        For Pro, two more companies are involved. <strong>Google Play</strong> sells
+        the subscription and takes the payment; for that, Google acts on its own
+        account, under the Google Privacy Policy. <strong>RevenueCat, Inc.</strong>
+        checks purchases and keeps their status for us, as our processor, under its
+        data processing terms. What it receives is listed under &ldquo;Purchases and
+        Pro&rdquo; above.
+      </p>
       <p>The only other people who can see any of your data are:</p>
       <ul>
         <li><strong>The members of a shared space you join</strong>. They see your
-          display name and picture, and what you record in that space, including your
-          notes and receipt photos. A personal wallet is never shown to anyone.</li>
+          display name and picture, your OG badge if you have one, and what you record
+          in that space, including your notes and receipt photos. A personal wallet is never shown to anyone.</li>
         <li><strong>Authorities, where the law requires it.</strong> If we receive a
           valid legal demand, we will check it and hand over only what it requires.</li>
       </ul>
       <p>
         There is no analytics, no crash reporting, no advertising and no tracking of
-        any kind, and there is no other company that hears from this app at all.
+        any kind, and apart from Google and, for Pro, RevenueCat, no other company
+        hears from this app at all.
       </p>
       <p>
         <strong>This changed in version 2.87.0.</strong> Earlier test builds made one
@@ -732,9 +826,18 @@
           block list</strong>: performance of the contract, and our legitimate interest
           in being able to show that you accepted the rules of shared spaces and in
           letting you protect yourself.</li>
+        <li><strong>Selling Pro, checking purchases with RevenueCat and keeping
+          your subscription record</strong>: performance of the contract, because
+          Pro is what you bought under the Terms of Use. Keeping the purchase
+          records that tax and accounting law require: compliance with a legal
+          obligation.</li>
         <li><strong>Holding and applying your early-access grant</strong>:
           performance of the contract, because the grant is part of what the Terms
           of Use give you.</li>
+        <li><strong>Keeping a hash of the email address of accounts that took, or
+          cannot take, an early-access place</strong>: our legitimate interest in
+          giving the 100 places to 100 different people. It is a hash, not the
+          address, and nothing else is kept with it.</li>
         <li><strong>The launch version check</strong>: our legitimate interest, and
           yours, in keeping unsupported and possibly insecure versions of the app
           from running. It carries nothing about you beyond what any internet request
@@ -773,7 +876,8 @@
       <h2>Where your data is held</h2>
       <p>
         Moiasun LLC is a US company, and Google stores the Pooled cloud data in the
-        United States, whichever Play developer account publishes the app:
+        United States. RevenueCat, which holds purchase records, is also in the
+        United States:
       </p>
       <ul>
         <li>Your records (Cloud Firestore) are in the <code>nam5</code> multi-region,
@@ -793,14 +897,17 @@
         policy describes wherever it is. For Google's part, we rely on the EU-U.S. Data
         Privacy Framework (with its UK Extension and the Swiss-U.S. framework), in which
         Google takes part, and on the Standard Contractual Clauses in Google's data
-        processing terms for Firebase. Email us if you would like more information
+        processing terms for Firebase and in RevenueCat's data processing terms. Email us if you would like more information
         about these safeguards.
       </p>
 
       <h2>How long we keep it, and how to make it stop</h2>
       <p>
         We keep your cloud data for as long as your account exists. There is no
-        scheduled purge and no retention timer: it is there until you remove it. Data
+        scheduled purge and no retention timer: it is there until you remove it.
+        If we ever change that, for example by keeping a shorter cloud history for
+        accounts without Pro, we will update this policy and tell you in the app
+        before it applies to you. Data
         on your phone stays until you delete it, reset the app or uninstall it.
       </p>
       <p>
@@ -814,6 +921,9 @@
           and item, including anything marked as deleted;</li>
         <li>deletes your early-access grant (<code>grants/{your-user-id}</code>), so
           your free Pro and your OG badge go with the account;</li>
+        <li>deletes your subscription record (<code>entitlements/{your-user-id}</code>)
+          and asks RevenueCat to delete its record of you. This does <em>not</em>
+          cancel a Google Play subscription: cancel that in Google Play;</li>
         <li>deletes the notification tokens stored for your phones;</li>
         <li><strong>deletes every photo you uploaded</strong> from Cloud Storage: the
           receipts and lent &amp; borrowed photos in your personal wallets, and your
@@ -823,6 +933,13 @@
         <li>wipes the copy on the phone, including the encryption key and every photo,
           and returns the app to its welcome screen.</li>
       </ul>
+      <p>
+        Two things are kept. If your account took one of the first 100 early-access
+        places, or was made before Pro went on sale, the one-way hash of your email
+        address described under &ldquo;Early-access grants&rdquo; stays, so the
+        address cannot take a place again. And Google Play keeps its own record of
+        any purchase, under Google's policies; we cannot delete that.
+      </p>
       <p>
         <strong>There is nothing to write to us about afterwards, and nothing to wait
         30 days for.</strong> The photos go in the same press of the button as the
@@ -892,9 +1009,11 @@
         Wherever you live, you can ask us to access, correct, delete or export the
         personal data we hold about you, to restrict what we do with it, or to object
         to it. Most of this you can do yourself, straight away, without asking us: the
-        app's Export screen gives you your entries as a CSV or PDF (for a copy of everything else we hold, email us), the account
+        app's Export screen gives Pro members their entries as a CSV or PDF, the account
         screen lets you change your name and email address, and &ldquo;Delete
-        account&rdquo; erases everything as set out above.
+        account&rdquo; erases everything as set out above. <strong>A copy of your data
+        never needs Pro:</strong> email us and we will send you everything we hold
+        about you, free, in a common machine-readable format.
       </p>
       <p>
         For anything you cannot do in the app, or if you want written confirmation of
@@ -932,7 +1051,7 @@
       <p>
         We do not sell personal data, including sensitive data, and we do not share it
         for cross-context behavioural advertising or use it for targeted advertising.
-        There is no advertising in this app at all, so there is nothing to opt out of.
+        There is no advertising in this app, so there is nothing to opt out of.
         You can review and correct your details in the app, and ask us for a copy or
         for deletion as described above. Exercising any of these rights will never get
         you a worse version of Pooled. This policy is posted to meet the California
@@ -965,8 +1084,8 @@
       <p>
         If your country gives you a right not listed here, you still have it. Ask and
         we will honour it, and you can always contact your national data protection
-        authority. The answer to almost all of these is the same in any case: the
-        Export screen gives you your entries, an email to us gets you a copy of the rest, and &ldquo;Delete account&rdquo;
+        authority. The answer to almost all of these is the same in any case: an
+        email to us gets you a free copy of everything we hold, and &ldquo;Delete account&rdquo;
         removes it, uploaded photos included.
       </p>
 
@@ -988,9 +1107,7 @@
         this page and the date at the top before shipping the release that makes the
         change. If a change materially affects how we use data you have already given
         us, we will also tell you in the app, or by email if you have an account,
-        before it takes effect. The same applies when Pooled moves from its
-        individual publisher to Moiasun LLC's Google Play developer account: we will
-        update this policy before the move and tell you in the app. The current
+        before it takes effect. The current
         version always lives at
         <a href="https://sunnyorbitapps.com/pooled/privacy">sunnyorbitapps.com/pooled/privacy</a>.
       </p>
@@ -1062,7 +1179,7 @@
         <h2>Product</h2>
         <ul>
           <li><a href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a></li>
-          <li><a href="features.html#early-access">Pooled Pro</a></li>
+          <li><a href="features.html#pro">Pooled Pro</a></li>
           <li><a href="features.html#widgets">Widgets</a></li>
         </ul>
       </div>
@@ -1076,11 +1193,11 @@
              watches you. Until a self-hosted list exists, this is a mailto:
              that lands in the same inbox and keeps the promise. -->
         <p class="muted" style="margin-top:14px;font-size:14px">
-          Want to know when Pooled lands on Google Play? Send us a blank email
-          and we will write to you once, on the day it does.
+          Want a heads-up when something big changes in Pooled? Send us a blank
+          email and we will write to you only when it matters.
         </p>
         <a class="btn btn--lime" style="margin-top:14px"
-           href="mailto:support@sunnyorbitapps.com?subject=Tell%20me%20when%20Pooled%20launches">
+           href="mailto:support@sunnyorbitapps.com?subject=Pooled%20news%20please">
           Email us
         </a>
       </div>
@@ -1089,8 +1206,9 @@
     <hr>
 
     <p class="footer__bottom">
-      Pooled is published on Google Play by Md Muktadir Hossain Limon under the
-      developer name <a href="../index.html">SunnyOrbit</a>, the brand of Moiasun LLC.
+      Pooled is made and published by Moiasun LLC under its brand,
+      <a href="../index.html">SunnyOrbit</a>. 16192 Coastal Highway, Lewes, DE
+      19958, United States.
       &copy; 2026 Moiasun LLC. All rights reserved.
     </p>
 

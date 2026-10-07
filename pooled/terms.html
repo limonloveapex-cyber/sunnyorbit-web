@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms of Service — Pooled Shared Expense Tracker</title>
+<title>Terms of Service: Pooled Shared Expense Tracker</title>
 <meta name="description" content="The terms for using Pooled, the shared expense tracker from SunnyOrbit: what may be shared in a space, reporting and blocking, early access, and the rest.">
 <meta name="theme-color" content="#F5F4EF">
 <link rel="icon" href="assets/img/icon.svg" type="image/svg+xml">
@@ -19,7 +19,7 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Pooled — shared expense tracker for Android">
-<meta name="twitter:title" content="Terms of Service — Pooled Shared Expense Tracker">
+<meta name="twitter:title" content="Terms of Service: Pooled Shared Expense Tracker">
 <meta name="twitter:description" content="The terms for using Pooled, the shared expense tracker from SunnyOrbit: what may be shared in a space, reporting and blocking, early access, and the rest.">
 <meta name="twitter:image" content="https://sunnyorbitapps.com/pooled/assets/img/og.png">
 <script type="application/ld+json">
@@ -30,7 +30,7 @@
    "@type": "WebPage",
    "@id": "https://sunnyorbitapps.com/pooled/terms#webpage",
    "url": "https://sunnyorbitapps.com/pooled/terms",
-   "name": "Terms of Service — Pooled Shared Expense Tracker",
+   "name": "Terms of Service: Pooled Shared Expense Tracker",
    "description": "The terms for using Pooled, the shared expense tracker from SunnyOrbit: what may be shared in a space, reporting and blocking, early access, and the rest.",
    "inLanguage": "en",
    "isPartOf": {
@@ -74,7 +74,7 @@
 }
 </script>
 <meta property="og:type" content="website">
-<meta property="og:title" content="Terms of Service — Pooled Shared Expense Tracker">
+<meta property="og:title" content="Terms of Service: Pooled Shared Expense Tracker">
 <meta property="og:description" content="The terms for using Pooled, the shared expense tracker from SunnyOrbit: what may be shared in a space, reporting and blocking, early access, and the rest.">
 <meta property="og:site_name" content="Pooled">
 <meta property="og:locale" content="en_US">
@@ -175,6 +175,12 @@
      takes over; section 6 is now "Early access and Pro" (grants/{uid},
      DECISIONS.md P1-P4; Pro.billingWired and Pro.limitsEnforced both false);
      "Send balance" is "Record a payment"; the launch version check (P5).
+     Updated 2026-10-07 for paid Pro (app 2.99.x): Moiasun LLC now publishes
+     Pooled from its own (organization) Play account; section 6 is "Pooled
+     Pro", following docs/BILLING-SETUP.md section 14 in the app repo (product
+     pooled_pro, monthly/yearly, 7-day trial, Google Play billing through
+     RevenueCat, first-100 OG grant) and the free limits in lib/domain/pro.dart.
+     The 3-month cloud rule is not in this build and is not described.
      Not reviewed by a lawyer yet. -->
 <section class="section section--tight">
   <div class="wrap">
@@ -182,7 +188,7 @@
       <p class="eyebrow eyebrow--lilac">Legal</p>
       <h1 class="h-hero h-hero--sm">Pooled Terms of Service</h1>
       <p class="muted" style="font-size:15px">
-        Effective date: 25 September 2026. Last updated: 25 September 2026.
+        Effective date: 25 September 2026. Last updated: 7 October 2026.
         In the app these are called the Terms of Use. They cover the Pooled app
         for Android.
       </p>
@@ -199,11 +205,13 @@
         <ul>
           <li>Pooled is a ledger: a notebook for money and shopping. It is not a
             bank and not a lender, and it never moves money.</li>
-          <li>Pooled is published on Google Play by an individual developer under the
-            name SunnyOrbit, the brand of Moiasun LLC.</li>
-          <li>Nothing can be charged: no billing is connected. Make an account while
-            early access is open and you get 6 months of Pro free and an OG
-            badge.</li>
+          <li>Pooled is made and published by Moiasun LLC under its brand,
+            SunnyOrbit.</li>
+          <li>Pooled is free to use. Pooled Pro is an optional subscription, sold
+            through Google Play, that lifts the free limits. It renews automatically
+            until you cancel it in Google Play.</li>
+          <li>The first 100 accounts made after Pro went on sale get 6 months of Pro
+            free and an OG badge.</li>
           <li>You must be 13 or older to use it; under 18, with a parent or guardian's permission.</li>
           <li>A <em>shared space</em> shows everyone in it your name, your picture,
             what you record, your notes and your receipt photos. A personal wallet
@@ -221,20 +229,12 @@
 
       <h2>1. Who we are, and how these terms fit together</h2>
       <p>
-        Pooled is published on Google Play by
-        <strong>Md Muktadir Hossain Limon</strong>,
-        an individual developer, under the developer name <strong>SunnyOrbit</strong>.
-        These terms are an agreement between you and that person. SunnyOrbit is the
-        brand of <strong>Moiasun LLC</strong>, a Delaware limited liability company,
-        of 16192 Coastal Highway, Lewes, DE 19958, United States, which owns the
-        Pooled name and brand. &ldquo;We&rdquo; and &ldquo;us&rdquo; mean the
-        publisher named above together with Moiasun LLC. &ldquo;You&rdquo; means
-        the person using the app.
-      </p>
-      <p>
-        Pooled will later move to Moiasun LLC's own Google Play developer account,
-        and Moiasun LLC will then be its publisher. We will update these terms before
-        that happens and tell you in the app.
+        Pooled is made and published on Google Play by <strong>Moiasun LLC</strong>,
+        a Delaware limited liability company, of 16192 Coastal Highway, Lewes, DE
+        19958, United States, under its brand and developer name
+        <strong>SunnyOrbit</strong>. These terms are an agreement between you and
+        Moiasun LLC. &ldquo;We&rdquo; and &ldquo;us&rdquo; mean Moiasun LLC.
+        &ldquo;You&rdquo; means the person using the app.
       </p>
       <p>
         These are the app-specific terms for Pooled. The
@@ -245,8 +245,7 @@
         explains what happens to your data and is part of these terms.
       </p>
       <p>
-        Pooled is in <strong>early access</strong>. Features may change, be added
-        or be withdrawn. We will not remove data you have already recorded in order
+        Pooled is a young app. Features may change, be added or be withdrawn. We will not remove data you have already recorded in order
         to do it.
       </p>
 
@@ -327,45 +326,99 @@
         paying somebody or filing anything official.
       </p>
 
-      <h2>6. Early access and Pro</h2>
+      <h2>6. Pooled Pro</h2>
       <p>
-        <strong>Pooled takes no payments.</strong> No billing is connected to the
-        app, so there is no price, no trial, no subscription and nothing to cancel.
-        Pro is not on sale.
+        <strong>Pooled is free.</strong> You can download it and use it without
+        paying anything, with or without an account. <strong>Pooled Pro</strong> is an
+        optional subscription that lifts the free limits and adds a few extras. The
+        purchase screen in the app lists what Pro adds, with the free amount beside
+        each line, and so does our <a href="features.html#pro">features page</a>.
       </p>
+
+      <h3>What is free, and what Pro adds</h3>
+      <table>
+        <thead><tr><th>Feature</th><th>Free</th><th>Pro</th></tr></thead>
+        <tbody>
+          <tr><td>Shared spaces you create</td><td>2</td><td>Unlimited</td></tr>
+          <tr><td>People in each space you own, you included</td><td>5</td><td>Unlimited</td></tr>
+          <tr><td>Wallets</td><td>2</td><td>Unlimited</td></tr>
+          <tr><td>Categories</td><td>A starter set (10 for spending, 4 for income) and 7 of your own in each space</td><td>The full set, and as many of your own as you like</td></tr>
+          <tr><td>New entries a day</td><td>50</td><td>200</td></tr>
+          <tr><td>Export to PDF or CSV</td><td>No</td><td>Yes</td></tr>
+          <tr><td>Themes</td><td>The default theme</td><td>3 more themes</td></tr>
+          <tr><td>Home-screen widgets</td><td>Balance</td><td>Balance, Quick add, Quick categories and Budget</td></tr>
+          <tr><td>App lock (PIN, password or fingerprint)</td><td>No</td><td>Yes</td></tr>
+        </tbody>
+      </table>
       <p>
-        <strong>Early access.</strong> If you make an account while early access is
-        open, you get an early-access grant: <strong>6 months of Pro, free</strong>,
-        and a permanent <strong>&ldquo;OG&rdquo; badge</strong>. The app asks for it
-        when you sign up or sign in, and it is held on our server, not on your phone.
-        There is no published closing date; when early access closes, accounts that
-        ask after that do not get a grant.
+        For categories and the number of people, it is the space owner's Pro that
+        counts, so everyone in that space benefits. If you set up an app lock before
+        it became part of Pro, it keeps working; you only need Pro to set one up
+        again. Without Pro, nothing you have recorded is ever locked or deleted.
+        Where you are above a free amount, for example because your Pro ended, you
+        keep everything you have and simply cannot add more beyond the free amount.
       </p>
+
+      <h3>Buying Pro</h3>
       <ul>
-        <li>The 6 months run from the moment our server creates your grant, by the
-          server's clock, and end by themselves. There is nothing to cancel and
-          nothing is charged, then or afterwards.</li>
-        <li>The OG badge stays after the 6 months end, for as long as your account
-          exists.</li>
-        <li>The grant is personal to your account. It cannot be transferred, sold or
-          exchanged for money.</li>
-        <li>Deleting your account deletes the grant, and with it the rest of your
-          free Pro and the badge.</li>
+        <li><strong>Sold only through Google Play,</strong> with a Pooled account.
+          There are two plans: monthly and yearly. In the United States, Pro costs
+          <strong>US$4.99 a month</strong> or <strong>US$34.99 a year</strong>.
+          Elsewhere, and whenever prices change, the price that applies is the one
+          Google Play shows on the purchase screen, in your currency, before you
+          confirm. Taxes may apply.</li>
+        <li><strong>Free trial.</strong> New subscribers get a <strong>7-day free
+          trial</strong>, where Google Play offers one to your Google account. When
+          the trial ends, <strong>Google Play charges the plan you chose
+          automatically</strong> unless you cancel before then. Google Play allows
+          one trial per account.</li>
+        <li><strong>Automatic renewal.</strong> A subscription renews automatically
+          at the end of each month or year, at the then-current price, until you
+          cancel it.</li>
+        <li><strong>Cancelling.</strong> Cancel at any time in the Google Play app:
+          Payments &amp; subscriptions, then Subscriptions, then Pooled. The app's
+          subscription screen links straight there. Cancelling stops the next charge;
+          Pro stays until the end of the period you have paid for. Switching from
+          monthly to yearly takes effect when the current period ends.</li>
+        <li><strong>Payments and refunds</strong> are handled by Google Play under its
+          own terms and refund policy, including any right you have by law to cancel
+          a purchase. If a payment fails, Pro carries on while Google retries; a
+          refunded purchase ends Pro. If Google Play cannot help, email us.</li>
+        <li><strong>Pro belongs to your Pooled account,</strong> not to a phone.
+          &ldquo;Restore purchases&rdquo; brings it back on a new phone when you sign
+          in.</li>
+        <li><strong>Deleting your Pooled account does not cancel a Google Play
+          subscription.</strong> Cancel it in Google Play first, or Google will keep
+          charging you.</li>
+        <li><strong>Price changes.</strong> We will tell you in the app, and Google
+          Play will tell you as its rules require, before a new price applies to
+          you.</li>
       </ul>
       <p>
-        <strong>What Pro adds today.</strong> Today every feature in Pooled works for
-        everybody, with or without Pro, so Pro does not currently unlock anything
-        extra. If we later limit some features to Pro, your grant covers them until
-        its 6 months end.
+        We use a service called RevenueCat to check purchases and keep your Pro
+        status with your account. The <a href="privacy.html">Pooled Privacy
+        Policy</a> says what it receives.
       </p>
+
+      <h3>Early access and the OG badge</h3>
       <p>
-        <strong>Paid Pro later.</strong> Paid Pro will come later, sold through
-        Google Play once Pooled has moved to Moiasun LLC's developer account, and
-        from then on new members will pay for it. We will show the price in the app
-        before anything is charged, and nothing will be charged unless you agree to
-        it. Google Play's own terms and refund rules will apply to those purchases as
-        well as these terms.
+        The <strong>first 100 accounts</strong> made after Pro went on sale, with a
+        confirmed email address, get an early-access grant: <strong>6 months of Pro,
+        free</strong>, and a permanent <strong>&ldquo;OG&rdquo; badge</strong>.
       </p>
+      <ul>
+        <li>One place per email inbox. Addresses from email relay or alias services
+          do not qualify.</li>
+        <li>Accounts made before Pro went on sale keep any early-access grant they
+          already hold, but do not take one of the 100 places.</li>
+        <li>The 6 months run from the moment our server creates your grant and end
+          by themselves. A grant is never charged, then or later. To carry on with Pro
+          after it, you subscribe like anyone else.</li>
+        <li>The OG badge stays after the 6 months end, for as long as your account
+          exists, and the members of your shared spaces can see it.</li>
+        <li>A grant is personal to your account. It cannot be transferred, sold or
+          exchanged for money, and deleting your account deletes it.</li>
+      </ul>
 
       <h2>7. Your content, and shared spaces</h2>
       <p>
@@ -496,8 +549,9 @@
         app erases your account and its data, as the
         <a href="delete-account.html">Delete your Pooled account</a> page describes.
         If we have to withdraw the service, we will give reasonable notice and a way
-        to export your records where we can. Sections 5, 7, 13 and 14 survive the end
-        of these terms.
+        to export your records where we can, and if we stop offering Pro we will end
+        renewals and arrange a refund for any period you have paid for and cannot
+        use. Sections 5, 7, 13 and 14 survive the end of these terms.
       </p>
 
       <h2>13. Disclaimers and liability</h2>
@@ -508,8 +562,10 @@
         data will never be lost.
       </p>
       <p>
-        <strong>Keep your own copy.</strong> Pooled can export everything you have
-        recorded as CSV or PDF at any time, and we recommend you use it. Without an
+        <strong>Keep your own copy.</strong> With Pro, Pooled can export everything
+        you have recorded as CSV or PDF at any time, and we recommend you use it;
+        with or without Pro, we will email you a copy of what our servers hold if you
+        ask. Without an
         account, your records exist only on your phone: a lost or broken phone, a
         forgotten app-lock PIN or an uninstall can mean they are gone. Cloud sync is
         a convenience, not a guarantee.
@@ -636,7 +692,7 @@
         <h2>Product</h2>
         <ul>
           <li><a href="https://play.google.com/store/apps/details?id=com.limon.pooled">Download</a></li>
-          <li><a href="features.html#early-access">Pooled Pro</a></li>
+          <li><a href="features.html#pro">Pooled Pro</a></li>
           <li><a href="features.html#widgets">Widgets</a></li>
         </ul>
       </div>
@@ -650,11 +706,11 @@
              watches you. Until a self-hosted list exists, this is a mailto:
              that lands in the same inbox and keeps the promise. -->
         <p class="muted" style="margin-top:14px;font-size:14px">
-          Want to know when Pooled lands on Google Play? Send us a blank email
-          and we will write to you once, on the day it does.
+          Want a heads-up when something big changes in Pooled? Send us a blank
+          email and we will write to you only when it matters.
         </p>
         <a class="btn btn--lime" style="margin-top:14px"
-           href="mailto:support@sunnyorbitapps.com?subject=Tell%20me%20when%20Pooled%20launches">
+           href="mailto:support@sunnyorbitapps.com?subject=Pooled%20news%20please">
           Email us
         </a>
       </div>
@@ -663,8 +719,9 @@
     <hr>
 
     <p class="footer__bottom">
-      Pooled is published on Google Play by Md Muktadir Hossain Limon under the
-      developer name <a href="../index.html">SunnyOrbit</a>, the brand of Moiasun LLC.
+      Pooled is made and published by Moiasun LLC under its brand,
+      <a href="../index.html">SunnyOrbit</a>. 16192 Coastal Highway, Lewes, DE
+      19958, United States.
       &copy; 2026 Moiasun LLC. All rights reserved.
     </p>
 

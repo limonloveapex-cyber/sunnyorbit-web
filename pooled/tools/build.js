@@ -46,37 +46,37 @@ const pages = {
     /* Not "expense splitter", and not "know who owes whom": the app does
        neither. See the FAQ entry "Does Pooled split a bill between people?" —
        a <title> is the one line most likely to be quoted back at you. */
-    title: 'Pooled: Shared Expense Tracker for Android — Free, No Ads',
-    desc: 'Pooled is a free shared expense tracker for Android. Track spending, share a space with roommates or family, and see what everyone has left. No ads.',
+    title: 'Pooled: Shared Expense Tracker for Android, Free and No Ads',
+    desc: 'Pooled is a free shared expense tracker for Android. Track spending, share a space with roommates or family, and see what everyone has left. No ads. Optional Pro.',
   },
   'how-it-works': {
     out: 'how-it-works.html',
     nav: 'how',
-    title: 'How Pooled Works — Shared Expense Tracking in 4 Steps',
+    title: 'How Pooled Works: Shared Expense Tracking in 4 Steps',
     desc: 'Add an expense in seconds, keep personal and shared money apart, see where every member stands, and watch the month take shape. How Pooled works.',
   },
   'features': {
     out: 'features.html',
     nav: 'features',
-    title: 'Pooled Features — Budgets, Shared Spaces, Export and More',
-    desc: 'Everything Pooled does: expense and income tracking, shared spaces, budgets, lent and borrowed, receipt photos, CSV and PDF export, app lock and widgets.',
+    title: 'Pooled Features and Pro: Budgets, Shared Spaces, Export',
+    desc: 'Everything Pooled does, and what Pooled Pro adds: shared spaces, budgets, lent and borrowed, receipt photos, CSV and PDF export, app lock and widgets.',
   },
   'faq': {
     out: 'faq.html',
     nav: 'faq',
-    title: 'Pooled FAQ and Support — Shared Expense Tracker Help',
+    title: 'Pooled FAQ and Support: Shared Expense Tracker Help',
     desc: 'Answers about Pooled, the shared expense tracker: shared spaces, budgets, exports, privacy and deleting your data, plus how to reach the team.',
   },
   'privacy': {
     out: 'privacy.html',
     nav: null,
-    title: 'Privacy Policy — Pooled Shared Expense Tracker',
+    title: 'Privacy Policy: Pooled Shared Expense Tracker',
     desc: 'What Pooled keeps on your phone, what it holds if you make an account, why it talks to no company but Google, and how to delete all of it.',
   },
   'terms': {
     out: 'terms.html',
     nav: null,
-    title: 'Terms of Service — Pooled Shared Expense Tracker',
+    title: 'Terms of Service: Pooled Shared Expense Tracker',
     desc: 'The terms for using Pooled, the shared expense tracker from SunnyOrbit: what may be shared in a space, reporting and blocking, early access, and the rest.',
   },
   'delete-account': {
@@ -142,7 +142,11 @@ function structuredData(name, meta, pageUrl) {
       operatingSystem: 'Android 7.0 or later',
       inLanguage: ['en', 'bn', 'hi', 'ur', 'ar', 'es', 'fr', 'pt', 'id'],
       isAccessibleForFree: true,
-      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+      offers: [
+        { '@type': 'Offer', name: 'Pooled', price: '0', priceCurrency: 'USD' },
+        { '@type': 'Offer', name: 'Pooled Pro, monthly', price: '4.99', priceCurrency: 'USD', url: `${ORIGIN}/features#pro` },
+        { '@type': 'Offer', name: 'Pooled Pro, yearly', price: '34.99', priceCurrency: 'USD', url: `${ORIGIN}/features#pro` },
+      ],
       featureList: [
         'Expense and income tracking',
         'Shared spaces with a live balance for every member',
@@ -155,11 +159,10 @@ function structuredData(name, meta, pageUrl) {
         'App lock with PIN or password, and fingerprint unlock',
         'Four home-screen widgets',
         'Works without an account; no ads, no analytics, no tracking',
+        'Optional Pooled Pro subscription with a 7-day free trial',
       ],
-      /* Published on Google Play from a personal account for now; the brand
-         behind it is the Organization. Update when the app moves to the
-         company account. */
-      publisher: { '@type': 'Person', name: 'Md Muktadir Hossain Limon' },
+      /* Published on Google Play by Moiasun LLC (developer name SunnyOrbit). */
+      publisher: { '@id': `${SITE}/#organization` },
       author: { '@id': `${SITE}/#organization` },
       privacyPolicy: `${ORIGIN}/privacy`,
     });

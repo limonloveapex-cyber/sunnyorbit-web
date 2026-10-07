@@ -1,6 +1,9 @@
 /* SunnyOrbit — shared styles for every company page.
  *
- * Tokens are the `so-*` variables from the pen.dev document, verbatim. Page-
+ * Colours come from the SunnyOrbit brand kit (02-APPS/sunnyorbitapps-brand-kit):
+ * Sun Yellow #FFBE24, Orbit Orange #FF7A1A, Sky Blue #2A94D6, Deep Navy
+ * #0F2A44. Orange and yellow are too light for text on white, so links and
+ * small coloured text use --link, a darker shade of the kit's blue. Page-
  * specific layout lives in assets/css/pages/<page>.css; this file holds only
  * what two or more pages share: type, buttons, cards, the nav pill, the
  * footer, the legal-page layout and the scroll motion.
@@ -11,33 +14,34 @@
 /* ------------------------------------------------------------ tokens */
 
 :root {
-  --bg: #F1F2F4;
+  --bg: #FAF8F2;
   --surface: #FFFFFF;
-  --ink: #0D0F12;
-  --ink-2: #6A7280;
-  --ink-3: #A3A9B3;
-  --line: #E6E8EC;
+  --ink: #0F2A44;
+  --ink-2: #4B5D70;
+  --ink-3: #8695A5;
+  --line: #E6EBF0;
 
-  --sun: #FF6B35;
-  --amber: #FFC24B;
-  --violet: #8B5CF6;
-  --sky: #3BBDF5;
+  --sun: #FF7A1A;
+  --amber: #FFBE24;
+  --violet: #1E83C5;
+  --sky: #2A94D6;
   --mint: #34D399;
+  --link: #1769A6;
 
   /* 135deg pairs, as drawn on the design's icon tiles. */
-  --g-sun: linear-gradient(135deg, #FF6B35, #FFC24B);
-  --g-amber: linear-gradient(135deg, #FFC24B, #FF6B35);
-  --g-violet: linear-gradient(135deg, #8B5CF6, #3BBDF5);
-  --g-sky: linear-gradient(135deg, #3BBDF5, #34D399);
-  --g-mint: linear-gradient(135deg, #34D399, #3BBDF5);
-  --g-mint-amber: linear-gradient(135deg, #34D399, #FFC24B);
-  --g-sky-violet: linear-gradient(135deg, #3BBDF5, #8B5CF6);
+  --g-sun: linear-gradient(135deg, #FF7A1A, #FFBE24);
+  --g-amber: linear-gradient(135deg, #FFBE24, #FF7A1A);
+  --g-violet: linear-gradient(135deg, #1E83C5, #2A94D6);
+  --g-sky: linear-gradient(135deg, #2A94D6, #34D399);
+  --g-mint: linear-gradient(135deg, #34D399, #2A94D6);
+  --g-mint-amber: linear-gradient(135deg, #34D399, #FFBE24);
+  --g-sky-violet: linear-gradient(135deg, #2A94D6, #1E83C5);
 
-  --shadow: 0 8px 32px rgba(13, 15, 18, 0.08);
-  --shadow-nav: 0 6px 24px rgba(13, 15, 18, 0.08);
+  --shadow: 0 8px 32px rgba(15, 42, 68, 0.08);
+  --shadow-nav: 0 6px 24px rgba(15, 42, 68, 0.08);
 
   --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-  --display: 'Space Grotesk', var(--font);
+  --display: 'Nunito', var(--font);
 
   --content: 1120px;
   --gutter: 24px;
@@ -76,7 +80,7 @@ button { font: inherit; }
   font-weight: 600; text-decoration: none; transition: top .15s ease;
 }
 .skip-link:focus { top: 16px; }
-:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; border-radius: 6px; }
 
 .wrap { width: 100%; max-width: calc(var(--content) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
 
@@ -94,15 +98,15 @@ button { font: inherit; }
   letter-spacing: -0.035em;
   line-height: 1.02;
 }
-.h1 { font-family: var(--display); font-size: clamp(42px, 6.6vw, 88px); letter-spacing: -0.04em; line-height: 1.0; }
-.h2 { font-family: var(--display); font-size: clamp(32px, 4.4vw, 56px); letter-spacing: -0.035em; line-height: 1.04; }
-.h3 { font-family: var(--display); font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.02em; line-height: 1.15; }
+.h1 { font-family: var(--display); font-weight: 800; font-size: clamp(42px, 6.6vw, 88px); letter-spacing: -0.03em; line-height: 1.02; }
+.h2 { font-family: var(--display); font-weight: 800; font-size: clamp(32px, 4.4vw, 56px); letter-spacing: -0.025em; line-height: 1.06; }
+.h3 { font-family: var(--display); font-weight: 800; font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.015em; line-height: 1.18; }
 
 .eyebrow {
   font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
   color: var(--ink-3);
 }
-.kicker { font-size: 12px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--sun); }
+.kicker { font-size: 12px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase; color: var(--link); }
 .lede { font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65; color: var(--ink-2); }
 .muted { color: var(--ink-2); }
 
@@ -124,12 +128,14 @@ button { font: inherit; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
-.btn--sun { background: var(--sun); color: #fff; box-shadow: 0 8px 24px rgba(255, 107, 53, .28); }
-.btn--sun:hover { background: #FF7A49; }
+/* The brand's sun: yellow with navy text (9:1), where white on orange would
+   not be readable. */
+.btn--sun { background: var(--amber); color: var(--ink); box-shadow: 0 8px 24px rgba(255, 190, 36, .38); }
+.btn--sun:hover { background: #FFC83F; }
 .btn--light { background: var(--surface); color: var(--ink); border-color: var(--line); font-weight: 600; }
 .btn--light:hover { border-color: var(--ink-3); }
 .btn--ink { background: var(--ink); color: #fff; }
-.btn--ink:hover { background: #20242B; }
+.btn--ink:hover { background: #1A3A5A; }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
 .pill-btn {
@@ -139,9 +145,9 @@ button { font: inherit; }
   transition: background .15s ease;
 }
 .pill-btn--soft { background: var(--bg); color: var(--ink); }
-.pill-btn--soft:hover { background: #E6E8EC; }
+.pill-btn--soft:hover { background: #E6EBF0; }
 .pill-btn--ink { background: var(--ink); color: #fff; }
-.pill-btn--ink:hover { background: #20242B; }
+.pill-btn--ink:hover { background: #1A3A5A; }
 
 /* Small status pill: "Available", "In design", "Coming later". */
 .status {
@@ -163,8 +169,8 @@ button { font: inherit; }
 .panel {
   background: var(--surface); border-radius: 32px; box-shadow: var(--shadow);
 }
-.panel--dark { background: var(--ink); color: #F6F7F9; }
-.panel--dark .muted, .panel--dark .lede { color: #A3A9B3; }
+.panel--dark { background: var(--ink); color: #F4F7FA; }
+.panel--dark .muted, .panel--dark .lede { color: #8695A5; }
 
 /* The gradient icon tiles. Size via --s. */
 .tile {
@@ -173,7 +179,7 @@ button { font: inherit; }
   display: grid; place-items: center;
   border-radius: calc(var(--s) * .36);
   color: #fff; background: var(--g-sun);
-  box-shadow: 0 10px 24px rgba(13, 15, 18, .12);
+  box-shadow: 0 10px 24px rgba(15, 42, 68, .12);
 }
 .tile svg { width: calc(var(--s) * .42); height: calc(var(--s) * .42); }
 .tile--amber { background: var(--g-amber); }
@@ -184,7 +190,7 @@ button { font: inherit; }
 .tile--sky-violet { background: var(--g-sky-violet); }
 .tile--neutral { background: var(--bg); color: var(--ink-3); box-shadow: none; }
 
-.pooled-icon { flex: none; filter: drop-shadow(0 10px 22px rgba(13, 15, 18, .18)); }
+.pooled-icon { flex: none; filter: drop-shadow(0 10px 22px rgba(15, 42, 68, .18)); }
 
 /* ---------------------------------------------------------------- nav */
 
@@ -199,15 +205,11 @@ button { font: inherit; }
 .so-lockup {
   display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink);
 }
-.sun-mark {
-  width: 24px; height: 24px; border-radius: 50%; flex: none;
-  display: grid; place-items: center; color: #fff;
-  background: linear-gradient(135deg, #FFC24B, #FF6B35);
-}
-.so-wordmark { font-family: var(--display); font-size: 18px; font-weight: 700; letter-spacing: -0.4px; }
-.so-lockup--lg { gap: 9px; }
-.so-lockup--lg .sun-mark { width: 28px; height: 28px; }
-.so-lockup--lg .so-wordmark { font-size: 20px; letter-spacing: -0.5px; }
+.so-mark { width: 30px; height: 30px; flex: none; border-radius: 7px; }
+.so-wordmark { font-family: var(--display); font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
+.so-lockup--lg { gap: 10px; }
+.so-lockup--lg .so-mark { width: 38px; height: 38px; border-radius: 9px; }
+.so-lockup--lg .so-wordmark { font-size: 22px; letter-spacing: -0.4px; }
 
 .nav-links { display: flex; gap: 26px; }
 .nav-links a {
@@ -248,7 +250,7 @@ button { font: inherit; }
 .footer-brand { width: 320px; display: flex; flex-direction: column; gap: 16px; }
 .footer-brand p { font-size: 15px; line-height: 1.65; color: var(--ink-2); }
 .footer-email { font-size: 15px; font-weight: 600; text-decoration: none; }
-.footer-email:hover { color: var(--sun); }
+.footer-email:hover { color: var(--link); }
 .footer-col { display: flex; flex-direction: column; gap: 13px; min-width: 120px; }
 .footer-col h2 { font-family: var(--font); font-size: 15px; font-weight: 700; line-height: 1.4; }
 .footer-col a { font-size: 15px; color: var(--ink-2); text-decoration: none; }
@@ -271,9 +273,9 @@ button { font: inherit; }
   --p: 1;
   position: relative; display: block;
   margin: 36px 0 -0.13em -0.04em;
-  font-family: var(--display); font-weight: 700;
-  font-size: clamp(52px, 14.5vw, 210px); letter-spacing: -0.04em; line-height: 1;
-  color: var(--sun);
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(52px, 14.5vw, 210px); letter-spacing: -0.035em; line-height: 1;
+  color: var(--sky);
   filter: blur(calc((1 - var(--p)) * 18px));
   transform: translateY(calc((1 - var(--p)) * 0.35em));
   opacity: calc(0.35 + var(--p) * 0.65);
@@ -313,7 +315,7 @@ button { font: inherit; }
 .legal-aside h2 { font-family: var(--font); font-size: 12px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase; color: var(--ink-3); }
 .legal-aside ol, .legal-aside ul { margin-top: 12px; display: flex; flex-direction: column; gap: 8px; }
 .legal-aside a { font-size: 14px; color: var(--ink-2); text-decoration: none; line-height: 1.4; display: block; }
-.legal-aside a:hover { color: var(--sun); }
+.legal-aside a:hover { color: var(--link); }
 
 .prose { background: var(--surface); border-radius: 32px; box-shadow: var(--shadow); padding: clamp(28px, 4vw, 56px); }
 .prose > section + section { margin-top: 40px; padding-top: 36px; border-top: 1px solid var(--line); }
@@ -326,13 +328,13 @@ button { font: inherit; }
 .prose li { position: relative; padding-left: 22px; }
 .prose ul > li::before {
   content: ''; position: absolute; left: 2px; top: .7em; width: 7px; height: 7px;
-  background: var(--sun); border-radius: 2px;
+  background: var(--amber); border-radius: 2px;
 }
 .prose ol { counter-reset: n; }
 .prose ol > li { counter-increment: n; padding-left: 28px; }
-.prose ol > li::before { content: counter(n) '.'; position: absolute; left: 0; font-weight: 700; color: var(--sun); }
+.prose ol > li::before { content: counter(n) '.'; position: absolute; left: 0; font-weight: 700; color: var(--link); }
 .prose strong { color: var(--ink); font-weight: 600; }
-.prose a { color: var(--sun); font-weight: 600; }
+.prose a { color: var(--link); font-weight: 600; }
 .prose table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14.5px; }
 .prose th, .prose td { text-align: left; vertical-align: top; padding: 12px 14px; border-bottom: 1px solid var(--line); color: var(--ink-2); }
 .prose th { color: var(--ink); font-weight: 700; background: var(--bg); }

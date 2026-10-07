@@ -112,7 +112,7 @@
 }
 .hwb-bullet svg { width: 13px; height: 13px; }
 .hwb-bullet--yes { color: var(--mint); }
-.hwb-bullet--no { color: #FF8A6B; }
+.hwb-bullet--no { color: #FF9A4D; }
 
 .hwb-example {
   margin-top: 46px; padding-top: 32px; border-top: 1px solid rgba(255, 255, 255, .12);

@@ -1,7 +1,9 @@
 <!-- ============================================================ hero -->
 <!-- Google Play's account-deletion web resource for Pooled (published on
-     Google Play by the owner as an individual, developer name SunnyOrbit,
-     brand of Moiasun LLC; updated 2026-09-25 for 2.90.4+222).
+     Google Play by Moiasun LLC, developer name SunnyOrbit; updated 2026-10-07
+     for paid Pro, app 2.99.x: onAccountDeleted removes entitlements/{uid},
+     billingSync, ogClaims and grants, deletes the RevenueCat customer, and
+     keeps ogEmails/{hash}; the Play subscription is NOT cancelled).
      Ported from the app's delete-account.html (hosting/prod in the app repo)
      and corrected against the code on 2026-09-24:
      - the control is "Delete account" when signed in and "Reset everything"
@@ -22,7 +24,7 @@
     <div class="stack" style="--gap:14px;max-width:760px">
       <p class="eyebrow eyebrow--lilac">Account</p>
       <h1 class="h-hero h-hero--sm">Delete your Pooled account</h1>
-      <p class="muted" style="font-size:15px">Last updated: 1 October 2026. This page is for the Pooled app for Android, published on Google Play by Md Muktadir Hossain Limon, an individual developer, under the developer name SunnyOrbit, the brand of Moiasun LLC.</p>
+      <p class="muted" style="font-size:15px">Last updated: 7 October 2026. This page is for the Pooled app for Android, published on Google Play by Moiasun LLC under the developer name SunnyOrbit.</p>
     </div>
   </div>
 </section>
@@ -35,8 +37,10 @@
         <ul>
           <li>In Pooled, open the menu and choose <strong>Delete account</strong>.
             It erases your ledger and your uploaded photos from the cloud, removes
-            your early-access Pro and OG badge, deletes the account, and wipes the
-            phone.</li>
+            your early-access Pro and OG badge and your subscription record, deletes
+            the account, and wipes the phone.</li>
+          <li><strong>It does not cancel a Pro subscription.</strong> Cancel that in
+            Google Play first, or Google will keep charging you.</li>
           <li>If you cannot get into the app, email
             <a href="mailto:support@sunnyorbitapps.com?subject=Delete%20my%20Pooled%20account">support@sunnyorbitapps.com</a>
             from your account's email address and we will do it for you within 30
@@ -62,9 +66,17 @@
       </ul>
       <p>
         It happens immediately. There is no waiting period, no &ldquo;we are sorry to
-        see you go&rdquo; email, and nothing to cancel afterwards. That also means
-        there is no undo, so take an export first if you want to keep your records.
-        <strong>Export</strong> is in the same menu.
+        see you go&rdquo; email. That also means there is no undo, so keep a copy
+        first if you want your records: with Pro, <strong>Export</strong> is in the
+        same menu; without Pro, email us before you delete and we will send you a
+        copy.
+      </p>
+      <p>
+        <strong>Have a Pro subscription? Cancel it in Google Play first.</strong>
+        Deleting your Pooled account does not cancel a Google Play subscription, and
+        Google would keep charging you. Open the Google Play app, then Payments &amp;
+        subscriptions, then Subscriptions, then Pooled. The app reminds you of this
+        before it deletes an account whose subscription is still renewing.
       </p>
       <p>
         <strong>No account?</strong> Then the same control is called
@@ -120,6 +132,9 @@
           storage.</li>
         
         <li>Your early-access grant: any free Pro you still had, and your OG badge.</li>
+        <li>Your subscription record on our server, and RevenueCat's record of you
+          (the service we use to check purchases). Any Pro you paid for ends with the
+          account.</li>
         <li>The notification tokens stored for your phones.</li>
       </ul>
       <p>
@@ -150,6 +165,13 @@
       </p>
 
       <h2>What stays, and why</h2>
+      <p>
+        <strong>Two small records.</strong> If your account took one of the first 100
+        early-access places, or was made before Pro went on sale, we keep a one-way
+        hash of your email address (not the address itself) with the place number
+        and its dates, so the same address cannot take a second place. Google Play
+        also keeps its own record of any purchase, under Google's policies.
+      </p>
       <p>
         <strong>Shared spaces you were in with other people.</strong> If you and a
         flatmate kept a shared ledger, that ledger is theirs as much as yours, and the

@@ -45,15 +45,23 @@ left unreplaced or an icon name does not exist.
 
 Template tokens: `{{icon:name}}`, `{{icon:name:18}}`, `{{pooled-icon:72}}`.
 
-### Share image
+### Brand and share image
 
-`assets/img/og.png` is rendered from `tools/og.html`:
+Colours, icon and wordmark come from the SunnyOrbit brand kit in
+`02-APPS/sunnyorbitapps-brand-kit` (Sun Yellow #FFBE24, Orbit Orange #FF7A1A,
+Sky Blue #2A94D6, Deep Navy #0F2A44). The site's name stays **SunnyOrbit**,
+not the kit's "SunnyOrbitApps".
 
-```sh
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
-  --hide-scrollbars --window-size=1200,630 --screenshot=/tmp/og.png \
-  "file://$PWD/tools/og.html"
-```
+- `assets/img/sunnyorbit-mark.svg` is a vector copy of the kit's icon, drawn
+  from the geometry in the kit's `generate_brand_kit.py` (`draw_icon`).
+- `sunnyorbit-512.png`, `-192`, `-180` and `-32` are the kit's favicons and
+  app icon, resized.
+- `assets/img/og.png` is the kit's `make_open_graph()` with the wordmark text
+  set to "SunnyOrbit": copy the kit's script somewhere else, change
+  `text = "SunnyOrbitApps"` in `draw_wordmark`, and run `make_open_graph()`.
+- Display type is Nunito (SIL OFL 1.1, self-hosted), the nearest open rounded
+  face to the kit's SF Rounded.
+
 
 ## Connecting the domain
 

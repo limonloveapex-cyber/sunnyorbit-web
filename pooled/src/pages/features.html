@@ -82,7 +82,7 @@
       <h2 class="h-block">Budgets with progress, and every IOU tracked back to zero</h2>
       <p class="lede">
         Set a limit per category and Pooled fills a progress bar as the month
-        goes on — calm while you are comfortable, red once you pass the line.
+        goes on: calm while you are comfortable, red once you pass the line.
         Money you lent and money you borrowed sits in the same app, so a debt
         does not quietly become a gift.
       </p>
@@ -141,12 +141,12 @@
 
     <div class="grid grid--2" style="margin-top:44px">
       <div class="card">
-        <h3 style="font-size:23px">App lock with PIN, password and fingerprint unlock</h3>
+        <h3 style="font-size:23px">App lock with PIN, password and fingerprint unlock <span class="pro-tag">Pro</span></h3>
         <p style="font-size:15px">Lock Pooled behind a PIN or a password, and unlock it with your fingerprint. Your money stays yours even when your phone is not in
           your hand.</p>
       </div>
       <div class="card">
-        <h3 style="font-size:23px">CSV and PDF export</h3>
+        <h3 style="font-size:23px">CSV and PDF export <span class="pro-tag">Pro</span></h3>
         <p style="font-size:15px">Export any date range as a CSV for a
           spreadsheet, or a PDF with category and payment-method breakdowns.
           Your records leave with you whenever you want them.</p>
@@ -155,9 +155,10 @@
         
         <div>
           <h3 style="font-size:23px">Home-screen widgets</h3>
-          <p style="font-size:15px">Four Android widgets — balance, budget,
-            quick add and your most-used categories — so the common jobs never
-            need the app open.</p>
+          <p style="font-size:15px">Four Android widgets: balance, budget,
+            quick add and your most-used categories, so the common jobs never
+            need the app open. Balance is free; the other three come with
+            Pro.</p>
         </div>
       </div>
       <div class="card">
@@ -170,35 +171,81 @@
   </div>
 </section>
 
-<!-- ==================================================== early access -->
-<!-- What Pro is today (app 2.90.0+): a server-held grant. Anyone who makes an
-     account while early access is open gets 6 months of Pro and a permanent OG
-     badge. No billing is connected and no limit is enforced, so every feature
-     already works for everybody; paid Pro comes later. No end date is given
-     here on purpose — the window is closed from the console, not the site. -->
-<section class="section" id="early-access">
+<!-- ============================================================= pro -->
+<!-- Paid Pro, 2026-10-07 (app 2.99.x): product pooled_pro, monthly US$4.99
+     and yearly US$34.99 (lib/domain/pro.dart ProCatalog), 7-day trial for new
+     subscribers, sold through Google Play. Free limits are lib/domain/pro.dart
+     and category_tier.dart. Not listed on purpose, because this build does
+     not do them: "full cloud history" and "photos synced only with Pro"
+     (feat/retention is unmerged; free users' photos still sync), and the PRO
+     badge members see (ProMemberFlag.writes is false). The old
+     #early-access anchor is kept so existing links still land here. -->
+<section class="section" id="pro">
+  <span id="early-access"></span>
   <div class="wrap">
-    <div class="split" style="--split:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start">
-      <div class="stack" style="--gap:14px">
-        <p class="eyebrow eyebrow--lilac">Pooled Pro</p>
-        <h2 class="h-sec">Six months of Pro for early members</h2>
+    <div class="sec-head">
+      <p class="eyebrow eyebrow--lilac">Pooled Pro</p>
+      <h2 class="h-sec">Free to use. Pro when you outgrow it.</h2>
+      <p class="lede">Pooled works without paying anything, and nothing you record
+        is ever locked. Pro lifts the limits for bigger households and adds a few
+        extras. Try it free for 7 days.</p>
+    </div>
+
+    <div class="plans">
+      <div class="card plan">
+        <p class="plan__name">Monthly</p>
+        <p class="plan__price"><strong>$4.99</strong> a month</p>
+        <p class="plan__note">Cancel any time in Google Play.</p>
       </div>
-      <div class="stack" style="--gap:14px">
-        <p class="lede">
-          Make an account while early access is open and you get 6 months of Pro
-          free, plus an <strong>OG</strong> badge that stays on your profile for
-          good. There is no price, no trial and nothing to cancel: the app
-          cannot take a payment, because no billing is connected to it, and
-          today every feature works for everybody anyway.
-        </p>
-        <p class="lede">
-          Paid Pro will come later, through Google Play. When it does, the price
-          will appear in the app first and you will be asked before anything is
-          charged. Nothing you have already recorded will be put behind a
-          paywall.
-        </p>
+      <div class="card plan plan--best">
+        <p class="plan__badge">Best value · save 41%</p>
+        <p class="plan__name">Yearly</p>
+        <p class="plan__price"><strong>$34.99</strong> a year</p>
+        <p class="plan__note">About $2.92 a month, billed once a year.</p>
       </div>
     </div>
+
+    <div class="card compare">
+      <table>
+        <thead><tr><th scope="col">What you get</th><th scope="col">Free</th><th scope="col">Pro</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Shared spaces you create</th><td>2</td><td>Unlimited</td></tr>
+          <tr><th scope="row">People in each space you own</th><td>5, you included</td><td>Unlimited</td></tr>
+          <tr><th scope="row">Wallets</th><td>2</td><td>Unlimited</td></tr>
+          <tr><th scope="row">Categories</th><td>10 spending, 4 income, and 7 of your own per space</td><td>The full set, plus as many of your own as you like</td></tr>
+          <tr><th scope="row">New entries a day</th><td>50</td><td>200</td></tr>
+          <tr><th scope="row">CSV and PDF export</th><td>&ndash;</td><td>Yes</td></tr>
+          <tr><th scope="row">App lock with PIN, password or fingerprint</th><td>&ndash;</td><td>Yes</td></tr>
+          <tr><th scope="row">Home-screen widgets</th><td>Balance</td><td>All four</td></tr>
+          <tr><th scope="row">Themes</th><td>The default theme</td><td>3 more themes</td></tr>
+          <tr><th scope="row">Shared spaces, budgets, lent &amp; borrowed, cloud backup</th><td>Yes</td><td>Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grid grid--2 pro-notes">
+      <div class="card">
+        <h3>How billing works</h3>
+        <p>Pro is sold through Google Play and needs a Pooled account. New
+          subscribers get a 7-day free trial; when it ends, Google Play charges
+          the plan you picked automatically unless you cancel before then. It
+          renews each month or year until you cancel in Google Play, and Pro stays
+          until the end of the period you paid for. Prices are in US dollars;
+          Google Play shows the price in your currency before you confirm, and
+          taxes may apply.</p>
+      </div>
+      <div class="card">
+        <h3>The first 100 get 6 months free</h3>
+        <p>The first 100 accounts made since Pro went on sale, with a confirmed
+          email address, get 6 months of Pro free and an <strong>OG</strong> badge
+          that stays on their profile for good. One place per inbox. Nothing is
+          charged when the 6 months end. Members who joined in early access keep
+          the grant they already have.</p>
+      </div>
+    </div>
+    <p class="muted pro-fine">For a shared space, the owner's Pro is what counts, so
+      everyone in it gets the bigger limits. Full details are in the
+      <a href="terms.html">Terms of Service</a>, section 6.</p>
   </div>
 </section>
 
@@ -218,9 +265,9 @@
           <a class="btn btn--lime btn--play" href="https://play.google.com/store/apps/details?id=com.limon.pooled">Get it on Google Play</a>
         </div>
         <div class="pills" style="justify-content:center;margin-top:6px">
-          <span class="pill" style="background:transparent;border-color:#3A3D34;color:#C8C9BF">Free while in early access</span>
+          <span class="pill" style="background:transparent;border-color:#3A3D34;color:#C8C9BF">Free to use</span>
           <span class="pill" style="background:transparent;border-color:#3A3D34;color:#C8C9BF">Works offline</span>
-          <span class="pill" style="background:transparent;border-color:#3A3D34;color:#C8C9BF">Export any time</span>
+          <span class="pill" style="background:transparent;border-color:#3A3D34;color:#C8C9BF">7-day Pro trial</span>
         </div>
       </div>
     </div>

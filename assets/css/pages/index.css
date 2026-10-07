@@ -30,7 +30,7 @@
   aspect-ratio: 1000 / 300;
 }
 .orbit-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.orbit-lines line { stroke: #D7DAE0; stroke-width: 1; fill: none; }
+.orbit-lines line { stroke: #D5DEE7; stroke-width: 1; fill: none; }
 
 .orbit-dot, .orb {
   position: absolute; left: var(--x); top: var(--y);
@@ -44,33 +44,29 @@
 .orb-tile.tile {
   --s: calc(60px * var(--k));
   border-radius: calc(18px * var(--k));
-  box-shadow: 0 8px 22px rgba(13, 15, 18, .125);
+  box-shadow: 0 8px 22px rgba(15, 42, 68, .125);
 }
 .orb-tile.tile svg { width: calc(25px * var(--k)); height: calc(25px * var(--k)); }
-.orb--receipt { background: linear-gradient(135deg, #FFD479, #FFB020); }
-.orb--users { background: linear-gradient(135deg, #7FD4FA, #2FA8E8); }
-.orb--calendar { background: linear-gradient(135deg, #B39BFA, #7C4DEC); }
+.orb--receipt { background: linear-gradient(135deg, #FFD066, #FFBE24); }
+.orb--users { background: linear-gradient(135deg, #7CC4EE, #2A94D6); }
+.orb--calendar { background: linear-gradient(135deg, #6FB3E3, #1769A6); }
 .orb--piggy { background: linear-gradient(135deg, #6EE7B7, #16B981); }
 .orb-tile.orb--phone {
   --s: calc(76px * var(--k));
   border-radius: calc(20px * var(--k));
   background: var(--surface); color: var(--ink);
-  box-shadow: 0 8px 22px rgba(13, 15, 18, .125), inset 0 0 0 1px var(--line);
+  box-shadow: 0 8px 22px rgba(15, 42, 68, .125), inset 0 0 0 1px var(--line);
 }
 .orb-tile.orb--phone svg { width: calc(32px * var(--k)); height: calc(32px * var(--k)); }
 .orb-tile--pooled .pooled-icon {
   width: calc(72px * var(--k)); height: calc(72px * var(--k));
-  filter: drop-shadow(0 8px 22px rgba(13, 15, 18, .2));
+  filter: drop-shadow(0 8px 22px rgba(15, 42, 68, .2));
 }
 .orb-sun {
-  width: calc(112px * var(--k)); height: calc(112px * var(--k));
-  display: grid; place-items: center;
-  border-radius: calc(30px * var(--k));
-  background: linear-gradient(135deg, #FFC24B, #FF6B35);
-  box-shadow: 0 16px 40px rgba(255, 107, 53, .25);
-  color: #fff;
+  width: calc(124px * var(--k)); height: calc(124px * var(--k));
+  border-radius: calc(28px * var(--k));
+  box-shadow: 0 18px 44px rgba(30, 131, 197, .3);
 }
-.orb-sun svg { width: calc(52px * var(--k)); height: calc(52px * var(--k)); }
 
 .hero-copy {
   display: flex; flex-direction: column; align-items: center; gap: 22px;
@@ -107,7 +103,7 @@
   padding-bottom: 5px; border-bottom: 1.5px solid var(--ink);
   font-size: 15px; font-weight: 700; text-decoration: none; color: var(--ink);
 }
-.text-link:hover { color: var(--sun); border-color: var(--sun); }
+.text-link:hover { color: var(--link); border-color: var(--link); }
 
 /* Two phones as separate layers in a clipped stage; site.js moves the back
    one at 0.85 of scroll speed. Offsets are from the stage's centre so the
@@ -196,7 +192,7 @@
 .ac-link {
   margin-top: auto;
   display: inline-flex; align-items: center; gap: 7px;
-  font-size: 15px; font-weight: 700; color: var(--sun); text-decoration: none;
+  font-size: 15px; font-weight: 700; color: var(--link); text-decoration: none;
 }
 .ac-link:hover { text-decoration: underline; text-underline-offset: 4px; }
 .app-card--later { background: var(--surface); box-shadow: inset 0 0 0 1px var(--line); }
@@ -212,12 +208,12 @@
 .cta-title {
   max-width: 700px;
   font-family: var(--display); font-size: clamp(30px, 3.35vw, 48px);
-  line-height: 1.12; letter-spacing: -0.033em; color: #F6F7F9;
+  line-height: 1.12; letter-spacing: -0.033em; color: #F4F7FA;
 }
-.cta-text { max-width: 640px; font-size: 17px; line-height: 1.6; color: #A3A9B3; }
+.cta-text { max-width: 640px; font-size: 17px; line-height: 1.6; color: #8695A5; }
 .cta-btns { justify-content: center; gap: 14px; }
 .btn--white { background: #fff; color: var(--ink); }
-.btn--white:hover { background: #F1F2F4; }
+.btn--white:hover { background: #FAF8F2; }
 
 .cta-accent { position: absolute; transform: rotate(var(--r)); }
 .cta-accent .tile { border-radius: 22px; }

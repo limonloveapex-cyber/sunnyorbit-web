@@ -38,7 +38,7 @@
 .apps-meta li:first-child { padding-top: 0; }
 .apps-meta li + li { border-top: 1px solid var(--line); }
 .apps-meta__top { display: flex; align-items: baseline; gap: 10px; }
-.apps-meta__n { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--sun); }
+.apps-meta__n { font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--link); }
 .apps-meta__label { font-family: var(--display); font-size: 17px; font-weight: 700; letter-spacing: -0.3px; }
 .apps-meta__desc { font-size: 14px; line-height: 1.5; color: var(--ink-2); }
 
@@ -62,7 +62,7 @@
   display: flex; align-items: flex-start; gap: 12px;
   font-size: 16px; font-weight: 600; line-height: 1.5;
 }
-.apps-points svg { color: var(--sun); margin-top: 3px; flex: none; }
+.apps-points svg { color: var(--link); margin-top: 3px; flex: none; }
 .apps-pooled__cta { margin-top: 40px; gap: 14px; }
 
 .apps-pooled__stage { position: relative; overflow: hidden; min-height: 100%; }

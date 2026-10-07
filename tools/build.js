@@ -78,34 +78,34 @@ const expand = (html) => html
    data below; `crumb` is the page's name in the breadcrumb trail. */
 const pages = {
   index: {
-    title: 'SunnyOrbit — Simple Mobile Apps for Everyday Life',
+    title: 'SunnyOrbit: Simple Mobile Apps for Everyday Life',
     desc: 'SunnyOrbit is an independent studio making simple, private mobile apps for everyday life. Our first app is Pooled, a shared expense tracker for Android.',
     nav: 'home',
     type: 'WebPage',
   },
   apps: {
-    title: 'Our Apps — Simple, Private Mobile Apps | SunnyOrbit',
+    title: 'Our Apps: Simple, Private Mobile Apps | SunnyOrbit',
     desc: 'The apps SunnyOrbit has built and is building, starting with Pooled, a free shared expense tracker for Android. No ads, no tracking, no clutter.',
     nav: 'apps',
     type: 'CollectionPage',
     crumb: 'Apps',
   },
   about: {
-    title: 'About SunnyOrbit — An Independent App Studio',
+    title: 'About SunnyOrbit: An Independent App Studio',
     desc: 'SunnyOrbit is an independent studio run by Moiasun LLC, a Delaware company, building small mobile apps that respect your time and your privacy.',
     nav: 'about',
     type: 'AboutPage',
     crumb: 'About',
   },
   'how-we-build': {
-    title: 'How We Build — Fewer Features, Chosen Carefully | SunnyOrbit',
+    title: 'How We Build: Fewer Features, Chosen Carefully | SunnyOrbit',
     desc: 'How SunnyOrbit decides what goes into an app and what stays out: notice a real problem, build the smallest honest fix, check every claim, then listen.',
     nav: 'how',
     type: 'WebPage',
     crumb: 'How we build',
   },
   contact: {
-    title: 'Contact SunnyOrbit — Support, Privacy and Press',
+    title: 'Contact SunnyOrbit: Support, Privacy and Press',
     desc: 'Email the people who build SunnyOrbit apps: help with Pooled, privacy and data requests, bug reports, ideas and press. A person reads every message.',
     nav: 'contact',
     type: 'ContactPage',
@@ -126,14 +126,14 @@ const pages = {
     crumb: 'Terms of Service',
   },
   cookies: {
-    title: 'Cookie Policy — No Cookies, No Tracking | SunnyOrbit',
+    title: 'Cookie Policy: No Cookies, No Tracking | SunnyOrbit',
     desc: 'sunnyorbitapps.com sets no cookies, runs no analytics and stores nothing in your browser. Here is exactly what that means, and how to check.',
     nav: null,
     type: 'WebPage',
     crumb: 'Cookie Policy',
   },
   404: {
-    title: 'Page not found — SunnyOrbit',
+    title: 'Page not found: SunnyOrbit',
     desc: 'That page is not here.',
     nav: null,
     rooted: true,
@@ -162,6 +162,7 @@ const ORG = () => ({
   '@id': `${ORIGIN}/#organization`,
   name: 'SunnyOrbit',
   legalName: 'Moiasun LLC',
+  slogan: 'Simple apps that brighten your day',
   alternateName: 'Moiasun LLC',
   url: `${ORIGIN}/`,
   logo: {

@@ -107,7 +107,7 @@
 .about-facts__panel li:first-child { padding-left: 0; }
 .about-facts__panel li:last-child { padding-right: 0; }
 .about-facts__panel li + li { border-left: 1px solid var(--line); }
-.about-facts__panel svg { color: var(--sun); }
+.about-facts__panel svg { color: var(--link); }
 .about-fact__title {
   min-height: 56px;
   font-family: var(--display); font-size: 22px; letter-spacing: -0.8px; line-height: 1.25;
@@ -125,8 +125,8 @@
 .about-first__link {
   align-self: flex-start;
   display: inline-flex; align-items: center; gap: 8px; padding-bottom: 6px;
-  font-size: 16px; font-weight: 700; color: var(--sun); text-decoration: none;
-  border-bottom: 1.5px solid var(--sun);
+  font-size: 16px; font-weight: 700; color: var(--link); text-decoration: none;
+  border-bottom: 1.5px solid var(--link);
 }
 .about-first__link svg { transition: transform .2s var(--ease); }
 .about-first__link:hover svg { transform: translateX(3px); }
